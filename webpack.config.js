@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -20,12 +20,12 @@ module.exports = {
           presets: ['@babel/preset-env', '@babel/preset-react'],
         },
       },
-    ]
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
-    })
+      template: './src/index.html',
+      filename: './index.html',
+    }),
   ],
-}
+};
