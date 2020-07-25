@@ -1,0 +1,8 @@
+node_modules
+build
+.env
+.firebase
+.idea
+permissions.json
+
+**-debug.log
