@@ -8,7 +8,7 @@
     "build": "webpack --mode production",
     "lint": "eslint ./src",
     "lint.functions": "eslint ./functions",
-    "deploy": "npm run build && firebase deploy",
+    "deploy": "npm run build && firebase deploy"
   },
   "author": "Ethan Bonsignori",
   "license": "ISC",
@@ -32,6 +32,7 @@
     "eslint-plugin-react": "^7.20.3",
     "html-webpack-plugin": "^4.3.0",
     "node-fetch": ">=2.6.1",
+    "node-forge": ">=0.10.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
