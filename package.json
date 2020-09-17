@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --open --mode development ",
     "build": "webpack --mode production",
     "lint": "eslint ./src",
-    "lint.functions": "eslint ./functions"
+    "lint.functions": "eslint ./functions",
+    "deploy": "npm run build && firebase deploy",
   },
   "author": "Ethan Bonsignori",
   "license": "ISC",
