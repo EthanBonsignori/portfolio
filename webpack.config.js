@@ -26,6 +26,12 @@ module.exports = {
           'file-loader',
         ],
       },
+      {
+        test: /\.(woff|woff2|ttf)$/,
+        use: [
+          'url-loader'
+        ],
+      },
     ],
   },
   plugins: [
