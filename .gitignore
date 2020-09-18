@@ -3,6 +3,7 @@ build
 .env
 .firebase
 .idea
+screenshots
 permissions.json
 
 **-debug.log
