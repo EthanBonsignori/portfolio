@@ -1,11 +1,14 @@
 import React from 'react';
-import ProfilePicture from './ProfilePicture';
+import GlobalStyle from './GlobalStyle';
+import Bio from './Bio';
 
 const App = () => (
-  <div>
-    <h1>Test</h1>
-    <ProfilePicture />
-  </div>
+  <>
+    <GlobalStyle />
+    <Bio />
+  </>
 );
+
+
 
 export default App;
