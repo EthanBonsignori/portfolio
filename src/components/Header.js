@@ -19,15 +19,17 @@ const HeaderContainer = styled.div`
   font-family: Grenze Gotisch;
   font-size: clamp(2.6rem, 4.2vw, 5rem);
   color: #FF6B6B;
+  transform-style: preserve-3d;
 
   &::before {
     content: '';
     position: absolute;
-    right: 10px; bottom: -10px;
-    z-index: -1;
+    right: 10px;
+    bottom: -10px;
     background: #FF6B6B;
     width: 100%;
     height: 100%;
+    transform: translateZ(-1px)
   }
 `;
 
