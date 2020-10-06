@@ -1,10 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-import GrenzeGotischWoff from '../assets/fonts/Grenze_Gotisch.woff'
-import GrenzeGotischWoff2 from '../assets/fonts/Grenze_Gotisch.woff2'
-
+import GrenzeGotischWoff from '../assets/fonts/Grenze_Gotisch.woff';
+import GrenzeGotischWoff2 from '../assets/fonts/Grenze_Gotisch.woff2';
 
 const GlobalStyle = createGlobalStyle`
-  html {
+  
+  html, body {
+    height: 100vh;
     background: #141414;
   }
   @font-face {
