@@ -5,7 +5,7 @@ import Header from './Header';
 const projectsArr = [
   {
     name: 'Contract Bridge',
-    imgUrl: '',
+    imgUrl: 'https://github.com/EthanBonsignori/portfolio/blob/master/src/assets/bridge_ss.png?raw=true',
     link: 'https://github.com/EthanBonsignori/bridge-web',
     about: `
       Online Contract Bridge platform WIP. Uses Next.js for React server-side-rendering.
@@ -18,7 +18,8 @@ const projectsArr = [
     imgUrl: 'https://github.com/EthanBonsignori/daily-chart/raw/master/static/images/chart-screenshot.png',
     link: 'https://github.com/EthanBonsignori/daily-chart',
     about: `
-      An Electron.js application to keep track of and compare any datasets you would like to measure.
+      An Electron.js application to keep track of and compare any two sets of data you would like to measure.
+      Completely customizeable display and UI to suit your data tracking needs.
       View added data in graph form via Graph.js by day, week, or month. Built with React. 
     `,
   },
@@ -28,32 +29,38 @@ const projectsArr = [
     link: 'https://github.com/EthanBonsignori/MenYou',
     about: `
       A Recipe search database and API created as a group project in my Bootcamp. 
-      Firebase authentication and search caching via Firestore. Add all
-      ingredients from a searched recipe to an online shopping cart of a grocer
-      near you via the Whisk API.
+      Firebase authentication and search caching via Firebase. Each new unique search is cached in a Firestore
+      for quicker subsquent load times and less hits to the Recipe API. Add all the ingredients from a
+      searched recipe to an online shopping cart of a grocer near you via the Whisk API.
     `,
   },
 ];
 
 const Projects = () => (
   <>
-    <Header text='Projects' />
     <ProjectsContainer>
-      {projectsArr.map((project, index) => (
-        <ProjectCard key={index}>
-          <ProjectTitle>{project.name}</ProjectTitle>
-          <ProjectLink href={project.link} target='_blank' rel="noopener noreferrer">View on GitHub</ProjectLink>
-          <p>{project.about}</p>
-          <ProjectImageContainer>
-            <ProjectImage src={project.imgUrl} alt={`${project.name} Screenshot`}/>
-          </ProjectImageContainer>
-        </ProjectCard>
-      ))}
+      <Header text='Projects' />
+      <ProjectsGrid>
+        {projectsArr.map((project, index) => (
+          <ProjectCard key={index}>
+            <ProjectTitle>{project.name}</ProjectTitle>
+            <ProjectLink href={project.link} target='_blank' rel="noopener noreferrer">View on GitHub</ProjectLink>
+            <ProjectDescription>{project.about}</ProjectDescription>
+            <ProjectImageContainer>
+              <ProjectImage src={project.imgUrl} alt={`${project.name} Screenshot`}/>
+            </ProjectImageContainer>
+          </ProjectCard>
+        ))}
+      </ProjectsGrid>
     </ProjectsContainer>
   </>
 );
 
 const ProjectsContainer = styled.div`
+  margin-top: 3rem;
+`;
+
+const ProjectsGrid = styled.div`
   height: auto;
   display: grid;
   grid-gap: 5rem;
@@ -65,14 +72,16 @@ const ProjectCard = styled.div`
   display: flex;
   flex-direction: column;
   padding: 3rem;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 4px solid #FF6B6B;
   justify-content: space-between;
   background: #292F36;
 `;
 
 const ProjectTitle = styled.span`
   font-family: Grenze Gotisch;
-  font-size: 3rem;
+  font-size:  clamp(2rem, 3vw, 4rem);
   content: ${props => props.text};
   color: #fff;
 `;
@@ -84,6 +93,11 @@ const ProjectLink = styled.a`
   &:hover {
     text-decoration: underline;
   }
+`;
+
+const ProjectDescription = styled.p`
+  font-size:  clamp(1rem, 1.5vw, 1.5rem);
+  color: #fff
 `;
 
 const ProjectImageContainer = styled.div`
