@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Bio from './Bio';
-import Header from './Header';
+import Projects from './Projects';
 
 const MainContent = () => (
   <ContentWrapper>
     <ContentContainer>
       <Bio />
     </ContentContainer>
-    <Header text='Projects' />
+    <Projects />
   </ContentWrapper>
 );
 
@@ -24,8 +24,9 @@ const ContentContainer = styled.div`
   flex-direction: column;
   padding: 1rem;
   background-color: #292F36;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   border-bottom: 4px solid #FF6B6B;
-  z-index: 0;
 `;
 
 export default MainContent;
