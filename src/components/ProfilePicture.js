@@ -2,31 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 import profilePic from '../assets/profile_pic.jpg';
 
-const ProfilePicture = function () {
-  return (
-    <>
-      <HexagonContainer>
-        <HexagonInner1>
-          <HexagonInner2 />
-        </HexagonInner1>
-      </HexagonContainer>
-      <HexagonBorderContainer>
-        <HexagonBorder1>
-          <HexagonBorder2>
-            <HexagonBorder3 />
-          </HexagonBorder2>
-        </HexagonBorder1>
-      </HexagonBorderContainer>
-    </>
-  )
-}
+const ProfilePicture = () => (
+  <>
+    <HexagonContainer>
+      <HexagonInner1>
+        <HexagonInner2 />
+      </HexagonInner1>
+    </HexagonContainer>
+    <HexagonBorderContainer>
+      <HexagonBorder1>
+        <HexagonBorder2>
+          <HexagonBorder3 />
+        </HexagonBorder2>
+      </HexagonBorder1>
+    </HexagonBorderContainer>
+  </>
+);
 
 const HexagonBorderContainer = styled.div`
   position: absolute;
   top: 0;
-  left: 0;
-  z-index: -10;
-`
+  z-index: -1;
+`;
 
 const HexagonBorder1 = styled.div`
   width: 400px;
@@ -39,7 +36,7 @@ const HexagonBorder1 = styled.div`
        -o-transform: rotate(120deg);
           transform: rotate(120deg);  
   
-`
+`;
 
 const HexagonBorder2 = styled.div`
   overflow: hidden;
@@ -50,7 +47,7 @@ const HexagonBorder2 = styled.div`
       -ms-transform: rotate(-60deg);
        -o-transform: rotate(-60deg);
           transform: rotate(-60deg);
-`
+`;
 const HexagonBorder3 = styled.div`
   width: 100%;
   height: 100%;
@@ -62,7 +59,7 @@ const HexagonBorder3 = styled.div`
       -ms-transform: rotate(-60deg);
        -o-transform: rotate(-60deg);
           transform: rotate(-60deg);
-`
+`;
 
 const HexagonContainer = styled.div`
   width: 400px;
@@ -74,7 +71,7 @@ const HexagonContainer = styled.div`
       -ms-transform: rotate(120deg);
        -o-transform: rotate(120deg);
           transform: rotate(120deg);
-`
+`;
 const HexagonInner1 = styled.div`
   overflow: hidden;
   width: 100%;
@@ -84,7 +81,7 @@ const HexagonInner1 = styled.div`
       -ms-transform: rotate(-60deg);
        -o-transform: rotate(-60deg);
           transform: rotate(-60deg);
-`
+`;
 
 const HexagonInner2 = styled.div`
   width: 100%;
@@ -98,6 +95,6 @@ const HexagonInner2 = styled.div`
       -ms-transform: rotate(-60deg);
        -o-transform: rotate(-60deg);
           transform: rotate(-60deg);
-`
+`;
 
 export default ProfilePicture;
