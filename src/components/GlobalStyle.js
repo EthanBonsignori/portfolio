@@ -5,7 +5,7 @@ import GrenzeGotischWoff2 from '../assets/fonts/Grenze_Gotisch.woff2';
 const GlobalStyle = createGlobalStyle`
   
   html, body {
-    height: 100vh;
+    min-height: 100vh;
     background: #141414;
   }
   @font-face {
