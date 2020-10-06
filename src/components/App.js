@@ -1,14 +1,12 @@
 import React from 'react';
 import GlobalStyle from './GlobalStyle';
-import Bio from './Bio';
+import MainContent from './MainContent';
 
 const App = () => (
   <>
     <GlobalStyle />
-    <Bio />
+    <MainContent />
   </>
 );
-
-
 
 export default App;
