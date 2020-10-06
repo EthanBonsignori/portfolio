@@ -29,7 +29,7 @@ module.exports = {
       {
         test: /\.(woff|woff2|ttf)$/,
         use: [
-          'url-loader'
+          'url-loader',
         ],
       },
     ],
