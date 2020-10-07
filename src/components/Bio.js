@@ -4,20 +4,26 @@ import ProfilePicture from './ProfilePicture';
 import Header from './Header';
 import AboutText from './AboutText';
 import ProfilePictureBg from './ProfilePictureBg';
+import ContactButtons from './ContactButton';
 
 const Bio = () => (
-  <BioContainer>
-    <PicturePositioner>
-      <ProfilePicture />
-    </PicturePositioner>
-    <ProfilePictureBg />
-    <HeaderPositioner>
-      <Header text={'Ethan Bonsignori\'s Portfolfio'}/>
-    </HeaderPositioner>
-    <AboutTextPositioner>
-      <AboutText />
-    </AboutTextPositioner>
-  </BioContainer>
+  <>
+    <BioContainer>
+      <PicturePositioner>
+        <ProfilePicture />
+      </PicturePositioner>
+      <ProfilePictureBg />
+      <HeaderPositioner>
+        <Header text={'Ethan Bonsignori\'s Portfolfio'}/>
+      </HeaderPositioner>
+      <AboutTextPositioner>
+        <AboutText />
+      </AboutTextPositioner>
+    </BioContainer>
+    <ContactButtonsContainer>
+      <ContactButtons />
+    </ContactButtonsContainer>
+  </>
 );
 
 const BioContainer = styled.div`
@@ -38,8 +44,14 @@ const HeaderPositioner = styled.div`
 `;
 
 const AboutTextPositioner = styled.div`
-  margin-top: 10rem;
+  margin-top: 6rem;
   padding: 2rem;
+`;
+
+const ContactButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export default Bio;
