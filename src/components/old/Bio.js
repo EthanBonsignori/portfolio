@@ -5,7 +5,7 @@ import Header from './Header';
 import AboutText from './AboutText';
 import ProfilePictureBg from './ProfilePictureBg';
 import ContactButtons from './ContactButton';
-import { breakpoints } from '../utils/styleUtils';
+import { breakpoints } from '../../utils/styleUtils';
 
 const Bio = () => (
   <>
