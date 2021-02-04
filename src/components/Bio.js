@@ -5,6 +5,7 @@ import Header from './Header';
 import AboutText from './AboutText';
 import ProfilePictureBg from './ProfilePictureBg';
 import ContactButtons from './ContactButton';
+import { breakpoints } from '../utils/styleUtils';
 
 const Bio = () => (
   <>
@@ -30,6 +31,10 @@ const BioContainer = styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
+
+  ${breakpoints.mobile} {
+    flex-direction: column;
+  }
 `;
 
 const PicturePositioner = styled.div`
