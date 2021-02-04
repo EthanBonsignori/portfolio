@@ -6,10 +6,14 @@ import PiazollaWoff2 from '../assets/fonts/Piazolla.woff2';
 
 const GlobalStyle = createGlobalStyle`
   
-  html, body {
+  body {
     font-family: 'Piazolla';
-    min-height: 100vh;
     background: #141414;
+    color: #fff;
+    margin: 0;
+  }
+  button {
+    color: #fff;
   }
   @font-face {
     font-family: 'Grenze Gotisch';
