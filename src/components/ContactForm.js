@@ -41,7 +41,7 @@ const ContactForm = () => {
               <SubmitButton>Submit</SubmitButton>
             </SubmitWrapper>
           }
-          {status === 'ERROR' && <Status>Error! Please make sure that you entered a valid email address.</Status>}
+          {status === 'ERROR' && <Status>Error: Please make sure you entered a valid email address.</Status>}
         </Form>
       </FormWrapper>
     </>
@@ -91,12 +91,17 @@ const SubmitWrapper = styled.div`
 `;
 
 const SubmitButton = styled.button`
+  cursor: pointer;
   background: ${({ theme }) => theme.color.salmon};
   border: none;
   outline: none;
   margin: 10px 0;
   width: 50%;
   padding: 0.6em;
+
+  &:hover, &:active {
+    opacity: 0.8;
+  }
 
   ${breakpoints.mobile} {
     width: 70%;
