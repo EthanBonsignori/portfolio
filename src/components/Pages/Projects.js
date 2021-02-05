@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import Headline from '../PageHeadline';
 
 const Projects = () => (
   <>
-    <h1>Projects</h1>
+    <Headline>PROJECTS</Headline>
   </>
 );
 
