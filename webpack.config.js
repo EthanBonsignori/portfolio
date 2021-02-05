@@ -9,6 +9,7 @@ module.exports = {
   devServer: {
     port: 4000,
     hot: true,
+    historyApiFallback: true,
   },
   module: {
     rules: [
