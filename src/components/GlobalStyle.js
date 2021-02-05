@@ -1,11 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
+import NothingYouCouldDoWoff from '../assets/fonts/nothing-you-could-do.woff';
+import NothingYouCouldDoWoff2 from '../assets/fonts/nothing-you-could-do.woff2';
 import GrenzeGotischWoff from '../assets/fonts/Grenze_Gotisch.woff';
 import GrenzeGotischWoff2 from '../assets/fonts/Grenze_Gotisch.woff2';
 import PiazollaWoff from '../assets/fonts/Piazolla.woff';
 import PiazollaWoff2 from '../assets/fonts/Piazolla.woff2';
 
 const GlobalStyle = createGlobalStyle`
-  
   body {
     font-family: 'Piazolla';
     background: #141414;
@@ -23,6 +24,15 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Piazolla';
     box-sizing: border-box;
   }
+  @font-face {
+    font-family: 'Nothing You Could Do';
+    src: local('Nothing You Could Do'), local('NothingYouCouldDo'),
+    url(${NothingYouCouldDoWoff2}) format('woff2'),
+    url(${NothingYouCouldDoWoff}) format('woff');
+    font-weight: 600;
+    font-style: normal;
+  }
+
   @font-face {
     font-family: 'Grenze Gotisch';
     src: local('Grenze Gotisch'), local('GrenzeGotisch'),
