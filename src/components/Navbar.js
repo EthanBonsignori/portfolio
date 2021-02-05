@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../assets/EB_logo.png';
@@ -11,16 +11,33 @@ import {
 } from '../constants/routesConstants';
 
 const Navbar = () => {
+  const [sticky, setSticky] = useState(false);
+  const navbarRef = useRef(null);
   const location = useLocation();
   const activeTab = location.pathname;
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbarOffset = navbarRef?.current?.offsetTop;
+      if (window.pageYOffset >= navbarOffset) {
+        return setSticky(true);
+      }
+      return setSticky(false);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <NavbarWrapper>
+    <NavbarWrapper ref={navbarRef} sticky={sticky}>
       <NavbarHeader>
         <NavbarLogo />
         ETHAN BONSIGNORI
       </NavbarHeader>
-      <NavbarTabs>
+      <NavbarTabs sticky={sticky}>
         <Tab active={activeTab === ABOUT}>
           <TabDot active={activeTab === ABOUT} />
           <TabLink to='/'>ABOUT</TabLink>
@@ -49,6 +66,13 @@ const NavbarWrapper = styled.nav`
   margin: 2em;
   margin-left: 20vw;
   margin-right: 20vw;
+  background: ${({ sticky, theme }) => (sticky ? theme.color.navbarScroll : theme.color.background)};
+
+  transition: background 500ms ease-in-out;
+  position: ${({ sticky }) => (sticky ? 'sticky' : 'static')};
+  padding-top: 30px;
+  top: 0;
+  z-index: 100;
 
   ${breakpoints.mobile} {
     flex-direction: column;
@@ -67,8 +91,8 @@ const NavbarLogo = styled.div`
 
 const NavbarHeader = styled.div`
   display: flex;
-  
   width: 30%;
+
   ${breakpoints.mobile} {
     width: 100%;
     justify-content: center;
@@ -77,10 +101,12 @@ const NavbarHeader = styled.div`
 
 const NavbarTabs = styled.div`
   display: flex;
-  width: 40%;
   height: 25px;
   justify-content: space-between;
   align-items: center;
+  width: ${({ sticky }) => (sticky ? '100%' : '40%')};
+  position: ${({ sticky }) => (sticky ? 'sticky' : 'static')};
+  top: 0;
 
   ${breakpoints.mobile} {
     width: 100%;
@@ -105,7 +131,6 @@ const TabDot = styled.div`
 `;
 
 const TabLink = styled(Link)`
-  color: #fff;
   text-decoration: none;
 `;
 
