@@ -11,7 +11,7 @@ const Contact = () => (
     <ContactForm />
     <CardsWrapper>
       <CardsPositioner>
-        <CardsTitle>CONNECT</CardsTitle>
+        <CardsTitle>CONNECT:</CardsTitle>
         <ContactLink
           title='Email'
           target='_blank'
