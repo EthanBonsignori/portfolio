@@ -101,7 +101,7 @@ const TabDot = styled.div`
   width: 5px;
   height: 5px;
   background-color: ${({ active, theme }) => (active ? theme.color.neonBlue : theme.color.activeTab)};
-  margin-right: 2px;
+  margin-right: 5px;
 `;
 
 const TabLink = styled(Link)`
