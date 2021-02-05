@@ -5,13 +5,13 @@ import Headline from '../PageHeadline';
 import ContactForm from '../ContactForm';
 import { breakpoints } from '../../utils/styleUtils';
 
-const Contact = () => (
+const Contact = ({ darkmode, toggleTheme }) => (
   <>
-    <Headline>CONTACT</Headline>
+    <Headline title='CONTACT' darkmode={darkmode} toggleTheme={toggleTheme} />
     <ContactForm />
     <CardsWrapper>
       <CardsPositioner>
-        <CardsTitle>CONNECT:</CardsTitle>
+        CONNECT:
         <ContactLink
           title='Email'
           target='_blank'
@@ -62,7 +62,6 @@ const CardsWrapper = styled.div`
   justify-content: center;
   width: 100%;
   margin-top: 2em;
-
 `;
 
 const CardsPositioner = styled.div`
@@ -80,10 +79,6 @@ const CardsPositioner = styled.div`
   }
 `;
 
-const CardsTitle = styled.div`
-
-`;
-
 const ContactCard = styled.div`
   display: flex;
   flex-direction: column;
@@ -96,8 +91,6 @@ const ContactCard = styled.div`
   svg {
     font-size: 1.5em;
   }
-
-
 
   ${breakpoints.mobile} {
     width: 100%;

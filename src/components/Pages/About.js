@@ -4,9 +4,9 @@ import Headline from '../PageHeadline';
 import profilePicture from '../../assets/profile_pic.jpg';
 import { breakpoints } from '../../utils/styleUtils';
 
-const About = () => (
+const About = ({ darkmode, toggleTheme }) => (
   <>
-    <Headline>ABOUT ME</Headline>
+    <Headline title='ABOUT ME' darkmode={darkmode} toggleTheme={toggleTheme} />
     <AboutSection>
       <ProfilePicture />
       <span>
@@ -15,9 +15,9 @@ const About = () => (
         I&#39;m a mid-level web developer based out of Atlanta, GA.
         I decided to make a career change in 2019 and attend a 6-month Full-Stack Bootcamp offered
         by The Georgia Institute of Technology. I quickly fell in love with the design and
-        problem solving that comes with web development and I haven&#39;t looked back since.
-        I enjoy creating projects from scratch using software such as React.js, Next.js, and Node.js.
-        Here you can find some of my projects, read some of my thoughts in blog form,
+        problem solving that comes with web development and haven&#39;t looked back since.
+        I enjoy creating projects from scratch using React.js, Next.js, and Node.js.
+        Here you can find some of my projects, read some of my thoughts,
          and find some ways to get in touch.
         <br />
         <br />

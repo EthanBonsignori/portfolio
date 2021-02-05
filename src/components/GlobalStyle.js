@@ -7,20 +7,17 @@ import PiazollaWoff from '../assets/fonts/Piazolla.woff';
 import PiazollaWoff2 from '../assets/fonts/Piazolla.woff2';
 
 const GlobalStyle = createGlobalStyle`
+  html, * {
+    transition: background 500ms ease-in-out;
+  }
   body {
     font-family: 'Piazolla';
-    background: #141414;
-    color: #fff;
+    background: ${({ theme }) => theme.color.background};
     margin: 0;
   }
-  div,
-  a,
-  p,
-  input,
-  textarea,
-  h1, h2, h3, h4, h5, h6,
-  button {
-    color: #fff;
+  div, a, p, input, textarea, button, 
+  h1, h2, h3, h4, h5, h6 {
+    color: ${({ theme }) => theme.color.text};
     font-family: 'Piazolla';
     box-sizing: border-box;
   }

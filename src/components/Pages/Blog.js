@@ -1,10 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import Headline from '../PageHeadline';
 
-const Blog = () => (
+const Blog = ({ darkmode, toggleTheme }) => (
   <>
-    <Headline>BLOG</Headline>
+    <Headline title='BLOG' darkmode={darkmode} toggleTheme={toggleTheme} />
     Actively being worked on right now. Check back later, thanks.
   </>
 );

@@ -8,16 +8,28 @@ import Projects from './Pages/Projects';
 import Contact from './Pages/Contact';
 import { breakpoints } from '../utils/styleUtils';
 
-const Main = () => (
+const Main = ({ darkmode, toggleTheme }) => (
   <>
     <Navbar />
     <PageContent>
       <PageContentWrapper>
         <Switch>
-          <Route exact path='/' component={About} />
-          <Route exact path='/blog' component={Blog} />
-          <Route exact path='/projects' component={Projects} />
-          <Route path='/contact' component={Contact} />
+          <Route
+            exact
+            path='/'
+            component={() => <About darkmode={darkmode} toggleTheme={toggleTheme} />} />
+          <Route
+            exact
+            path='/blog'
+            component={() => <Blog darkmode={darkmode} toggleTheme={toggleTheme} />} />
+          <Route
+            exact
+            path='/projects'
+            component={() => <Projects darkmode={darkmode} toggleTheme={toggleTheme} />} />
+          <Route
+            exact
+            path='/contact'
+            component={() => <Contact darkmode={darkmode} toggleTheme={toggleTheme} />} />
         </Switch>
       </PageContentWrapper>
     </PageContent>
@@ -29,6 +41,8 @@ const PageContent = styled.div`
   align-items: center;
   justify-content: center;
   margin: 2em 20vw;
+  position: relative;
+  z-index: 0;
 
   ${breakpoints.mobile} {
     margin: 1.2em;
