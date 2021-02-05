@@ -10,17 +10,20 @@ const About = () => (
     <AboutSection>
       <ProfilePicture />
       <span>
-        <Hi>Hi,</Hi><br />
+        <Cursive>Hi,</Cursive><br />
         Welcome to my portfolio site!
         I&#39;m a mid-level web developer based out of Atlanta, GA.
         I decided to make a career change in 2019 and attend a 6-month Full-Stack Bootcamp offered
         by The Georgia Institute of Technology. I quickly fell in love with the design and
         problem solving that comes with web development and I haven&#39;t looked back since.
         I enjoy creating projects from scratch using software such as React.js, Next.js, and Node.js.
-        Here you can find some of my recent projects as well as some ways to get in touch.
+        Here you can find some of my projects, read some of my thoughts in blog form,
+         and find some ways to get in touch.
         <br />
         <br />
-        <i>Thanks for stopping by!</i>
+        <i>Thanks for stopping by,</i>
+        <br />
+        <Cursive>Ethan</Cursive>
       </span>
     </AboutSection>
   </>
@@ -52,9 +55,11 @@ const ProfilePicture = styled.div`
   }
 `;
 
-const Hi = styled.span`
+const Cursive = styled.span`
   font-size: 1.5em;
   color: ${({ theme }) => theme.color.neonBlue};
+  font-family: 'Nothing You Could Do', cursive;
+  padding-left: 5px;
 `;
 
 export default About;
