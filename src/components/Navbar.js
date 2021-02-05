@@ -84,7 +84,7 @@ const NavbarTabs = styled.div`
 
   ${breakpoints.mobile} {
     width: 100%;
-    margin-top: 2em;
+    margin-top: 1.5em;
   }
 `;
 
