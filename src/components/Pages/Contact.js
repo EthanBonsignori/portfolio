@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faGithub, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import Headline from '../PageHeadline';
 import ContactForm from '../ContactForm';
 import { breakpoints } from '../../utils/styleUtils';
@@ -19,7 +21,7 @@ const Contact = ({ darkmode, toggleTheme }) => (
           href='mailto:ebonsignori@gmail.com'
         >
           <ContactCard>
-            <FontAwesomeIcon icon='envelope' />
+            <FontAwesomeIcon icon={faEnvelope} />
           </ContactCard>
         </ContactLink>
         <ContactLink
@@ -29,7 +31,7 @@ const Contact = ({ darkmode, toggleTheme }) => (
           href='https://www.github.com/EthanBonsignori/'
         >
           <ContactCard>
-            <FontAwesomeIcon icon={['fab', 'github']} />
+            <FontAwesomeIcon icon={faGithub} />
           </ContactCard>
         </ContactLink>
         <ContactLink
@@ -39,7 +41,7 @@ const Contact = ({ darkmode, toggleTheme }) => (
           href='https://www.linkedin.com/in/EthanBonsignori/'
         >
           <ContactCard>
-            <FontAwesomeIcon icon={['fab', 'linkedin']} />
+            <FontAwesomeIcon icon={faLinkedin} />
           </ContactCard>
         </ContactLink>
         <ContactLink
@@ -49,7 +51,7 @@ const Contact = ({ darkmode, toggleTheme }) => (
           href='https://www.facebook.com/EthanBonsignori/'
         >
           <ContactCard>
-            <FontAwesomeIcon icon={['fab', 'facebook']} />
+            <FontAwesomeIcon icon={faFacebook} />
           </ContactCard>
         </ContactLink>
       </CardsPositioner>
@@ -72,7 +74,7 @@ const CardsPositioner = styled.div`
 
   width: 60%;
 
-  border-top: 1px solid #fff;
+  border-top: 1px solid ${({ theme }) => theme.color.text};
 
   ${breakpoints.mobile} {
     width: 100%;
