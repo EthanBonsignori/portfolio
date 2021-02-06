@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { breakpoints } from '../utils/styleUtils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import breakpoints from '../utils/breakpoints';
 
 const ContactForm = () => {
   const [status, setStatus] = useState('');
@@ -33,12 +35,12 @@ const ContactForm = () => {
           method='POST'
         >
           <div style={{ width: '100%' }}>EMAIL ME</div>
-          <Input type='email' name='email' placeholder='Email'/>
-          <Textarea type='text' name='message' placeholder='Message' rows='7'/>
+          <Input type='email' name='email' placeholder='Email' />
+          <Textarea type='text' name='message' placeholder='Message' rows='7' />
           {status === 'SUCCESS'
             ? <Status>Thanks for reaching out! I&#39;ll get back to you as soon as possible.</Status>
             : <SubmitWrapper>
-              <SubmitButton>Submit</SubmitButton>
+              <SubmitButton><FontAwesomeIcon icon={faPaperPlane} /></SubmitButton>
             </SubmitWrapper>
           }
           {status === 'ERROR' && <Status>Error: Please make sure you entered a valid email address.</Status>}
@@ -93,13 +95,47 @@ const SubmitWrapper = styled.div`
 const SubmitButton = styled.button`
   cursor: pointer;
   background: ${({ theme }) => theme.color.salmon};
+  color: ${({ theme }) => theme.color.salmon};
   border: none;
   outline: none;
   margin: 10px 0;
   width: 50%;
   padding: 0.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
 
-  &:hover, &:active {
+  &::before {
+    color: #fff;
+    position: absolute;
+    box-sizing: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: 'Send';
+    z-index: 11;
+    transition: z-index 0.5s ease-out, color 0.5s ease-out;
+  }
+
+  svg {
+    transition: color 0.5s ease-out, z-index 0.5s;
+    z-index: -100;
+  }
+
+  &:hover svg {
+    color: #fff;
+    z-index: 100;
+  }
+  &:hover::before {
+    color: ${({ theme }) => theme.color.salmon};
+    z-index: -1;
+  }
+
+  &:active {
     opacity: 0.8;
   }
 
