@@ -5,7 +5,7 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import Headline from '../PageHeadline';
 import ContactForm from '../ContactForm';
-import { breakpoints } from '../../utils/styleUtils';
+import breakpoints from '../../utils/breakpoints';
 
 const Contact = ({ darkmode, toggleTheme }) => (
   <>

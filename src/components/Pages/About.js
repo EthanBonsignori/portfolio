@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Headline from '../PageHeadline';
 import profilePicture from '../../assets/profile_pic.jpg';
-import { breakpoints } from '../../utils/styleUtils';
+import breakpoints from '../../utils/breakpoints';
 
 const About = ({ darkmode, toggleTheme }) => (
   <>
@@ -10,7 +10,7 @@ const About = ({ darkmode, toggleTheme }) => (
     <AboutSection>
       <ProfilePicture />
       <span>
-        <Cursive>Hi,</Cursive><br />
+        <Cursive darkmode={darkmode}>Hi,</Cursive><br />
         Welcome to my portfolio site!
         I&#39;m a mid-level web developer based out of Atlanta, GA.
         I decided to make a career change in 2019 and attend a 6-month Full-Stack Bootcamp offered
@@ -23,7 +23,7 @@ const About = ({ darkmode, toggleTheme }) => (
         <br />
         <i>Thanks for stopping by,</i>
         <br />
-        <Cursive>Ethan</Cursive>
+        <Cursive darkmode={darkmode}>Ethan</Cursive>
       </span>
     </AboutSection>
   </>
@@ -44,12 +44,12 @@ const ProfilePicture = styled.div`
   min-width: 175px;
   height: 175px;
   margin-right: 1em;
-  align-self: center;
+  margin-top: 2.4em;
+  align-self: baseline;
 
   ${breakpoints.mobile} {
     margin: 0;
-    margin-top: 1em;
-    align-self: none;
+    align-self: center;
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -57,7 +57,7 @@ const ProfilePicture = styled.div`
 
 const Cursive = styled.span`
   font-size: 1.5em;
-  color: ${({ theme }) => theme.color.neonBlue};
+  color: ${({ darkmode, theme }) => (darkmode ? theme.color.neonBlue : theme.color.salmon)};
   font-family: 'Nothing You Could Do', cursive;
   padding-left: 5px;
 `;

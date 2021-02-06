@@ -6,9 +6,11 @@ export const size = {
   desktopLg: '2560px',
 };
 
-export const breakpoints = {
+const breakpoints = {
   mobile: `@media (max-width: ${size.tablet}) and (min-width: 1px)`,
   mobileLg: `@media (max-width: ${size.tablet}) and (min-width: ${size.mobileLg})`,
   desktop: `@media (max-width: ${size.desktop}) and (min-width: ${size.tablet})`,
   desktopLg: `@media (min-width: ${size.desktopLg})`,
 };
+
+export default breakpoints;

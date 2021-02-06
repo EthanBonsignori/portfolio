@@ -6,7 +6,7 @@ import About from './Pages/About';
 import Blog from './Pages/Blog';
 import Projects from './Pages/Projects';
 import Contact from './Pages/Contact';
-import { breakpoints } from '../utils/styleUtils';
+import breakpoints from '../utils/breakpoints';
 
 const Main = ({ darkmode, toggleTheme }) => (
   <>
