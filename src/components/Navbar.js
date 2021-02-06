@@ -74,10 +74,15 @@ const NavbarWrapper = styled.nav`
   top: 0;
   z-index: 100;
 
+
+  @media (max-width: 1116px) {
+    font-size: 0.8em;
+  }
+
   ${breakpoints.mobile} {
     flex-direction: column;
     margin: 0;
-    margin-top: 2em;
+    margin-top: 1px;
   }
 `;
 
@@ -91,9 +96,11 @@ const NavbarLogo = styled.div`
 
 const NavbarHeader = styled.div`
   display: flex;
+  align-items: center;
   width: 30%;
 
   ${breakpoints.mobile} {
+    font-size: 1em;
     width: 100%;
     justify-content: center;
   }
@@ -109,7 +116,7 @@ const NavbarTabs = styled.div`
   top: 0;
 
   ${breakpoints.mobile} {
-    width: 100%;
+    width: 90%;
     margin-top: 1.5em;
   }
 `;
@@ -132,6 +139,13 @@ const TabDot = styled.div`
 
 const TabLink = styled(Link)`
   text-decoration: none;
+  @media (max-width: 1116px) {
+    font-size: 0.8em;
+  }
+
+  ${breakpoints.mobile} {
+    font-size: 1em;
+  }
 `;
 
 export default Navbar;
