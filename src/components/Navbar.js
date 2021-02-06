@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../assets/EB_logo.png';
-import { breakpoints } from '../utils/styleUtils';
+import breakpoints from '../utils/breakpoints';
 import {
   ABOUT,
   BLOG,
@@ -38,22 +38,30 @@ const Navbar = () => {
         ETHAN BONSIGNORI
       </NavbarHeader>
       <NavbarTabs sticky={sticky}>
-        <Tab active={activeTab === ABOUT}>
-          <TabDot active={activeTab === ABOUT} />
-          <TabLink to='/'>ABOUT</TabLink>
-        </Tab>
-        <Tab active={activeTab === BLOG}>
-          <TabDot active={activeTab === BLOG} />
-          <TabLink to='/blog'>BLOG</TabLink>
-        </Tab>
-        <Tab active={activeTab === PROJECTS}>
-          <TabDot active={activeTab === PROJECTS} />
-          <TabLink to='/projects'>PROJECTS</TabLink>
-        </Tab>
-        <Tab active={activeTab === CONTACT}>
-          <TabDot active={activeTab === CONTACT} />
-          <TabLink to='/contact'>CONTACT</TabLink>
-        </Tab>
+        <TabLink to='/'>
+          <Tab active={activeTab === ABOUT}>
+            <TabDot active={activeTab === ABOUT} />
+            ABOUT
+          </Tab>
+        </TabLink>
+        <TabLink to='/blog'>
+          <Tab active={activeTab === BLOG}>
+            <TabDot active={activeTab === BLOG} />
+            BLOG
+          </Tab>
+        </TabLink>
+        <TabLink to='/projects'>
+          <Tab active={activeTab === PROJECTS}>
+            <TabDot active={activeTab === PROJECTS} />
+            PROJECTS
+          </Tab>
+        </TabLink>
+        <TabLink to='/contact'>
+          <Tab active={activeTab === CONTACT}>
+            <TabDot active={activeTab === CONTACT} />
+            CONTACT
+          </Tab>
+        </TabLink>
       </NavbarTabs>
     </NavbarWrapper>
   );
