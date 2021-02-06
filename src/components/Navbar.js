@@ -82,6 +82,8 @@ const NavbarWrapper = styled.nav`
   ${breakpoints.mobile} {
     flex-direction: column;
     margin: 0;
+    padding: 30px 1.2em;
+    padding-bottom: 0;
     margin-top: 1px;
   }
 `;
@@ -116,7 +118,7 @@ const NavbarTabs = styled.div`
   top: 0;
 
   ${breakpoints.mobile} {
-    width: 90%;
+    width: 100%;
     margin-top: 1.5em;
   }
 `;
