@@ -31,7 +31,7 @@ const Headline = styled.div`
     content: '';
     position: absolute;
     bottom: 0; left: 0;
-    border: 1px solid ${({ darkmode, theme }) => (darkmode ? theme.color.salmon : theme.color.neonBlue)};
+    border-bottom: 1px solid ${({ darkmode, theme }) => (darkmode ? theme.color.salmon : theme.color.neonBlue)};
     width: 100%;
     animation: ${drawBorder} 1s forwards;
     transition: width 0.5s ease-out;
