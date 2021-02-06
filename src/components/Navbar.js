@@ -35,7 +35,9 @@ const Navbar = () => {
     <NavbarWrapper ref={navbarRef} sticky={sticky}>
       <NavbarHeader>
         <NavbarLogo />
-        ETHAN BONSIGNORI
+        <TabLink to='/'>
+          ETHAN BONSIGNORI
+        </TabLink>
       </NavbarHeader>
       <NavbarTabs sticky={sticky}>
         <TabLink to='/'>
