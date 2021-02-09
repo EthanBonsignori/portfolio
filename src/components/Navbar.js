@@ -78,7 +78,7 @@ const NavbarWrapper = styled.nav`
   margin-right: 20vw;
   background: ${({ sticky, theme }) => (sticky ? theme.color.navbarScroll : theme.color.background)};
 
-  transition: background 500ms ease-in-out;
+  transition: background-color 500ms ease-in-out;
   position: ${({ sticky }) => (sticky ? 'sticky' : 'static')};
   padding-top: 30px;
   top: 0;
