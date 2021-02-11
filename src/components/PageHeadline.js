@@ -5,14 +5,14 @@ import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
 import ThemeToggle from './ThemeToggle';
 import { drawBorder } from '../utils/keyframes';
 
-const PageHeadline = ({ title, darkmode, toggleTheme }) => (
-  <Headline darkmode={darkmode}>
+const PageHeadline = ({ title, darkMode, toggleTheme }) => (
+  <Headline darkMode={darkMode}>
     <h2>{title}</h2>
     <ToggleContainer>
-      <Lightbulb darkmode={darkmode}>
+      <Lightbulb darkMode={darkMode}>
         <FontAwesomeIcon icon={faLightbulb} />
       </Lightbulb>
-      <ThemeToggle darkmode={darkmode} toggleTheme={toggleTheme}/>
+      <ThemeToggle darkMode={darkMode} toggleTheme={toggleTheme}/>
     </ToggleContainer>
   </Headline>
 );
@@ -31,7 +31,7 @@ const Headline = styled.div`
     content: '';
     position: absolute;
     bottom: 0; left: 0;
-    border-bottom: 1px solid ${({ darkmode, theme }) => (darkmode ? theme.color.salmon : theme.color.neonBlue)};
+    border-bottom: 1px solid ${({ darkMode, theme }) => (darkMode ? theme.color.salmon : theme.color.neonBlue)};
     width: 100%;
     animation: ${drawBorder} 1s forwards;
     transition: width 0.5s ease-out;
@@ -45,7 +45,7 @@ const ToggleContainer = styled.div`
 `;
 
 const Lightbulb = styled.div`
-  color: ${({ darkmode }) => (darkmode ? '#fff' : '#000')};
+  color: ${({ darkMode }) => (darkMode ? '#fff' : '#000')};
   position: relative;
   font-size: 1.3em;
 
@@ -57,7 +57,7 @@ const Lightbulb = styled.div`
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: ${({ darkmode }) => (darkmode ? 'transparent' : 'yellow')};
+    background: ${({ darkMode }) => (darkMode ? 'transparent' : 'yellow')};
     filter: blur(2px);
     z-index: -1;
     opacity: 0.6;

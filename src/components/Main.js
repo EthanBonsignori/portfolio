@@ -8,7 +8,7 @@ import Projects from './Pages/Projects';
 import Contact from './Pages/Contact';
 import breakpoints from '../utils/breakpoints';
 
-const Main = ({ darkmode, toggleTheme }) => (
+const Main = ({ darkMode, toggleTheme }) => (
   <>
     <Navbar />
     <PageContent>
@@ -17,19 +17,19 @@ const Main = ({ darkmode, toggleTheme }) => (
           <Route
             exact
             path='/'
-            component={() => <About darkmode={darkmode} toggleTheme={toggleTheme} />} />
+            component={() => <About darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route
             exact
             path='/blog'
-            component={() => <Blog darkmode={darkmode} toggleTheme={toggleTheme} />} />
+            component={() => <Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route
             exact
             path='/projects'
-            component={() => <Projects darkmode={darkmode} toggleTheme={toggleTheme} />} />
+            component={() => <Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route
             exact
             path='/contact'
-            component={() => <Contact darkmode={darkmode} toggleTheme={toggleTheme} />} />
+            component={() => <Contact darkMode={darkMode} toggleTheme={toggleTheme} />} />
         </Switch>
       </PageContentWrapper>
     </PageContent>

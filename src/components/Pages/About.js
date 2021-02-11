@@ -4,13 +4,13 @@ import Headline from '../PageHeadline';
 import profilePicture from '../../assets/profile_pic.jpg';
 import breakpoints from '../../utils/breakpoints';
 
-const About = ({ darkmode, toggleTheme }) => (
+const About = ({ darkMode, toggleTheme }) => (
   <>
-    <Headline title='ABOUT ME' darkmode={darkmode} toggleTheme={toggleTheme} />
+    <Headline title='ABOUT ME' darkMode={darkMode} toggleTheme={toggleTheme} />
     <AboutSection>
       <ProfilePicture />
       <span>
-        <Cursive darkmode={darkmode}>Hi,</Cursive><br />
+        <Cursive darkMode={darkMode}>Hi,</Cursive><br />
         Welcome to my portfolio site!
         I&#39;m a web developer, based out of Atlanta, GA. I&#39;ve been developing software
         for 2 years since I attended a 6-month Full-Stack Bootcamp offered
@@ -23,7 +23,7 @@ const About = ({ darkmode, toggleTheme }) => (
         <br />
         <i>Thanks for stopping by,</i>
         <br />
-        <Cursive darkmode={darkmode}>Ethan</Cursive>
+        <Cursive darkMode={darkMode}>Ethan</Cursive>
       </span>
     </AboutSection>
   </>
@@ -57,7 +57,7 @@ const ProfilePicture = styled.div`
 
 const Cursive = styled.span`
   font-size: 1.5em;
-  color: ${({ darkmode, theme }) => (darkmode ? theme.color.neonBlue : theme.color.salmon)};
+  color: ${({ darkMode, theme }) => (darkMode ? theme.color.neonBlue : theme.color.salmon)};
   font-family: 'Nothing You Could Do', cursive;
   padding-left: 5px;
 `;

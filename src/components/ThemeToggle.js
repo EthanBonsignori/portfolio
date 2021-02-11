@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ThemeToggle = ({ darkmode, toggleTheme }) => (
+const ThemeToggle = ({ darkMode, toggleTheme }) => (
   <>
-    <Input type='checkbox' id='toggle' checked={darkmode} onChange={toggleTheme} />
+    <Input type='checkbox' id='toggle' checked={darkMode} onChange={toggleTheme} />
     <Label htmlFor='toggle'>Toggle</Label>
   </>
 );

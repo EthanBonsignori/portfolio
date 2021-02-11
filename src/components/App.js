@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import GlobalStyle from './GlobalStyle';
 import Theme from './Theme';
 import Main from './Main';
+import useLocalStorage from '../utils/useLocalStoage';
 
 const App = () => {
-  const [darkmode, setDarkmode] = useState(true);
+  const [darkMode, setDarkMode] = useLocalStorage(true);
 
   const handleToggleTheme = evt => {
-    setDarkmode(evt?.target?.checked);
+    setDarkMode(evt?.target?.checked);
   };
 
   return (
-    <Theme darkmode={darkmode}>
+    <Theme darkMode={darkMode}>
       <GlobalStyle />
       <Router>
-        <Main darkmode={darkmode} toggleTheme={handleToggleTheme}/>
+        <Main darkMode={darkMode} toggleTheme={handleToggleTheme}/>
       </Router>
     </Theme>
   );

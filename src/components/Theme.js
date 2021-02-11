@@ -27,8 +27,8 @@ const lightTheme = {
   },
 };
 
-const Theme = ({ darkmode, children }) => (
-  <ThemeProvider theme={darkmode ? darkTheme : lightTheme}>{children}</ThemeProvider>
+const Theme = ({ darkMode, children }) => (
+  <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>{children}</ThemeProvider>
 );
 
 export default Theme;

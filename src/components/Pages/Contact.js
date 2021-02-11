@@ -7,9 +7,9 @@ import Headline from '../PageHeadline';
 import ContactForm from '../ContactForm';
 import breakpoints from '../../utils/breakpoints';
 
-const Contact = ({ darkmode, toggleTheme }) => (
+const Contact = ({ darkMode, toggleTheme }) => (
   <>
-    <Headline title='CONTACT' darkmode={darkmode} toggleTheme={toggleTheme} />
+    <Headline title='CONTACT' darkMode={darkMode} toggleTheme={toggleTheme} />
     <ContactForm />
     <CardsWrapper>
       <CardsPositioner>
