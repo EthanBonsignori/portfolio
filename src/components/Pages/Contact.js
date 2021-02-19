@@ -106,7 +106,7 @@ const ContactLink = styled.a`
 
   &:hover,
   &:active {
-    opacity: 0.5;
+    opacity: 0.8;
   }
 `;
 
