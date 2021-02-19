@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Headline from '../PageHeadline';
 import profilePicture from '../../assets/profile_pic.jpg';
@@ -17,8 +18,9 @@ const About = ({ darkMode, toggleTheme }) => (
         by The Georgia Institute of Technology in 2019. I quickly fell in love with the design and
         problem solving that comes with web development and haven&#39;t looked back since.
         I enjoy creating projects from scratch using React.js, Next.js, and Node.js.
-        Here you can find some of my projects, read some of my thoughts,
-        and find some ways to get in touch.
+        Here you can&#32;<InlineLink title='Projects' to='/projects'>check out my recent work,&#32;</InlineLink>
+        <InlineLink title='Blog' to='/blog'>read some of my thoughts,</InlineLink>&#32;and&nbsp;
+        <InlineLink title='Contact Me' to='/contact'>find some ways to get in touch.</InlineLink>
         <br />
         <br />
         <i>Thanks for stopping by,</i>
@@ -60,6 +62,10 @@ const Cursive = styled.span`
   color: ${({ darkMode, theme }) => (darkMode ? theme.color.neonBlue : theme.color.salmon)};
   font-family: 'Nothing You Could Do', cursive;
   padding-left: 5px;
+`;
+
+const InlineLink = styled(Link)`
+
 `;
 
 export default About;
