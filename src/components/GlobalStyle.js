@@ -8,7 +8,7 @@ import PiazollaWoff2 from '../assets/fonts/Piazolla.woff2';
 
 const GlobalStyle = createGlobalStyle`
   html, * {
-    transition: background 500ms ease-in-out;
+    transition: background-color 500ms ease-in-out;
   }
   body {
     font-family: 'Piazolla';
