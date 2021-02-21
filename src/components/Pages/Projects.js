@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faBolt } from '@fortawesome/free-solid-svg-icons';
 import Headline from '../PageHeadline';
 import breakpoints from '../../utils/breakpoints';
 import ebridgeLogo from '../../assets/ebridge-logo.png';
@@ -81,21 +84,42 @@ const Projects = ({ darkMode, toggleTheme }) => {
   const getFilteredProjectsJSX = () => {
     // filter projects by if their tags are in activeTags arr
     const filteredProjects = projects.filter(p => p.tags.some(tag => activeTags.includes(tag)));
+
+    if (filteredProjects.length === 0) {
+      return <ProjectCard>There doesn&apos;t seem to be anything here. Try changing the filters.</ProjectCard>;
+    }
     // map filtered projects to jsx
     return filteredProjects.map((p, i) => (
       <ProjectCard key={i}>
         <ProjectImage image={p.image}/>
-        <ProjectInfo>
+        <ProjectCardContent>
           <ProjectTitle>
             {p.title}
             {p.active ? <ProjectActive>In Development</ProjectActive> : null}
           </ProjectTitle>
-          {p.description}
-          <ProjectButton>View More</ProjectButton>
+          <ProjectDescription>
+            {p.description}
+          </ProjectDescription>
+          <ProjectButtonsWrapper>
+            <ProjectButton>View More</ProjectButton>
+            <ProjectLinksWrapper>
+              {p.site
+                ? <ProjectLink href={p.github} target='_blank' title='View Live Site'>
+                  <FontAwesomeIcon style={{ color: 'yellow' }} icon={faBolt} />&#32;Live
+                </ProjectLink>
+                : null}
+              {p.github
+                ? <ProjectLink href={p.github} target='_blank' title='View on GitHub'>
+                  <FontAwesomeIcon icon={faGithub} />&#32;GitHub
+                </ProjectLink>
+                : null
+              }
+            </ProjectLinksWrapper>
+          </ProjectButtonsWrapper>
           <ProjectTags>
             {p.tags.map((tag, j) => <ProjectTag key={j}>{tag}</ProjectTag>)}
           </ProjectTags>
-        </ProjectInfo>
+        </ProjectCardContent>
       </ProjectCard>
     ));
   };
@@ -185,18 +209,67 @@ const ProjectImage = styled.div`
   }
 `;
 
-const ProjectInfo = styled.div`
+const ProjectCardContent = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+`;
+
+const ProjectDescription = styled.span`
+  opacity: 0.8;
+`;
+
+const ProjectButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 1em;
 `;
 
 const ProjectButton = styled.button`
   cursor: pointer;
   background: none;
-  border: 1px solid ${({ theme }) => theme.color.accent};
+  border: 1px solid ${({ theme }) => theme.color.neonBlue};
   outline: none;
-  margin-top: 1em;
   width: 100px;
+  font-size: 0.8em;
+
+  transition: background-color 250ms;
+  &:hover {
+    background-color: rgba(112, 215, 208, 0.3);
+  }
+
+  ${breakpoints.mobile} {
+    width: 75px;
+  }
+`;
+
+const ProjectLinksWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+const ProjectLink = styled.a`
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 1em;
+  border: 1px solid white;
+  width:  90px;
+  text-align: center;
+  font-size: 0.8em;
+  transition: background-color 250ms;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  ${breakpoints.mobile} {
+    width: 65px;
+    margin: 0;
+    margin-left: 3px;
+  }
 `;
 
 const ProjectTags = styled.div`
