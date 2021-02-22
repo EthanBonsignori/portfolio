@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Navbar from './Navbar';
 import About from './Pages/About';
@@ -13,24 +13,12 @@ const Main = ({ darkMode, toggleTheme }) => (
     <Navbar />
     <PageContent>
       <PageContentWrapper>
-        <Switch>
-          <Route
-            exact
-            path='/'
-            component={() => <About darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route
-            exact
-            path='/blog'
-            component={() => <Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route
-            exact
-            path='/projects'
-            component={() => <Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route
-            exact
-            path='/contact'
-            component={() => <Contact darkMode={darkMode} toggleTheme={toggleTheme} />} />
-        </Switch>
+        <Routes>
+          <Route path='/' element={<About darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='/blog'element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='/projects' element={<Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='/contact' element={<Contact darkMode={darkMode} toggleTheme={toggleTheme} />} />
+        </Routes>
       </PageContentWrapper>
     </PageContent>
   </>
