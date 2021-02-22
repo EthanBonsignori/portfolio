@@ -18,8 +18,8 @@ const About = ({ darkMode, toggleTheme }) => (
         by The Georgia Institute of Technology in 2019. I quickly fell in love with the design and
         problem solving that comes with web development and haven&#39;t looked back since.
         I enjoy creating projects from scratch using React.js, Next.js, and Node.js.
-        Here you can&#32;<InlineLink title='Projects' to='/projects'>check out my recent work,&#32;</InlineLink>
-        <InlineLink title='Blog' to='/blog'>read some of my thoughts,</InlineLink>&#32;and&nbsp;
+        Here you can&#32;<InlineLink title='Projects' to='/projects'>check out my recent work</InlineLink>,&nbsp;
+        <InlineLink title='Blog' to='/blog'>read some of my thoughts</InlineLink>, and&nbsp;
         <InlineLink title='Contact Me' to='/contact'>find some ways to get in touch.</InlineLink>
         <br />
         <br />
