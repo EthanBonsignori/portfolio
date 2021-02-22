@@ -104,7 +104,7 @@ const Projects = ({ darkMode, toggleTheme }) => {
             <ProjectButton>View More</ProjectButton>
             <ProjectLinksWrapper>
               {p.site
-                ? <ProjectLink href={p.github} target='_blank' title='View Live Site'>
+                ? <ProjectLink href={p.site} target='_blank' title='View Live Site'>
                   <FontAwesomeIcon style={{ color: 'yellow' }} icon={faBolt} />&#32;Live
                 </ProjectLink>
                 : null}
