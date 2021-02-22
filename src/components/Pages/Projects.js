@@ -104,12 +104,12 @@ const Projects = ({ darkMode, toggleTheme }) => {
             <ProjectButton>View More</ProjectButton>
             <ProjectLinksWrapper>
               {p.site
-                ? <ProjectLink href={p.site} target='_blank' title='View Live Site'>
+                ? <ProjectLink href={p.site} target='_blank' title='View Live Site' darkMode={darkMode}>
                   <FontAwesomeIcon style={{ color: 'yellow' }} icon={faBolt} />&#32;Live
                 </ProjectLink>
                 : null}
               {p.github
-                ? <ProjectLink href={p.github} target='_blank' title='View on GitHub'>
+                ? <ProjectLink href={p.github} target='_blank' title='View on GitHub' darkMode={darkMode}>
                   <FontAwesomeIcon icon={faGithub} />&#32;GitHub
                 </ProjectLink>
                 : null
@@ -255,14 +255,14 @@ const ProjectLink = styled.a`
   cursor: pointer;
   text-decoration: none;
   margin-right: 1em;
-  border: 1px solid white;
+  border: 1px solid ${({ theme }) => theme.color.text};
   width:  90px;
   text-align: center;
   font-size: 0.8em;
   transition: background-color 250ms;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: ${({ darkMode }) => (darkMode ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.2)')};
   }
 
   ${breakpoints.mobile} {
