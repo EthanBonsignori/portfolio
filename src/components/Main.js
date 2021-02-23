@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import About from './Pages/About';
 import Blog from './Pages/Blog';
 import Projects from './Pages/Projects';
+import Project from './Pages/Project';
 import Contact from './Pages/Contact';
 import breakpoints from '../utils/breakpoints';
 
@@ -15,9 +16,10 @@ const Main = ({ darkMode, toggleTheme }) => (
       <PageContentWrapper>
         <Routes>
           <Route path='/' element={<About darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='/blog'element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='/projects' element={<Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='/contact' element={<Contact darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='blog'element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='projects' element={<Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='projects/:project' element={<Project darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='contact' element={<Contact darkMode={darkMode} toggleTheme={toggleTheme} />} />
         </Routes>
       </PageContentWrapper>
     </PageContent>
