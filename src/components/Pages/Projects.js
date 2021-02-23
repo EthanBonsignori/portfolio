@@ -1,68 +1,18 @@
 import React, { useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBolt } from '@fortawesome/free-solid-svg-icons';
+import useWindowDimensions from '../../hooks/useWindowDimeonsions';
+import { tags, projects } from '../../assets/projects';
 import Headline from '../PageHeadline';
+import { pulse } from '../../utils/keyframes';
 import breakpoints from '../../utils/breakpoints';
-import ebridgeLogo from '../../assets/ebridge-logo.png';
-import dailychartLogo from '../../assets/dailychart-logo.png';
-import menyouLogo from '../../assets/menyou-logo.png';
-
-const tags = [
-  'all',
-  'javascript',
-  'react',
-  'redux',
-  'next.js',
-  'styled-components',
-  'electron',
-  'express',
-  'postgreSQL',
-  'firebase',
-];
-
-const projects = [
-  {
-    title: 'eBridge Club',
-    active: true,
-    image: ebridgeLogo,
-    description: `A user-friendly bridge website for ex-Pogo.com
-      players to play free online multiplayer contract bridge.`,
-    site: 'https://ebridge.club',
-    github: '',
-    tags: ['javascript', 'react', 'redux', 'next.js', 'styled-components', 'express', 'postgreSQL'],
-  },
-  {
-    title: 'Daily Chart',
-    active: false,
-    image: dailychartLogo,
-    description: 'Track any daily data with this fully customizable electron chart app.',
-    site: '',
-    github: 'https://github.com/EthanBonsignori/daily-chart',
-    tags: ['javascript', 'react', 'styled-components', 'electron'],
-  },
-  {
-    title: 'MenYou',
-    active: false,
-    image: menyouLogo,
-    description: `
-      A recipe database that allows users to search recipes
-      and add ingredients to a local grocer's shopping cart via the Whisk API.`,
-    info: `
-      This was a group class project that I and a classmate completed just a month into our coding bootcamp.
-      The basic requirement for the project was to utilize an API in some way. We came up with the idea to
-      create a recipe search and storage
-      It features user authentication through firebase, uses the Firestore database
-      to cache searches and save user-recipes.`,
-    site: 'ethanbonsignori.github.io/menyou/',
-    github: 'https://github.com/EthanBonsignori/MenYou',
-    tags: ['javascript', 'firebase'],
-  },
-];
 
 const Projects = ({ darkMode, toggleTheme }) => {
   const [activeTags, setActiveTags] = useState(tags);
+  const { width } = useWindowDimensions();
 
   const handleTag = evt => {
     const { title } = evt.target;
@@ -91,17 +41,20 @@ const Projects = ({ darkMode, toggleTheme }) => {
     // map filtered projects to jsx
     return filteredProjects.map((p, i) => (
       <ProjectCard key={i}>
-        <ProjectImage image={p.image}/>
+        {width > 768 ? <ProjectImage image={p.image}/> : null}
         <ProjectCardContent>
           <ProjectTitle>
+            {width <= 768 ? <ProjectImage image={p.image}/> : null}
             {p.title}
-            {p.active ? <ProjectActive>In Development</ProjectActive> : null}
+            {p.active ? <ProjectActive title='In Active Development'/> : null}
           </ProjectTitle>
           <ProjectDescription>
             {p.description}
           </ProjectDescription>
           <ProjectButtonsWrapper>
-            <ProjectButton>View More</ProjectButton>
+            <Link to={p.link}>
+              <ProjectButton title='Project Page'>View More</ProjectButton>
+            </Link>
             <ProjectLinksWrapper>
               {p.site
                 ? <ProjectLink href={p.site} target='_blank' title='View Live Site' darkMode={darkMode}>
@@ -144,6 +97,7 @@ const Projects = ({ darkMode, toggleTheme }) => {
         </TagsWrapper>
         {getFilteredProjectsJSX()}
       </ProjectsWrapper>
+      <Outlet />
     </>
   );
 };
@@ -181,14 +135,24 @@ const ProjectCard = styled.div`
 const ProjectTitle = styled.span`
   display: flex;
   align-items: center;
+  position: relative;
   font-size: 1.2em;
 `;
 
-const ProjectActive = styled.span`
-  font-size: 0.6em;
-  font-style: italic;
-  color: green;
-  margin-left: 1em;
+const ProjectActive = styled.div`
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 8px;
+  height: 8px;
+  background-color: green;
+  border-radius: 50%;
+
+  box-shadow: 0px 0px 1px 1px transparent;
+  animation: ${pulse} 2s infinite;
+
+  ${breakpoints.mobile} {
+    top: 20px;
+  }
 `;
 
 const ProjectImage = styled.div`
@@ -241,7 +205,7 @@ const ProjectButton = styled.button`
   }
 
   ${breakpoints.mobile} {
-    width: 75px;
+    width: 90px;
   }
 `;
 
@@ -266,9 +230,9 @@ const ProjectLink = styled.a`
   }
 
   ${breakpoints.mobile} {
-    width: 65px;
+    width: 75px;
     margin: 0;
-    margin-left: 3px;
+    margin-left: 6px;
   }
 `;
 
