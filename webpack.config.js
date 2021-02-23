@@ -5,6 +5,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, '/build'),
+    publicPath: '/',
+    filename: 'main.js',
   },
   devServer: {
     port: 4000,
@@ -40,6 +42,8 @@ module.exports = {
       template: './src/index.html',
       filename: './index.html',
       favicon: './src/assets/favicon.ico',
+      hash: true,
+      inject: true,
     }),
   ],
 };
