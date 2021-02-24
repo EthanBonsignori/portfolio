@@ -18,27 +18,28 @@ export const tags = [
 export const projects = [
   {
     title: 'eBridge Club',
+    projectLink: 'ebridge',
     active: true,
     image: ebridgeLogo,
     description: `A user-friendly bridge website for ex-Pogo.com
       players to play free online multiplayer contract bridge.`,
-    link: 'ebridge',
     site: 'https://ebridge.club',
     github: '',
     tags: ['javascript', 'react', 'redux', 'next.js', 'styled-components', 'express', 'postgreSQL'],
   },
   {
     title: 'Daily Chart',
+    projectLink: 'dailychart',
     active: false,
     image: dailychartLogo,
     description: 'Track any daily data with this fully customizable electron chart app.',
-    link: 'dailychart',
     site: '',
     github: 'https://github.com/EthanBonsignori/daily-chart',
     tags: ['javascript', 'react', 'styled-components', 'electron'],
   },
   {
     title: 'MenYou',
+    projectLink: 'menyou',
     active: false,
     image: menyouLogo,
     description: `
@@ -50,7 +51,6 @@ export const projects = [
       create a recipe search and storage
       It features user authentication through firebase, uses the Firestore database
       to cache searches and save user-recipes.`,
-    link: 'menyou',
     site: 'ethanbonsignori.github.io/menyou/',
     github: 'https://github.com/EthanBonsignori/MenYou',
     tags: ['javascript', 'firebase'],

@@ -52,7 +52,7 @@ const Projects = ({ darkMode, toggleTheme }) => {
             {p.description}
           </ProjectDescription>
           <ProjectButtonsWrapper>
-            <Link to={p.link}>
+            <Link to={p.projectLink}>
               <ProjectButton title='Project Page'>View More</ProjectButton>
             </Link>
             <ProjectLinksWrapper>

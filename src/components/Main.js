@@ -18,7 +18,7 @@ const Main = ({ darkMode, toggleTheme }) => (
           <Route path='/' element={<About darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route path='blog'element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route path='projects' element={<Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='projects/:project' element={<Project darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='projects/:projectLink' element={<Project darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route path='contact' element={<Contact darkMode={darkMode} toggleTheme={toggleTheme} />} />
         </Routes>
       </PageContentWrapper>
