@@ -1,4 +1,4 @@
-<img align="right" src="src/assets/EB_logo.png" height="200px" />
+<img align="right" src="src/assets/images/eb-logo.png" height="200px" />
 
 # My Portfolio
 My personal developer portfolio, blog, and place to show off projects. Designed from scratch with React.
