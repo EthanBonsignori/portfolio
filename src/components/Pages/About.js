@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Headline from '../PageHeadline';
-import profilePicture from '../../assets/profile_pic.jpg';
+import profilePicture from '../../assets/images/profile_pic.jpg';
 import breakpoints from '../../utils/breakpoints';
 
 const About = ({ darkMode, toggleTheme }) => (

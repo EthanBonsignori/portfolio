@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../assets/EB_logo.png';
+import logo from '../assets/images/eb-logo.png';
 import breakpoints from '../utils/breakpoints';
 import {
   ABOUT,
