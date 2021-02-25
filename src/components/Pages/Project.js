@@ -1,6 +1,8 @@
-import React from 'react';
-import { useParams, Outlet } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useParams, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBolt, faHeartBroken, faLock } from '@fortawesome/free-solid-svg-icons';
@@ -13,16 +15,21 @@ import {
 const Project = ({ darkMode, toggleTheme }) => {
   const { projectLink } = useParams();
   const project = projects.find(p => p.projectLink === projectLink);
-
   const {
     title,
     image,
     description,
     info,
+    moreInfo,
     site,
     github,
     tags,
+    screenshots,
   } = project;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Headline title='PROJECT' darkMode={darkMode} toggleTheme={toggleTheme} />
@@ -31,28 +38,36 @@ const Project = ({ darkMode, toggleTheme }) => {
         <ProjectLogo image={image} />
         <ProjectTitle>{title}</ProjectTitle>
         <ProjectTitleAnimated>{title}</ProjectTitleAnimated>
-        <Links>
+        <LinksWrapper>
           {site
-            ? <Link target='_blank' href={site} title='View Live Site' darkMode={darkMode}>
+            ? <ProjectLink target='_blank' href={site} title='View Live Site' darkMode={darkMode}>
               <FontAwesomeIcon style={{ color: 'yellow' }} icon={faBolt} />&nbsp;Live Site
-            </Link>
+            </ProjectLink>
             : <PrivateLink title='This project is not Deployed' darkMode={darkMode}>
               <FontAwesomeIcon icon={faHeartBroken} />&nbsp;Not Deployed
             </PrivateLink>
           }
           {github
-            ? <Link target='_blank' href={github} title='View on GitHub' darkMode={darkMode}>
+            ? <ProjectLink target='_blank' href={github} title='View on GitHub' darkMode={darkMode}>
               <FontAwesomeIcon icon={faGithub} />&nbsp;GitHub
-            </Link>
+            </ProjectLink>
             : <PrivateLink title='The GitHub repo for this project is Private' darkMode={darkMode}>
               <FontAwesomeIcon icon={faLock} />&nbsp;Private Repo
             </PrivateLink>
           }
-        </Links>
+        </LinksWrapper>
         <Description>{description}</Description>
-        <ProjectPictures>screenshots slideshow placeholder</ProjectPictures>
-        <InfoHeader>More Info</InfoHeader>
+        <ProjectPictures>
+          <AliceCarousel autoPlay autoHeight autoPlayInterval={6000} mouseTracking infinite disableButtonsControls>
+            {screenshots.map((ss, i) => (<Screenshot key={i} image={ss} />))}
+          </AliceCarousel>
+        </ProjectPictures>
+        <InfoHeader></InfoHeader>
         <Info>{info}</Info>
+        {moreInfo && <><br /><Info>{moreInfo}</Info></>}
+        <Link to='/projects'>
+          <ProjectsButton>&#8592;&nbsp;Back to Projects</ProjectsButton>
+        </Link>
         <TagsHeader>Tags</TagsHeader>
         <Tags>{tags.map((tag, i) => (<Tag key={i}>{tag}</Tag>))}</Tags>
       </ProjectWrapper>
@@ -96,7 +111,7 @@ const ProjectTitleAnimated = styled(ProjectTitle)`
   animation: ${titleSlide} 1s forwards;
 `;
 
-const Links = styled.div`
+const LinksWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -104,7 +119,7 @@ const Links = styled.div`
   animation: ${fadeIn} 1s forwards;
 `;
 
-const Link = styled.a`
+const ProjectLink = styled.a`
   font-size: 0.9em;
   width: 120px;
   margin-bottom: 0.5em;
@@ -119,7 +134,7 @@ const Link = styled.a`
   }
 `;
 
-const PrivateLink = styled(Link)`
+const PrivateLink = styled(ProjectLink)`
   &:hover {
     background-color: rgba(255, 0, 0, 0.2);
   }
@@ -133,36 +148,62 @@ const Description = styled.div`
 `;
 
 const ProjectPictures = styled.div`
+  align-self: center;
   opacity: 0;
   background-color: rgba(0,0,0,0.4);
   margin: 1em 0;
   width: 100%;
-  height: 300px;
+  height: 360px;
   animation: ${fadeIn} 1s forwards;
-  animation-delay: 200ms;
+  animation-delay: 300ms;
+`;
+
+const Screenshot = styled.div`
+  width: 100%;
+  height: 360px;
+
+  background-image: url(${({ image }) => image});
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 const InfoHeader = styled.div`
   opacity: 0;
-  margin-top: 0.5em;
+  margin-top: 2.5em;
   font-size: 1.2em;
   animation: ${fadeIn} 1s forwards;
-  animation-delay: 350ms;
+  animation-delay: 450ms;
 `;
 
 const Info = styled.div`
   opacity: 0;
   animation: ${fadeIn} 1s forwards;
-  animation-delay: 500ms;
+  animation-delay: 650ms;
+`;
+
+const ProjectsButton = styled.button`
+  cursor: pointer;
+  opacity: 0;
+  background: none;
+  border: none;
+  margin-top: 1em;
+  width: 123px;
+  align-self: left;
+
+  animation: ${fadeIn} 1s forwards;
+  animation-delay: 800ms;
 `;
 
 const TagsHeader = styled(InfoHeader)`
-  animation-delay: 650ms;
+  animation-delay: 950ms;
+  margin-top: 0.8em;
 `;
 
 const Tags = styled(Info)`
   display: flex;
-  animation-delay: 800ms;
+  flex-wrap: wrap;
+  animation-delay: 1100ms;
 `;
 
 const Tag = styled.div`
