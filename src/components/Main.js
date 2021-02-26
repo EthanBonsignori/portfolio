@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Navbar from './Navbar';
 import About from './Pages/About';
+import BlogList from './Pages/BlogList';
 import Blog from './Pages/Blog';
 import Projects from './Pages/Projects';
 import Project from './Pages/Project';
@@ -16,7 +17,8 @@ const Main = ({ darkMode, toggleTheme }) => (
       <PageContentWrapper>
         <Routes>
           <Route path='/' element={<About darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='blog'element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='blog'element={<BlogList darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='blog/:blogLink'element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route path='projects' element={<Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route path='projects/:projectLink' element={<Project darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route path='contact' element={<Contact darkMode={darkMode} toggleTheme={toggleTheme} />} />

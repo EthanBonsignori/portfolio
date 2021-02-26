@@ -1,11 +1,5 @@
 import React from 'react';
-import Headline from '../PageHeadline';
 
-const Blog = ({ darkMode, toggleTheme }) => (
-  <>
-    <Headline title='BLOG' darkMode={darkMode} toggleTheme={toggleTheme} />
-    Hmm. There&apos;s nothing here... Yet.
-  </>
-);
+const Blog = () => (<span>Blog</span>);
 
 export default Blog;
