@@ -2,11 +2,11 @@ import React from 'react';
 import { useParams, Outlet } from 'react-router-dom';
 import PageHeadline from '../PageHeadline';
 import MarkdownRenderer from '../MarkdownRenderer';
-import { blogs } from '../../assets/blogs';
+import blogPosts from '../../assets/blogPosts';
 
 const Blog = ({ darkMode, toggleTheme }) => {
   const { blogLink } = useParams();
-  const blogObj = blogs.find(b => b.blogLink === blogLink);
+  const blogObj = blogPosts.find(b => b.blogLink === blogLink);
   const blog = blogObj.mdLink;
 
   return (

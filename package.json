@@ -9,7 +9,7 @@
     "lint": "eslint ./src",
     "lint.functions": "eslint ./functions",
     "deploy": "npm run build && firebase deploy",
-    "blog": "node src/utils/createBlog.js"
+    "blog": "node ./scripts/createBlog.js"
   },
   "author": "Ethan Bonsignori",
   "license": "ISC",
