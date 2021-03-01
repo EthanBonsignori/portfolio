@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Headline from '../PageHeadline';
+import Headline from './shared/Headline';
 import profilePicture from '../../assets/images/profile_pic.jpg';
 import breakpoints from '../../utils/breakpoints';
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import Headline from '../PageHeadline';
+import Headline from './shared/Headline';
 import ContactForm from '../ContactForm';
 import breakpoints from '../../utils/breakpoints';
 

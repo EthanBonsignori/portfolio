@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
-import Headline from '../PageHeadline';
+import Headline from './shared/Headline';
 import blogPosts from '../../assets/blogPosts';
 
 const BlogList = ({ darkMode, toggleTheme }) => {

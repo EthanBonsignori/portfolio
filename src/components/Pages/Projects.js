@@ -6,7 +6,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBolt } from '@fortawesome/free-solid-svg-icons';
 import useWindowDimensions from '../../hooks/useWindowDimeonsions';
 import { tags, projects } from '../../assets/projects';
-import Headline from '../PageHeadline';
+import Headline from './shared/Headline';
 import { pulse } from '../../utils/keyframes';
 import breakpoints from '../../utils/breakpoints';
 

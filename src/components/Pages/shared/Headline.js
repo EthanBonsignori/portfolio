@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
 import ThemeToggle from './ThemeToggle';
-import { drawBorder } from '../utils/keyframes';
+import { drawBorder } from '../../../utils/keyframes';
 
-const PageHeadline = ({ title, darkMode, toggleTheme }) => (
-  <Headline darkMode={darkMode}>
+const Headline = ({ title, darkMode, toggleTheme }) => (
+  <PageHeadline darkMode={darkMode}>
     <h2>{title}</h2>
     <ToggleContainer>
       <Lightbulb darkMode={darkMode}>
@@ -14,10 +14,10 @@ const PageHeadline = ({ title, darkMode, toggleTheme }) => (
       </Lightbulb>
       <ThemeToggle darkMode={darkMode} toggleTheme={toggleTheme}/>
     </ToggleContainer>
-  </Headline>
+  </PageHeadline>
 );
 
-const Headline = styled.div`
+const PageHeadline = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -69,4 +69,4 @@ const Lightbulb = styled.div`
   }
 `;
 
-export default PageHeadline;
+export default Headline;

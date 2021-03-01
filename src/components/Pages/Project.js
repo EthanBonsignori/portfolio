@@ -6,7 +6,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBolt, faHeartBroken, faLock } from '@fortawesome/free-solid-svg-icons';
-import Headline from '../PageHeadline';
+import Headline from './shared/Headline';
 import { projects } from '../../assets/projects';
 import {
   popIn, fadeIn, logoSlide, titleSlide,
