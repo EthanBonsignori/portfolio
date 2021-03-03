@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { newBlog, getBlogDate } = require('./newBlog');
 
 const getBlogTitleFromArgs = () => process.argv.splice(2, process.argv.length).join(' ');
 
@@ -9,7 +10,9 @@ const getImportStr = file => `import ${file} from './posts/${file}.md';
 const getBlogObj = (title, file) => `
   {
     title: '${title}',
-    createdAt: '${new Date().toISOString()}',
+    author: 'Ethan Bonsignori',
+    category: 'tech',
+    createdAt: '${getBlogDate()}',
     blogLink: '${file}',
     mdLink: ${file},
   },
@@ -29,7 +32,7 @@ const createBlog = () => {
     return console.log('No blog title entered... Try again with: \n\r\n\r npm run blog {new blog title here}');
   }
 
-  fs.writeFile(`${assetsPath}/posts/${mdFilename}.md`, `# ${blogTitle}`, err => {
+  fs.writeFile(`${assetsPath}/posts/${mdFilename}.md`, newBlog(blogTitle), err => {
     if (err) {
       return console.error(err);
     }
