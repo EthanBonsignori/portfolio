@@ -85,13 +85,11 @@ const NavbarWrapper = styled.nav`
   top: 0;
   z-index: 100;
 
-
   @media (max-width: 1116px) {
     font-size: 0.8em;
   }
 
   ${breakpoints.mobile} {
-    flex-direction: column;
     margin: 0;
     padding: 30px 0;
     padding-bottom: 0;
@@ -117,8 +115,8 @@ const NavbarContainer = styled.div`
 const NavbarLogo = styled.div`
   background-image: url(${logo});
   background-size: cover;
-  width: 25px;
-  height: 25px;
+  min-width: 25px;
+  min-height: 25px;
   margin-right: 5px;
 `;
 
