@@ -22,6 +22,7 @@ const Navbar = () => {
       if (window.pageYOffset >= navbarOffset) {
         return setSticky(true);
       }
+      return true;
     };
 
     window.addEventListener('scroll', handleScroll);
