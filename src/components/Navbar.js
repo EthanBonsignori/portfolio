@@ -33,38 +33,40 @@ const Navbar = () => {
 
   return (
     <NavbarWrapper ref={navbarRef} sticky={sticky}>
-      <NavbarHeader>
-        <NavbarLogo />
-        <TabLink to='/'>
+      <NavbarContainer>
+        <NavbarHeader>
+          <NavbarLogo />
+          <TabLink to='/'>
           ETHAN BONSIGNORI
-        </TabLink>
-      </NavbarHeader>
-      <NavbarTabs sticky={sticky}>
-        <TabLink to='/'>
-          <Tab active={activeTab === ABOUT}>
-            <TabDot active={activeTab === ABOUT} />
+          </TabLink>
+        </NavbarHeader>
+        <NavbarTabs sticky={sticky}>
+          <TabLink to='/'>
+            <Tab active={activeTab === ABOUT}>
+              <TabDot active={activeTab === ABOUT} />
             ABOUT
-          </Tab>
-        </TabLink>
-        <TabLink to='/blog'>
-          <Tab active={activeTab === BLOG}>
-            <TabDot active={activeTab === BLOG} />
+            </Tab>
+          </TabLink>
+          <TabLink to='/blog'>
+            <Tab active={activeTab === BLOG}>
+              <TabDot active={activeTab === BLOG} />
             BLOG
-          </Tab>
-        </TabLink>
-        <TabLink to='/projects'>
-          <Tab active={activeTab === PROJECTS}>
-            <TabDot active={activeTab === PROJECTS} />
+            </Tab>
+          </TabLink>
+          <TabLink to='/projects'>
+            <Tab active={activeTab === PROJECTS}>
+              <TabDot active={activeTab === PROJECTS} />
             PROJECTS
-          </Tab>
-        </TabLink>
-        <TabLink to='/contact'>
-          <Tab active={activeTab === CONTACT}>
-            <TabDot active={activeTab === CONTACT} />
+            </Tab>
+          </TabLink>
+          <TabLink to='/contact'>
+            <Tab active={activeTab === CONTACT}>
+              <TabDot active={activeTab === CONTACT} />
             CONTACT
-          </Tab>
-        </TabLink>
-      </NavbarTabs>
+            </Tab>
+          </TabLink>
+        </NavbarTabs>
+      </NavbarContainer>
     </NavbarWrapper>
   );
 };
@@ -76,12 +78,10 @@ const NavbarWrapper = styled.nav`
   margin: 2em;
   margin-left: 20vw;
   margin-right: 20vw;
-  background: ${({ sticky, theme }) => (sticky ? theme.color.background : theme.color.background)};
+  background: ${({ theme }) => theme.color.background};
 
-  transition: background-color 500ms ease-in-out;
   position: ${({ sticky }) => (sticky ? 'sticky' : 'static')};
   padding-top: 30px;
-  padding-bottom: 10px;
   top: 0;
   z-index: 100;
 
@@ -93,9 +93,24 @@ const NavbarWrapper = styled.nav`
   ${breakpoints.mobile} {
     flex-direction: column;
     margin: 0;
-    padding: 30px 1.2em;
+    padding: 30px 0;
     padding-bottom: 0;
     margin-top: 1px;
+  }
+`;
+const NavbarContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  padding-bottom: 10px;
+  border-bottom: 2px solid ${({ theme }) => theme.color.navbarScroll};
+  transition: border 500ms ease;
+
+  ${breakpoints.mobile} {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
   }
 `;
 
@@ -110,7 +125,7 @@ const NavbarLogo = styled.div`
 const NavbarHeader = styled.div`
   display: flex;
   align-items: center;
-  width: 30%;
+  width: 33.333%;
 
   ${breakpoints.mobile} {
     font-size: 1em;
@@ -122,9 +137,9 @@ const NavbarHeader = styled.div`
 const NavbarTabs = styled.div`
   display: flex;
   height: 25px;
+  width: 66.666%;
   justify-content: space-between;
   align-items: center;
-  width: ${({ sticky }) => (sticky ? '40%' : '40%')};
   position: ${({ sticky }) => (sticky ? 'sticky' : 'static')};
   top: 0;
 
