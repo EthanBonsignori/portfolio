@@ -7,9 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBolt, faHeartBroken, faLock } from '@fortawesome/free-solid-svg-icons';
 import Headline from './shared/Headline';
+import BackButton from './shared/BackButton';
 import { projects } from '../../assets/projects';
 import {
-  popIn, fadeIn, logoSlide, titleSlide,
+  popIn,
+  fadeIn,
+  logoSlide,
+  titleSlide,
 } from '../../utils/keyframes';
 
 const Project = ({ darkMode, toggleTheme }) => {
@@ -66,7 +70,7 @@ const Project = ({ darkMode, toggleTheme }) => {
         <Info>{info}</Info>
         {moreInfo && <><br /><Info>{moreInfo}</Info></>}
         <Link to='/projects'>
-          <ProjectsButton>&#8592;&nbsp;Back to Projects</ProjectsButton>
+          <BackButton>&#8592;&nbsp;Back to Projects</BackButton>
         </Link>
         <TagsHeader>Tags</TagsHeader>
         <Tags>{tags.map((tag, i) => (<Tag key={i}>{tag}</Tag>))}</Tags>
@@ -180,19 +184,6 @@ const Info = styled.div`
   opacity: 0;
   animation: ${fadeIn} 1s forwards;
   animation-delay: 650ms;
-`;
-
-const ProjectsButton = styled.button`
-  cursor: pointer;
-  opacity: 0;
-  background: none;
-  border: none;
-  margin-top: 1em;
-  width: 123px;
-  align-self: left;
-
-  animation: ${fadeIn} 1s forwards;
-  animation-delay: 800ms;
 `;
 
 const TagsHeader = styled(InfoHeader)`
