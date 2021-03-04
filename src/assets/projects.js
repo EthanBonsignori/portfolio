@@ -25,6 +25,7 @@ import {
 export const tags = [
   'all',
   'javascript',
+  'node',
   'react',
   'redux',
   'next.js',
@@ -64,7 +65,17 @@ export const projects = [
     `,
     site: 'https://ebridge.club',
     github: '',
-    tags: ['javascript', 'react', 'redux', 'next.js', 'styled-components', 'express', 'postgreSQL', 'socket.io'],
+    tags: [
+      'javascript',
+      'node',
+      'react',
+      'redux',
+      'next.js',
+      'styled-components',
+      'express',
+      'postgreSQL',
+      'socket.io',
+    ],
     screenshots: [
       ebridge1,
       ebridge2,
@@ -90,7 +101,7 @@ export const projects = [
     `,
     site: '',
     github: 'https://github.com/EthanBonsignori/daily-chart',
-    tags: ['javascript', 'react', 'styled-components', 'electron'],
+    tags: ['javascript', 'node', 'react', 'styled-components', 'electron'],
     screenshots: [dailychart1, dailychart2],
   },
   {
