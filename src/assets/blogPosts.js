@@ -1,3 +1,4 @@
+import lookingbackatpastportfolios from './posts/lookingbackatpastportfolios.md';
 import mydeveloperstory from './posts/mydeveloperstory.md';
 
 const posts = [
@@ -5,9 +6,17 @@ const posts = [
     title: 'My Developer Story',
     author: 'Ethan Bonsignori',
     category: 'Life',
-    createdAt: 'February 28, 2021',
+    createdAt: 'March 3, 2021',
     blogLink: 'mydeveloperstory',
     mdLink: mydeveloperstory,
+  },
+  {
+    title: 'Looking Back at Past Portfolios',
+    author: 'Ethan Bonsignori',
+    category: 'Technology',
+    createdAt: 'March 2, 2021',
+    blogLink: 'lookingbackatpastportfolios',
+    mdLink: lookingbackatpastportfolios,
   },
 ];
 
