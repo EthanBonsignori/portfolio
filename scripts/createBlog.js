@@ -11,7 +11,7 @@ const getBlogObj = (title, file) => `
   {
     title: '${title}',
     author: 'Ethan Bonsignori',
-    category: 'tech',
+    category: 'Technology',
     createdAt: '${getBlogDate()}',
     blogLink: '${file}',
     mdLink: ${file},
