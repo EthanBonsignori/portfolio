@@ -7,8 +7,8 @@ import { faBolt } from '@fortawesome/free-solid-svg-icons';
 import useWindowDimensions from '../../hooks/useWindowDimeonsions';
 import { tags, projects } from '../../assets/projects';
 import Headline from './shared/Headline';
-import { pulse } from '../../utils/keyframes';
 import breakpoints from '../../utils/breakpoints';
+import { pulse, fadeIn } from '../../utils/keyframes';
 
 const Projects = ({ darkMode, toggleTheme }) => {
   const [activeTags, setActiveTags] = useState(tags);
@@ -105,6 +105,9 @@ const Projects = ({ darkMode, toggleTheme }) => {
 const ProjectsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  opacity: 0;
+  animation: ${fadeIn} 800ms forwards;
 `;
 
 const TagsWrapper = styled.div`

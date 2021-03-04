@@ -3,9 +3,10 @@ import { Link, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
-import breakpoints from '../../utils/breakpoints';
 import Headline from './shared/Headline';
 import blogPosts from '../../assets/blogPosts';
+import breakpoints from '../../utils/breakpoints';
+import { fadeIn } from '../../utils/keyframes';
 
 const BlogList = ({ darkMode, toggleTheme }) => {
   const [dateSort, setDateSort] = useState('descending');
@@ -102,6 +103,9 @@ const BlogDetails = styled.div`
 const BlogPostsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  opacity: 0;
+  animation: ${fadeIn} 800ms forwards;
 `;
 const SortWrapper = styled.div`
   display: flex;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Headline from './shared/Headline';
 import profilePicture from '../../assets/images/profile_pic.jpg';
 import breakpoints from '../../utils/breakpoints';
+import { fadeIn } from '../../utils/keyframes';
 
 const About = ({ darkMode, toggleTheme }) => (
   <>
@@ -35,6 +36,9 @@ const AboutSection = styled.section`
   display: flex;
   flex-direction: row;
 
+  opacity: 0;
+  animation: ${fadeIn} 1s forwards;
+
   ${breakpoints.mobile} {
     flex-direction: column;
   }
@@ -64,8 +68,6 @@ const Cursive = styled.span`
   padding-left: 5px;
 `;
 
-const InlineLink = styled(Link)`
-
-`;
+const InlineLink = styled(Link)``;
 
 export default About;

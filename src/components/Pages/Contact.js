@@ -6,6 +6,7 @@ import { faGithub, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-i
 import Headline from './shared/Headline';
 import ContactForm from '../ContactForm';
 import breakpoints from '../../utils/breakpoints';
+import { fadeIn } from '../../utils/keyframes';
 
 const Contact = ({ darkMode, toggleTheme }) => (
   <>
@@ -64,6 +65,10 @@ const CardsWrapper = styled.div`
   justify-content: center;
   width: 100%;
   margin-top: 2em;
+
+  opacity: 0;
+  animation: ${fadeIn} 1s forwards;
+  animation-delay: 250ms;
 `;
 
 const CardsPositioner = styled.div`

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import breakpoints from '../utils/breakpoints';
+import { fadeIn } from '../utils/keyframes';
 
 const ContactForm = () => {
   const [status, setStatus] = useState('');
@@ -54,6 +55,10 @@ const FormWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+
+  opacity: 0;
+  animation: ${fadeIn} 800ms forwards;
+  animation-delay: 50ms;
 `;
 
 const Form = styled.form`
