@@ -22,7 +22,6 @@ const Navbar = () => {
       if (window.pageYOffset >= navbarOffset) {
         return setSticky(true);
       }
-      return setSticky(false);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -76,11 +75,12 @@ const NavbarWrapper = styled.nav`
   margin: 2em;
   margin-left: 20vw;
   margin-right: 20vw;
-  background: ${({ sticky, theme }) => (sticky ? theme.color.navbarScroll : theme.color.background)};
+  background: ${({ sticky, theme }) => (sticky ? theme.color.background : theme.color.background)};
 
   transition: background-color 500ms ease-in-out;
   position: ${({ sticky }) => (sticky ? 'sticky' : 'static')};
   padding-top: 30px;
+  padding-bottom: 10px;
   top: 0;
   z-index: 100;
 
@@ -123,7 +123,7 @@ const NavbarTabs = styled.div`
   height: 25px;
   justify-content: space-between;
   align-items: center;
-  width: ${({ sticky }) => (sticky ? '100%' : '40%')};
+  width: ${({ sticky }) => (sticky ? '40%' : '40%')};
   position: ${({ sticky }) => (sticky ? 'sticky' : 'static')};
   top: 0;
 
