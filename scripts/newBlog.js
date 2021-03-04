@@ -8,7 +8,7 @@ const getBlogDate = () => new Date().toLocaleDateString('en-US', options);
 
 const newBlog = title => `## ${title}
 <div style='display: flex; justify-content: space-between'>
-  <span>By Ethan</span>
+  <span>Ethan Bonsignori</span>
   <span>${getBlogDate()}</span>
 </div>
 
