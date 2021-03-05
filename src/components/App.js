@@ -6,7 +6,7 @@ import Main from './Main';
 import useLocalStorage from '../hooks/useLocalStoage';
 
 const App = () => {
-  const [darkMode, setDarkMode] = useLocalStorage(true);
+  const [darkMode, setDarkMode] = useLocalStorage('darkMode', true);
 
   const handleToggleTheme = evt => {
     setDarkMode(evt?.target?.checked);
