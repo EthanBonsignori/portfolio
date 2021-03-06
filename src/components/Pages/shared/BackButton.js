@@ -7,9 +7,8 @@ export default styled.button`
   background: none;
   border: none;
   margin-top: 1em;
-  width: 123px;
   align-self: left;
 
   animation: ${fadeIn} 1s forwards;
-  animation-delay: 800ms;
+  animation-delay: ${({ delay }) => `${delay}ms`};
 `;

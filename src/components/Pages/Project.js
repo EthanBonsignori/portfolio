@@ -70,7 +70,7 @@ const Project = ({ darkMode, toggleTheme }) => {
         <Info>{info}</Info>
         {moreInfo && <><br /><Info>{moreInfo}</Info></>}
         <Link to='/projects'>
-          <BackButton>&#8592;&nbsp;Back to Projects</BackButton>
+          <BackButton delay={800}>&#8592;&nbsp;Back to Projects</BackButton>
         </Link>
         <TagsHeader>Tags</TagsHeader>
         <Tags>{tags.map((tag, i) => (<Tag key={i}>{tag}</Tag>))}</Tags>
