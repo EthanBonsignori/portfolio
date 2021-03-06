@@ -1,25 +1,40 @@
 import route from './route';
 
-export function getBlog(blog) {
+export async function getBlog(blog) {
   try {
-    window.fetch(`${route}/${blog}`, { method: 'GET' });
+    const res = await window.fetch(`${route}/${blog}`, { method: 'GET' });
+    if (res.status !== 200) {
+      return console.error(`Error fetching blog likes for blog: ${blog}`, res);
+    }
+    const data = await res.json();
+    return data;
   } catch (err) {
-    console.error(err);
+    return console.error(err);
   }
 }
 
-export function likeBlog(blog) {
+export async function likeBlog(blog) {
   try {
-    window.fetch(`${route}/${blog}`, { method: 'PUT' });
+    const res = await window.fetch(`${route}/${blog}`, { method: 'PUT' });
+    if (!res.ok) {
+      return console.error(`Error Liking blog: ${blog}`, res);
+    }
+    const data = await res.json();
+    return data;
   } catch (err) {
-    console.error(err);
+    return console.error(err);
   }
 }
 
-export function unlikeBlog(blog) {
+export async function unlikeBlog(blog) {
   try {
-    window.fetch(`${route}/${blog}/unlike`, { method: 'PUT' });
+    const res = await window.fetch(`${route}/${blog}/unlike`, { method: 'PUT' });
+    if (!res.ok) {
+      return console.error(`Error Unliking blog: ${blog}`, res);
+    }
+    const data = await res.json();
+    return data;
   } catch (err) {
-    console.error(err);
+    return console.error(err);
   }
 }
