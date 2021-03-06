@@ -48,12 +48,16 @@ const Blog = ({ darkMode, toggleTheme }) => {
       <BackButton>&#8592;&nbsp;Back to Blog</BackButton>
     </Link>
     {blogLikes[blogLink]
-      ? <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
-        <FontAwesomeIcon icon={faSolidHeart} />&nbsp;&nbsp;{localBlogLikes}
-      </LikeButton>
-      : <LikeButton title='Like' onClick={handleLikeBlog}>
-        <FontAwesomeIcon icon={faHeart} />&nbsp;&nbsp;{localBlogLikes}
-      </LikeButton>
+      ? <div>
+        <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
+          <FontAwesomeIcon icon={faSolidHeart} />
+        </LikeButton>&nbsp;{localBlogLikes}
+      </div>
+      : <div>
+        <LikeButton title='Like' onClick={handleLikeBlog}>
+          <FontAwesomeIcon icon={faHeart} />
+        </LikeButton>&nbsp;{localBlogLikes}
+      </div>
     }
   </BlogBar>;
 
@@ -77,6 +81,7 @@ const BlogWrapper = styled.div`
 `;
 
 const LikeButton = styled.button`
+  cursor: pointer;
   background: none;
   border: none;
 `;
