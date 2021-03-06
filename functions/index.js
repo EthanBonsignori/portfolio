@@ -1,9 +1,11 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const express = require('express');
+const cors = require('cors')({ origin: true });
 
 // Init Express App
 const app = express();
+app.use(cors);
 
 admin.initializeApp();
 
@@ -23,7 +25,7 @@ app.get('/:blog', (req, res) => {
   const { blog } = req.params;
   db.collection('blog').doc(blog).get().then(doc => {
     if (doc.exists) {
-      return res.status(200).json({ likes: doc.likes });
+      return res.status(200).json(doc.data());
     }
     createNewDoc(blog);
     return res.status(200).json({ likes: 0 });
