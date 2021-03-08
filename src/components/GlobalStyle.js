@@ -1,21 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
 import NothingYouCouldDoWoff from '../assets/fonts/nothing-you-could-do.woff';
 import NothingYouCouldDoWoff2 from '../assets/fonts/nothing-you-could-do.woff2';
-import Piazzolla600eot from '../assets/fonts/piazzolla-v8-latin-600.eot';
-import Piazzolla600woff2 from '../assets/fonts/piazzolla-v8-latin-600.woff2';
-import Piazzolla600woff from '../assets/fonts/piazzolla-v8-latin-600.woff';
-import Piazzolla600ttf from '../assets/fonts/piazzolla-v8-latin-600.ttf';
-import Piazzolla600svg from '../assets/fonts/piazzolla-v8-latin-600.svg';
+import PiazzollaRegulareot from '../assets/fonts/piazzolla-v8-latin-regular.eot';
+import PiazzollaRegularwoff2 from '../assets/fonts/piazzolla-v8-latin-regular.woff2';
+import PiazzollaRegularwoff from '../assets/fonts/piazzolla-v8-latin-regular.woff';
+import PiazzollaRegularttf from '../assets/fonts/piazzolla-v8-latin-regular.ttf';
+import PiazzollaRegularsvg from '../assets/fonts/piazzolla-v8-latin-regular.svg';
 import Piazzolla800eot from '../assets/fonts/piazzolla-v8-latin-800.eot';
 import Piazzolla800woff2 from '../assets/fonts/piazzolla-v8-latin-800.woff2';
 import Piazzolla800woff from '../assets/fonts/piazzolla-v8-latin-800.woff';
 import Piazzolla800ttf from '../assets/fonts/piazzolla-v8-latin-800.ttf';
 import Piazzolla800svg from '../assets/fonts/piazzolla-v8-latin-800.svg';
-import Piazzolla600Italiceot from '../assets/fonts/piazzolla-v8-latin-600italic.eot';
-import Piazzolla600Italicwoff2 from '../assets/fonts/piazzolla-v8-latin-600italic.woff2';
-import Piazzolla600Italicwoff from '../assets/fonts/piazzolla-v8-latin-600italic.woff';
-import Piazzolla600Italicttf from '../assets/fonts/piazzolla-v8-latin-600italic.ttf';
-import Piazzolla600Italicsvg from '../assets/fonts/piazzolla-v8-latin-600italic.svg';
+import PiazzollaItaliceot from '../assets/fonts/piazzolla-v8-latin-italic.eot';
+import PiazzollaItalicwoff2 from '../assets/fonts/piazzolla-v8-latin-italic.woff2';
+import PiazzollaItalicwoff from '../assets/fonts/piazzolla-v8-latin-italic.woff';
+import PiazzollaItalicttf from '../assets/fonts/piazzolla-v8-latin-italic.ttf';
+import PiazzollaItalicsvg from '../assets/fonts/piazzolla-v8-latin-italic.svg';
 
 const GlobalStyle = createGlobalStyle`
   html, * {
@@ -41,18 +41,18 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-/* piazzolla-600 - latin */
+/* piazzolla-regular - latin */
 @font-face {
   font-family: 'Piazzolla';
   font-style: normal;
-  font-weight: 600;
-  src: url(${Piazzolla600eot}); /* IE9 Compat Modes */
+  font-weight: normal;
+  src: url(${PiazzollaRegulareot}); /* IE9 Compat Modes */
   src: local(''),
-       url(${Piazzolla600eot}) format('embedded-opentype'), /* IE6-IE8 */
-       url(${Piazzolla600woff2}) format('woff2'), /* Super Modern Browsers */
-       url(${Piazzolla600woff}) format('woff'), /* Modern Browsers */
-       url(${Piazzolla600ttf}) format('truetype'), /* Safari, Android, iOS */
-       url(${Piazzolla600svg}) format('svg'); /* Legacy iOS */
+       url(${PiazzollaRegulareot}) format('embedded-opentype'), /* IE6-IE8 */
+       url(${PiazzollaRegularwoff2}) format('woff2'), /* Super Modern Browsers */
+       url(${PiazzollaRegularwoff}) format('woff'), /* Modern Browsers */
+       url(${PiazzollaRegularttf}) format('truetype'), /* Safari, Android, iOS */
+       url(${PiazzollaRegularsvg}) format('svg'); /* Legacy iOS */
 }
 /* piazzolla-800 - latin */
 @font-face {
@@ -67,18 +67,17 @@ const GlobalStyle = createGlobalStyle`
        url(${Piazzolla800ttf}) format('truetype'), /* Safari, Android, iOS */
        url(${Piazzolla800svg}) format('svg'); /* Legacy iOS */
 }
-/* piazzolla-600italic - latin */
+/* piazzolla-italic - latin */
 @font-face {
   font-family: 'Piazzolla';
   font-style: italic;
-  font-weight: 600;
-  src: url(${Piazzolla600Italiceot}); /* IE9 Compat Modes */
+  src: url(${PiazzollaItaliceot}); /* IE9 Compat Modes */
   src: local(''),
-       url(${Piazzolla600Italiceot}) format('embedded-opentype'), /* IE6-IE8 */
-       url(${Piazzolla600Italicwoff2}) format('woff2'), /* Super Modern Browsers */
-       url(${Piazzolla600Italicwoff}) format('woff'), /* Modern Browsers */
-       url(${Piazzolla600Italicttf}) format('truetype'), /* Safari, Android, iOS */
-       url(${Piazzolla600Italicsvg}) format('svg'); /* Legacy iOS */
+       url(${PiazzollaItaliceot}) format('embedded-opentype'), /* IE6-IE8 */
+       url(${PiazzollaItalicwoff2}) format('woff2'), /* Super Modern Browsers */
+       url(${PiazzollaItalicwoff}) format('woff'), /* Modern Browsers */
+       url(${PiazzollaItalicttf}) format('truetype'), /* Safari, Android, iOS */
+       url(${PiazzollaItalicsvg}) format('svg'); /* Legacy iOS */
 }
 
 `;
