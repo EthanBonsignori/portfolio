@@ -7,7 +7,7 @@ import { drawBorder } from '../../../utils/keyframes';
 
 const Headline = ({ title, darkMode, toggleTheme }) => (
   <PageHeadline darkMode={darkMode}>
-    <h2>{title}</h2>
+    <PageTitle>{title}</PageTitle>
     <ToggleContainer>
       <Lightbulb darkMode={darkMode}>
         <FontAwesomeIcon icon={faLightbulb} />
@@ -38,6 +38,10 @@ const PageHeadline = styled.div`
   }
 `;
 
+const PageTitle = styled.h2`
+  font-weight: normal;
+`;
+
 const ToggleContainer = styled.div`
   display: flex;
   align-items: center;
@@ -53,7 +57,7 @@ const Lightbulb = styled.div`
     content: '';
     position: absolute;
     top: -2px;
-    right: -5px;
+    right: -4.5px;
     width: 24px;
     height: 24px;
     border-radius: 50%;
