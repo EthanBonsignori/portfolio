@@ -16,6 +16,11 @@ import PiazzollaItalicwoff2 from '../assets/fonts/piazzolla-v8-latin-italic.woff
 import PiazzollaItalicwoff from '../assets/fonts/piazzolla-v8-latin-italic.woff';
 import PiazzollaItalicttf from '../assets/fonts/piazzolla-v8-latin-italic.ttf';
 import PiazzollaItalicsvg from '../assets/fonts/piazzolla-v8-latin-italic.svg';
+import Piazzolla800Italiceot from '../assets/fonts/piazzolla-v8-latin-800italic.eot';
+import Piazzolla800Italicwoff2 from '../assets/fonts/piazzolla-v8-latin-800italic.woff2';
+import Piazzolla800Italicwoff from '../assets/fonts/piazzolla-v8-latin-800italic.woff';
+import Piazzolla800Italicttf from '../assets/fonts/piazzolla-v8-latin-800italic.ttf';
+import Piazzolla800Italicsvg from '../assets/fonts/piazzolla-v8-latin-800italic.svg';
 
 const GlobalStyle = createGlobalStyle`
   html, * {
@@ -78,6 +83,20 @@ const GlobalStyle = createGlobalStyle`
        url(${PiazzollaItalicwoff}) format('woff'), /* Modern Browsers */
        url(${PiazzollaItalicttf}) format('truetype'), /* Safari, Android, iOS */
        url(${PiazzollaItalicsvg}) format('svg'); /* Legacy iOS */
+}
+
+/* piazzolla-800italic - latin */
+@font-face {
+  font-family: 'Piazzolla';
+  font-style: italic;
+  font-weight: 800;
+  src: url(${Piazzolla800Italiceot}); /* IE9 Compat Modes */
+  src: local(''),
+       url(${Piazzolla800Italiceot}) format('embedded-opentype'), /* IE6-IE8 */
+       url(${Piazzolla800Italicwoff2}) format('woff2'), /* Super Modern Browsers */
+       url(${Piazzolla800Italicwoff}) format('woff'), /* Modern Browsers */
+       url(${Piazzolla800Italicttf}) format('truetype'), /* Safari, Android, iOS */
+       url(${Piazzolla800Italicsvg}) format('svg'); /* Legacy iOS */
 }
 
 `;
