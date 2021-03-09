@@ -1,26 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-const { newBlog, getBlogDate } = require('./newBlog');
-
-const getBlogTitleFromArgs = () => process.argv.splice(2, process.argv.length).join(' ');
-
-const getImportStr = file => `import ${file} from './posts/${file}.md';
-`;
-
-const getBlogObj = (title, file) => `
-  {
-    title: '${title}',
-    author: 'Ethan Bonsignori',
-    category: 'Technology',
-    createdAt: '${getBlogDate()}',
-    blogLink: '${file}',
-    mdLink: ${file},
-  },
-`;
-
-const getCommaIndex = str => str.lastIndexOf('];');
-
-const insertAtStrIndex = (index, str, blog) => `${str.slice(0, index - 1)}${blog}${str.slice(index)}`;
+const {
+  getBlogTitleFromArgs,
+  getImportStr,
+  getBlogObj,
+  getCommaIndex,
+  insertAtStrIndex,
+  newBlog,
+} = require('./createBlogHelpers');
 
 const createBlog = () => {
   const assetsPath = path.join(__dirname, '../src/assets');
@@ -32,7 +19,7 @@ const createBlog = () => {
     return console.log('No blog title entered... Try again with: \n\r\n\r npm run blog {new blog title here}');
   }
 
-  fs.writeFile(`${assetsPath}/posts/${mdFilename}.md`, newBlog(blogTitle), err => {
+  fs.writeFile(`${assetsPath}/posts/${mdFilename}.md`, newBlog(), err => {
     if (err) {
       return console.error(err);
     }
