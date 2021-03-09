@@ -1,15 +1,20 @@
-## Looking Back at Past Portfolios
-<div style='display: flex; justify-content: space-between'>
-  <span>Ethan Bonsignori</span>
-  <span>March 2, 2021</span>
+<div style='display: flex; justify-content: center; align-items: center;'>
+  <div style='padding-right: 8px; text-align: right;'>
+    <span style='font-size: 0.8em; opacity: 0.5;'>Last Updated</span>
+    <br />
+    March 2, 2021
+  </div>
+    <img alt='Profile Pic' src='https://github.com/EthanBonsignori/portfolio/blob/master/src/assets/images/profile_pic.jpg?raw=true' height='auto' width='50' style='border-radius: 50%;' />
+  <div style='padding-left: 8px'>
+    <span style='font-size: 0.8em; opacity: 0.5;'>Written By</span>
+    <br />
+    Ethan Bonsignori
+  </div>
 </div>
 
----
-<br />
-<div style='text-align: center;'><i>
-I wanted to take a moment to document some of my past portfolio sites, since I have a few. And because they become rather obsolete once I replace the previous one. I put a lot of work into these sites, so I didn't want them to fade into nothingness. Here you can find some of my thoughts on my previous portfolios as well as images and links.
-</i></div>
-<br />
+<div style='text-align: center; font-style: italic; margin: 30px 0;'>
+I wanted to take a moment to document some of my past portfolio sites, since I've created a few. And because they become rather obsolete once I replace the previous one. I put a lot of work into these sites and I didn't want them to fade into nothingness. Here you can find some of my thoughts on my previous portfolios as well as images and links to those sites.
+</div>
 
 In my bootcamp I made not one, not two, but three different portfolios. Starting from scratch each time, they were a sort of *checkpoint* for each new skill we picked up. [My first portfolio](https://ethanbonsignori.github.io/Basic-Portfolio/index.html) was the first website I ever made. Of course I didn't have any projects to link to (as one should for a portfolio) so we were told to just make something up. I took a rather humorous approach to mine linking "projects" such as *Cats*, *Wires,* and *Cool Bridges* that just linked back to the [repo for the project](https://github.com/EthanBonsignori/Basic-Portfolio).
 
@@ -56,7 +61,6 @@ The [third and final portfolio](https://ethanbonsignori.github.io/Responsive-Por
 ```
 
 Comically, the bootstrap site was almost *more* mobile-responsive, but don't tell my instructor... I think I had a lot going on that week.
-
 
 ### 4. Part Four
 <div style='text-align: center; background-color: #242424;'>
