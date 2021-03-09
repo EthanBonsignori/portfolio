@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams, Outlet } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
@@ -43,33 +43,42 @@ const Blog = ({ darkMode, toggleTheme }) => {
     return fetchBlogLikes();
   };
 
-  const blogBar = <BlogBar>
-    <Link to='/blog'>
-      <BackButton>&#8592;&nbsp;Back to Blog</BackButton>
-    </Link>
-    {blogLikes[blogLink]
-      ? <div>
-        <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
-          <FontAwesomeIcon icon={faSolidHeart} />
-        </LikeButton>&nbsp;{localBlogLikes}
-      </div>
-      : <div>
-        <LikeButton title='Like' onClick={handleLikeBlog}>
-          <FontAwesomeIcon icon={faHeart} />
-        </LikeButton>&nbsp;{localBlogLikes}
-      </div>
-    }
-  </BlogBar>;
-
   return (
     <>
-      <Headline title='BLOG' darkMode={darkMode} toggleTheme={toggleTheme} />
-      {blogBar}
+      <Headline title={blogObj.title} darkMode={darkMode} toggleTheme={toggleTheme} />
+      <BlogBar>
+        <BackButton link='/blog' text='Back to Blog Posts' delay={0}/>
+        {blogLikes[blogLink]
+          ? <div>
+            <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
+              <FontAwesomeIcon icon={faSolidHeart} />
+            </LikeButton>&nbsp;{localBlogLikes}
+          </div>
+          : <div>
+            <LikeButton title='Like' onClick={handleLikeBlog}>
+              <FontAwesomeIcon icon={faHeart} />
+            </LikeButton>&nbsp;{localBlogLikes}
+          </div>
+        }
+      </BlogBar>
       <BlogWrapper>
         <MarkdownRenderer content={blog} />
       </BlogWrapper>
-      {blogBar}
-      <Outlet />
+      <BlogBar>
+        <BackButton link='/blog' text='Back to Blog Posts' delay={800}/>
+        {blogLikes[blogLink]
+          ? <div>
+            <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
+              <FontAwesomeIcon icon={faSolidHeart} />
+            </LikeButton>&nbsp;{localBlogLikes}
+          </div>
+          : <div>
+            <LikeButton title='Like' onClick={handleLikeBlog}>
+              <FontAwesomeIcon icon={faHeart} />
+            </LikeButton>&nbsp;{localBlogLikes}
+          </div>
+        }
+      </BlogBar>
     </>
   );
 };
@@ -93,7 +102,8 @@ const BlogBar = styled.div`
 
   opacity: 0;
   animation: ${fadeIn} 1s forwards;
-  animation-delay: 100ms;
+  animation-delay: 350ms;
+  margin-bottom: 10px;
 `;
 
 export default Blog;

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useParams, Outlet } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
@@ -69,13 +69,10 @@ const Project = ({ darkMode, toggleTheme }) => {
         <InfoHeader></InfoHeader>
         <Info>{info}</Info>
         {moreInfo && <><br /><Info>{moreInfo}</Info></>}
-        <Link to='/projects'>
-          <BackButton delay={800}>&#8592;&nbsp;Back to Projects</BackButton>
-        </Link>
+        <BackButton delay={800} link='/projects' text='Back to Projects' />
         <TagsHeader>Tags</TagsHeader>
         <Tags>{tags.map((tag, i) => (<Tag key={i}>{tag}</Tag>))}</Tags>
       </ProjectWrapper>
-      <Outlet />
     </>
   );
 };
