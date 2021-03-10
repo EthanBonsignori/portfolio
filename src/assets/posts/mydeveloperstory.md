@@ -27,7 +27,17 @@ The first day (and honestly the entire 6 months) of Bootcamp went by very quickl
 * Learn new major concepts in class when we met three times a week: HTML, CSS, Javascript, Databases, and so on.
 * Complete weekly assigned projects outside of class utilizing whatever new subject we were currently learning.
 
-These projects quickly became the main source of my learning because of how limited the in-class time was. With each project, I tried to go above and beyond the requirements to learn all I could. Each felt like its own special creation (that I loved looking back on while writing this). I was fortunate to have the job I did at the time that allowed me most of my day to spend coding and learning. And coding and learning I did...
+These projects quickly became the main source of my learning because of how limited the in-class time was. Each project was a homework assignment with specific requirements. I tried to go above and beyond those requirements each time to learn all I could. I treated each one like a new learning experience and dove head-first into learning each new skill. I was fortunate to have the job I did at the time that allowed me to spend much of my time coding, learning, and growing.
+
+I started reading some motivational books like *[Malcolm Gladwell's Outliers](https://en.wikipedia.org/wiki/Outliers_(book))*, began going on daily walks, and spent less time on bad habits like video-gaming. I had a newfound confidence. With each in-class exercise that I finished in half the alloted time; with each new project requirement that I knew at the onset I could handle; I felt that confidence grow. My classmates asked me questions when our teacher was busy with something else. The teacher started adding extra requirements to some in-class activities and projects to challenge me. People jokingly called me *the genious* when I walked in, which made me want to hide in a corner, but it was nice to see my hard work paying off. And while there was online tutoring offered by the boot camp, I got a number of requests from classmates to meet for coffee or virtually to help them outside of class, one of which ultimately lead to a job.
+
+##### August, 2019
+Graduation day was finally here. It was filled with excited nervousness as we all presented our final projects before officially graduating. My project was an interesting Journal/Contact hybrid that was a little too ambitious for the three-week time frame we had to complete them, but I was proud of the result. I got a special mention for perfect attendance, something to this day I don't know how I managed (my attendence in grade school was abysmal). The head of the boot camp gave a motivating speech along with a representative from Georgia Tech. We got our certificates and mingled for a bit before hauling them home.
+<div class='blog-image'>
+<img width='50%' src='https://i.imgur.com/Sepaguv.jpg?1' alt='Holding My Certificate after Graduation'/>
+</div>
+
+About a week later when I was visiting Atlanta to interview for jobs and I got an email from one of my former classmates. It was a job offer! He wanted me to come be a web developer at the company at which he was the COO of. I graciously accepted after some negotations and made my way back to Savannah, hopeful for my future. I spent a short 9 months working there before COVID hit. Unfortunately, we ended up having a few disagreements over COVID safety measures, and I ended up leaving. But I look back fondly on my first developer job, and am doing everything in my power to land the next one.
 
 
 
