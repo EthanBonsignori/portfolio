@@ -19,7 +19,7 @@ I wanted to take a moment to document some of my past portfolio sites since I've
 Over the course of my boot camp I made not one, not two, but **three** different portfolios. Starting from scratch each time, I like to look at them as sort of a "checkpoint" for each new skill we picked up. 
 
 ### 1. Vanilla HTML and CSS
-<div style='text-align: center; background-color: #242424;'>
+<div class='blog-image'>
 <a href='https://ethanbonsignori.github.io/Basic-Portfolio/index.html' target='_blank'>
 <img width='80%' src='https://i.imgur.com/YB3jjeR.png' alt='My First Portfolio'/>
 </a>
@@ -28,7 +28,7 @@ Over the course of my boot camp I made not one, not two, but **three** different
 [My first portfolio](https://ethanbonsignori.github.io/Basic-Portfolio/index.html) was the first website I ever made. That meant I didn't have any projects to link to (as one should for a portfolio) so we were told to _"just make something up."_ I apparently decided to take a rather humorous approach to mine linking "projects" such as *Cats*, *Wires,* and *Cool Bridges* that just linked back to the [repo for the project](https://github.com/EthanBonsignori/Basic-Portfolio). As for the design, we were given a few images and told to make our site match as accurately as we could, akin to how some developers [make their own copies of popular sites](https://github.com/GorvGoyl/Clone-Wars) for practice. Only this was a *lot* more simple. Even though I cringe slightly when I read the About Me section and the contact form is a total farce (though it does actually pretend to send—[try it out!](https://ethanbonsignori.github.io/Basic-Portfolio/contact.html)), I think it's a pretty solid first website. I even went above and beyond and added [Animate CSS](https://animate.style/) for those slick slide transitions with only simple classnames—a feature that would not return until part 3!
 
 ### 2. Bootstrap CSS
-<div style='text-align: center; background-color: #242424;'>
+<div class='blog-image'>
 <a href='https://ethanbonsignori.github.io/Bootstrap-Portfolio/' target='_blank'>
 <img width='80%' src='https://i.imgur.com/hiodtoE.png' alt='My Second Portfolio - Bootstrapped'/>
 </a>
@@ -37,7 +37,7 @@ Over the course of my boot camp I made not one, not two, but **three** different
 [My second portfolio](https://ethanbonsignori.github.io/Bootstrap-Portfolio/) was made with [Bootstrap CSS](https://getbootstrap.com/). That's right, nothing but *rows* and *cols*! I'd like to subtitle this part *one step forward, two steps back* because there were gains and losses here. What happened to those slick animations? We lost the aforementioned lovely About Me text in favor of some classic *lorem ipsum*. Why did I not copy over the previous About Section? Why not add that simple CDN script tag for Animate CSS and slap some animation classes on those divs? We may never know. One thing we do know is, the color theme was really cool. Almost similar to the dark theme on this site some may say. Not as cool though, *sorry past Ethan*. The defining feature of this portfolio, however, had to be the [real project links](https://ethanbonsignori.github.io/Bootstrap-Portfolio/portfolio.html). There's some great fun (for me at least) in opening up my first JavaScript apps and playing around with them, remembering how much fun I was having in this new world of coding. And one side note: Don't click on the copyright at the bottom. Even with the obvious *roll* text I still managed to "get" myself while revisiting this site in 2021. Nice.
 
 ### 3. Mobile Responsive
-<div style='text-align: center; background-color: #242424;'>
+<div class='blog-image'>
 <a href='https://ethanbonsignori.github.io/Responsive-Portfolio/index.html' target='_blank'>
 <img width='80%' src='https://i.imgur.com/3NlFSKT.png' alt='My First Portfolio but Responsive'/>
 </a>
@@ -63,7 +63,7 @@ The [third and final portfolio](https://ethanbonsignori.github.io/Responsive-Por
 Comically, the bootstrap site was almost *more* mobile-responsive, but don't tell my instructor... I think I had a lot going on that week.
 
 ### 4. Part Four
-<div style='text-align: center; background-color: #242424;'>
+<div class='blog-image'>
 <a href='https://ethanbonsignori.github.io/Portfolio-2/' target='_blank'>
 <img width='80%' src='https://media.giphy.com/media/pwi8Ct5WjJAaha2f7h/giphy.gif' alt='Material UI Portfolio'/>
 </a>
@@ -92,8 +92,6 @@ let sendEmail = function (sender, body, sEmail) {
 }
 ```
 
-It turns out there is a [lot simpler solution](https://formspree.io/), but it was a fun learning experience.
+It turns out there are a lot simpler solutions, [like formspree](https://formspree.io/), but it was still a fun learning experience.
 
 I hope you've enjoyed this small look through my past in portfolios, and maybe gained some appreciation for how I landed on the design of the site you're on now. I certainly had fun reminiscing.
-
-Until next time.
