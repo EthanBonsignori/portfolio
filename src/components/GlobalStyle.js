@@ -45,6 +45,11 @@ const GlobalStyle = createGlobalStyle`
     padding-right: 30px;
     border-left: 3px solid ${({ darkMode }) => (darkMode ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.3)')}
   }
+  .blog-image {
+    width: 100%;
+    text-align: center;
+    background-color: ${({ darkMode }) => (darkMode ? '#242424' : '#cfcfcf')}
+  }
 
   @font-face {
     font-family: 'Nothing You Could Do';
