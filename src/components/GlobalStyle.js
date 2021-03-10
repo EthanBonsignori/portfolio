@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
     margin-right: 0;
     padding-left: 30px;
     padding-right: 30px;
-    border-left: 3px solid rgba(0, 0, 0, 0.5);
+    border-left: 3px solid ${({ darkMode }) => (darkMode ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.3)')}
   }
 
   @font-face {
