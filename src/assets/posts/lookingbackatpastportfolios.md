@@ -92,6 +92,6 @@ let sendEmail = function (sender, body, sEmail) {
 }
 ```
 
-It turns out there are a lot simpler solutions, [like formspree](https://formspree.io/), but it was still a fun learning experience.
+It turns out there are a lot simpler solutions, [like Formspree](https://formspree.io/), but it was still a fun learning experience.
 
 I hope you've enjoyed this small look through my past in portfolios, and maybe gained some appreciation for how I landed on the design of the site you're on now. I certainly had fun reminiscing.
