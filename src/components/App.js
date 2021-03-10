@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <Theme darkMode={darkMode}>
-      <GlobalStyle />
+      <GlobalStyle darkMode={darkMode} />
       <Router>
         <Main darkMode={darkMode} toggleTheme={handleToggleTheme}/>
       </Router>
