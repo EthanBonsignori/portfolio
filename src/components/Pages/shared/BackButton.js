@@ -18,6 +18,7 @@ const StyledButton = styled.button`
   opacity: 0;
   background: none;
   border: none;
+  text-decoration: underline;
 
   animation: ${fadeIn} 1s forwards;
   animation-delay: ${({ delay }) => `${delay || 0}ms`};
