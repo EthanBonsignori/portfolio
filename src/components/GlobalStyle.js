@@ -37,6 +37,15 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Piazzolla';
     box-sizing: border-box;
   }
+
+  blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-left: 3px solid rgba(0, 0, 0, 0.5);
+  }
+
   @font-face {
     font-family: 'Nothing You Could Do';
     src: local('Nothing You Could Do'), local('NothingYouCouldDo'),
