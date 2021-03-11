@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import GlobalStyle from './GlobalStyle';
 import Theme from './Theme';
 import Main from './Main';
-import useLocalStorage from '../hooks/useLocalStoage';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const App = () => {
   const [darkMode, setDarkMode] = useLocalStorage('darkMode', true);

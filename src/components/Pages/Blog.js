@@ -8,7 +8,7 @@ import Headline from './shared/Headline';
 import BackButton from './shared/BackButton';
 import MarkdownRenderer from '../MarkdownRenderer';
 import blogPosts from '../../assets/blogPosts';
-import useLocalStorage from '../../hooks/useLocalStoage';
+import useLocalStorage from '../../hooks/useLocalStorage';
 import { getBlog, likeBlog, unlikeBlog } from '../../utils/blogApi';
 import { fadeIn } from '../../utils/keyframes';
 
