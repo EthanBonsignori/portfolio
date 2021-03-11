@@ -37,6 +37,10 @@ const PageContent = styled.div`
   position: relative;
   z-index: 0;
 
+  ${breakpoints.landscape} {
+    margin: 2em 15vw;
+  }
+
   ${breakpoints.mobile} {
     margin: 1.2em;
   }
@@ -45,6 +49,9 @@ const PageContent = styled.div`
 const PageContentWrapper = styled.div`
   width: 70%;
   ${breakpoints.mobile} {
+    width: 100%;
+  }
+  ${breakpoints.landscape} {
     width: 100%;
   }
 `;

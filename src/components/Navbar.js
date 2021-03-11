@@ -85,15 +85,17 @@ const NavbarWrapper = styled.nav`
   top: 0;
   z-index: 100;
 
-  @media (max-width: 1116px) {
-    font-size: 0.8em;
-  }
 
   ${breakpoints.mobile} {
     margin: 0;
     padding: 30px 0;
     padding-bottom: 0;
     margin-top: 1px;
+  }
+
+  ${breakpoints.landscape} {
+    margin-left: 5vw;
+    margin-right: 5vw;
   }
 `;
 const NavbarContainer = styled.div`
@@ -105,11 +107,17 @@ const NavbarContainer = styled.div`
   border-bottom: 2px solid ${({ theme }) => theme.color.navbarScroll};
   transition: border 500ms ease;
 
+  ${breakpoints.landscape} {
+    width: 80%;
+  }
+
   ${breakpoints.mobile} {
     flex-direction: column;
     justify-content: center;
     width: 100%;
   }
+
+
 `;
 
 const NavbarLogo = styled.div`
@@ -125,8 +133,11 @@ const NavbarHeader = styled.div`
   align-items: center;
   width: 33.333%;
 
+  ${breakpoints.landscape} {
+    width: 45%;
+  }
+
   ${breakpoints.mobile} {
-    font-size: 1em;
     width: 100%;
     justify-content: center;
   }
@@ -140,6 +151,10 @@ const NavbarTabs = styled.div`
   align-items: center;
   position: ${({ sticky }) => (sticky ? 'sticky' : 'static')};
   top: 0;
+
+  ${breakpoints.landscape} {
+    width: 55%;
+  }
 
   ${breakpoints.mobile} {
     width: 100%;
@@ -165,13 +180,6 @@ const TabDot = styled.div`
 
 const TabLink = styled(Link)`
   text-decoration: none;
-  @media (max-width: 1116px) {
-    font-size: 0.8em;
-  }
-
-  ${breakpoints.mobile} {
-    font-size: 1em;
-  }
 `;
 
 export default Navbar;
