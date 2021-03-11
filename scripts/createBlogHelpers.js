@@ -1,6 +1,15 @@
 const getBlogTitleFromArgs = () => process.argv.splice(2, process.argv.length).join(' ');
 
-const getImportStr = file => `import ${file} from './posts/${file}.md';
+const getFilenameFromTitle = (number, title) => `${number}-${title
+  .replace(/-|\s/g, '')
+  .substring(0, 15)
+  .toLowerCase()}`;
+
+const getBlogLinkFromTitle = title => title.replace(/\s/g, '-').toLowerCase();
+
+const removeIndex = str => str.substring(2, str.length);
+
+const getImportStr = file => `import ${removeIndex(file)} from './posts/${file}.md';
 `;
 
 const getCommaIndex = str => str.lastIndexOf('];');
@@ -20,7 +29,7 @@ const getBlogDate = () => {
 const newBlog = () => `
 <div style='display: flex; justify-content: center; align-items: center;'>
   <div style='padding-right: 8px; text-align: right;'>
-    <span style='font-size: 0.8em; opacity: 0.5;'>Last Updated</span>
+    <span style='font-size: 0.8em; opacity: 0.5;'>Published</span>
     <br />
     ${getBlogDate()}
   </div>
@@ -33,25 +42,29 @@ const newBlog = () => `
 </div>
 
 <div style='text-align: center; font-style: italic; margin: 30px 0;'>
-~Blog thoughts here
+~Blog thoughts here~
 </div>
 
-~Blog text here
+~Blog text here~
+
+*Last updated ${getBlogDate}*
 `;
 
-const getBlogObj = (title, file) => `
+const getBlogObj = (title, file, link) => `
   {
     title: '${title}',
     author: 'Ethan Bonsignori',
     category: 'Technology',
     createdAt: '${getBlogDate()}',
-    blogLink: '${file}',
-    mdLink: ${file},
+    blogLink: '${link}',
+    mdLink: ${removeIndex(file)},
   },
 `;
 
 module.exports = {
   getBlogTitleFromArgs,
+  getFilenameFromTitle,
+  getBlogLinkFromTitle,
   getImportStr,
   getBlogObj,
   getCommaIndex,

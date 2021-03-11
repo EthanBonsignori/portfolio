@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const {
   getBlogTitleFromArgs,
+  getFilenameFromTitle,
+  getBlogLinkFromTitle,
   getImportStr,
   getBlogObj,
   getCommaIndex,
@@ -9,14 +11,22 @@ const {
   newBlog,
 } = require('./createBlogHelpers');
 
-const createBlog = () => {
+const createBlog = async () => {
   const assetsPath = path.join(__dirname, '../src/assets');
+  const getBlogNumber = async () => {
+    const files = fs.readdirSync(`${assetsPath}/posts`);
+    return parseInt(files[files.length - 1].substring(0, 1), 10) + 1;
+  };
+
   const blogTitle = getBlogTitleFromArgs();
-  const mdFilename = blogTitle.replace(/\s/g, '').toLowerCase();
-  const blogObj = getBlogObj(blogTitle, mdFilename);
+  const blogNumber = await getBlogNumber();
+  const mdFilename = getFilenameFromTitle(blogNumber, blogTitle);
+  const blogLink = getBlogLinkFromTitle(blogTitle);
+  const blogObj = getBlogObj(blogTitle, mdFilename, blogLink);
+
   let blogsData = '';
   if (!blogTitle) {
-    return console.log('No blog title entered... Try again with: \n\r\n\r npm run blog {new blog title here}');
+    return console.warn('No blog title entered... Try again with: \n\r\n\r npm run blog {new blog title here}');
   }
 
   fs.writeFile(`${assetsPath}/posts/${mdFilename}.md`, newBlog(), err => {
