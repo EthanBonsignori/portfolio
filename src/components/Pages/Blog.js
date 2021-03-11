@@ -18,10 +18,11 @@ const Blog = ({ darkMode, toggleTheme }) => {
   const [blogLikes, setBlogLikes] = useLocalStorage('blogLikes', existingBlogLikes);
   const { blogLink } = useParams();
   const blogObj = blogPosts.find(b => b.blogLink === blogLink);
+  const blogDBName = blogLink.replace(/-/g, '');
   const blog = blogObj.mdLink;
 
   const fetchBlogLikes = async () => {
-    const data = await getBlog(blogLink);
+    const data = await getBlog(blogDBName);
     setLocalBlogLikes(data.likes);
   };
 
@@ -30,17 +31,20 @@ const Blog = ({ darkMode, toggleTheme }) => {
   }, []);
 
   const handleLikeBlog = async () => {
-    setBlogLikes({ ...blogLikes, [blogLink]: true });
-    await likeBlog(blogLink);
-
-    return fetchBlogLikes();
+    setBlogLikes({ ...blogLikes, [blogDBName]: true });
+    await likeBlog(blogDBName);
+    return setTimeout(() => {
+      fetchBlogLikes();
+    }, 500);
   };
 
   const handleUnlikeBlog = async () => {
-    setBlogLikes({ ...blogLikes, [blogLink]: false });
-    await unlikeBlog(blogLink);
+    setBlogLikes({ ...blogLikes, [blogDBName]: false });
+    await unlikeBlog(blogDBName);
 
-    return fetchBlogLikes();
+    return setTimeout(() => {
+      fetchBlogLikes();
+    }, 500);
   };
 
   return (
@@ -48,7 +52,7 @@ const Blog = ({ darkMode, toggleTheme }) => {
       <Headline title={blogObj.title} darkMode={darkMode} toggleTheme={toggleTheme} />
       <BlogBar>
         <BackButton link='/blog' text='Back to Blog Posts' delay={0}/>
-        {blogLikes[blogLink]
+        {blogLikes[blogDBName]
           ? <div>
             <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
               <FontAwesomeIcon icon={faSolidHeart} />
