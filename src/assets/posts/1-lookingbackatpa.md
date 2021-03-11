@@ -1,6 +1,6 @@
 <div style='display: flex; justify-content: center; align-items: center;'>
   <div style='padding-right: 8px; text-align: right;'>
-    <span style='font-size: 0.8em; opacity: 0.5;'>Last Updated</span>
+    <span style='font-size: 0.8em; opacity: 0.5;'>Published</span>
     <br />
     March 2, 2021
   </div>

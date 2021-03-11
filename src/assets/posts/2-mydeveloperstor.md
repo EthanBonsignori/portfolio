@@ -1,6 +1,6 @@
 <div style='display: flex; justify-content: center; align-items: center;'>
   <div style='padding-right: 8px; text-align: right;'>
-    <span style='font-size: 0.8em; opacity: 0.5;'>Last Updated</span>
+    <span style='font-size: 0.8em; opacity: 0.5;'>Published</span>
     <br />
     March 3, 2021
   </div>
@@ -37,7 +37,10 @@ Graduation day was finally here, accompanied by our nervous excitement as my cla
 <img width='50%' src='https://i.imgur.com/Sepaguv.jpg?1' alt='Holding My Certificate after Graduation'/>
 </div>
 
-About a week later when I was visiting Atlanta to interview for jobs and I got an email from one of my former classmates. It was a job offer! He wanted me to come be a web developer at the company at which he was the COO of. I graciously accepted after some negotiations and made my way back to Savannah, hopeful for my future. I spent a short 9 months working there before COVID hit. Unfortunately, we ended up having a few disagreements over COVID safety measures, and I ended up leaving. But I look back fondly on my first developer job, and am doing everything in my power to land the next one.
+About a week later when I was visiting Atlanta to interview for jobs and I got an email from one of my former classmates. It was a job offer! He wanted me to come be a web developer at the company at which he was the COO of. I graciously accepted after some negotiations and made my way back to Savannah, hopeful for the future. I spent 9 months working there before the COVID pandemic. I didn't feel safe about their lack of COVID precautions and ended up leaving in May of 2020.
+
+##### Present Day, Current Year
 
 
+*Last Updated March 10, 2021*
 

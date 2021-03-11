@@ -1,5 +1,5 @@
-import lookingbackatpastportfolios from './posts/lookingbackatpastportfolios.md';
-import mydeveloperstory from './posts/mydeveloperstory.md';
+import mydeveloperstor from './posts/2-mydeveloperstor.md';
+import lookingbackatpa from './posts/1-lookingbackatpa.md';
 
 const posts = [
   {
@@ -7,16 +7,16 @@ const posts = [
     author: 'Ethan Bonsignori',
     category: 'Life',
     createdAt: 'March 3, 2021',
-    blogLink: 'mydeveloperstory',
-    mdLink: mydeveloperstory,
+    blogLink: 'my-developer-story',
+    mdLink: mydeveloperstor,
   },
   {
     title: 'Looking Back at Past Portfolios',
     author: 'Ethan Bonsignori',
     category: 'Technology',
     createdAt: 'March 2, 2021',
-    blogLink: 'lookingbackatpastportfolios',
-    mdLink: lookingbackatpastportfolios,
+    blogLink: 'looking-back-at-past-portfolios',
+    mdLink: lookingbackatpa,
   },
 ];
 
