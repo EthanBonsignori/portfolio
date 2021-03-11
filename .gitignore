@@ -6,6 +6,5 @@ build
 screenshots
 permissions.json
 route.js
-**/posts/writing
-
+**/writing
 **-debug.log
