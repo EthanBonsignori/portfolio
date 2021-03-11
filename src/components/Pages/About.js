@@ -13,12 +13,11 @@ const About = ({ darkMode, toggleTheme }) => (
       <ProfilePicture />
       <span>
         <Cursive darkMode={darkMode}>Hi,</Cursive><br />
-        Welcome to my portfolio site!
-        I&#39;m a web developer, based out of Atlanta, GA. I&#39;ve been developing software
-        for 2 years since I attended a 6-month Full-Stack Bootcamp offered
-        by The Georgia Institute of Technology in 2019. I quickly fell in love with the design and
+        I&#39;m a web developer based out of Atlanta, GA. I&#39;ve been developing software
+        for 2 years since I attended a 6-month Full-Stack Boot camp offered
+        by Georgia Tech in 2019. I quickly fell in love with the design and
         problem solving that comes with web development and haven&#39;t looked back since.
-        I enjoy creating projects from scratch using React.js, Next.js, and Node.js.
+        I enjoy working with React.js, Next.js, and Node.js.
         Here you can&#32;<InlineLink title='Projects' to='/projects'>check out my recent work</InlineLink>,&nbsp;
         <InlineLink title='Blog' to='/blog'>read some of my thoughts</InlineLink>, and&nbsp;
         <InlineLink title='Contact Me' to='/contact'>find some ways to get in touch.</InlineLink>
