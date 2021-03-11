@@ -17,8 +17,8 @@ const Main = ({ darkMode, toggleTheme }) => (
       <PageContentWrapper>
         <Routes>
           <Route path='/' element={<About darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='blog'element={<BlogList darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='blog/:blogLink'element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='blog' element={<BlogList darkMode={darkMode} toggleTheme={toggleTheme} />} />
+          <Route path='blog/:blogLink' element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route path='projects' element={<Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route path='projects/:projectLink' element={<Project darkMode={darkMode} toggleTheme={toggleTheme} />} />
           <Route path='contact' element={<Contact darkMode={darkMode} toggleTheme={toggleTheme} />} />
