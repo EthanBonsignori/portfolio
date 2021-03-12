@@ -13,7 +13,7 @@
 </div>
 
 <div style='text-align: center; font-style: italic; margin: 30px 0;'>
-I wanted to share a small but important ongoing piece of my story. My process of becoming a developer, the help I had along the way, and my outlook going forward. I tried to write this post as more of an entertaining story than a technical piece about code. I plan publish more technical blog posts soon—stay tuned.
+I wanted to share a small but important ongoing piece of my story. My process of becoming a developer, the help I had along the way, and my outlook going forward. I tried to write this post as more of an entertaining story than a technical piece about code. I plan to publish more technical blog posts soon—stay tuned.
 </div>
 
 > **[boot camp](https://www.merriam-webster.com/dictionary/boot%20camp)** *noun* : a place or undertaking that resembles a military boot camp especially by requiring one to endure intensive training or initiation
@@ -37,12 +37,12 @@ Graduation day was here, accompanied by our nervous excitement as my classmates 
 <img width='50%' src='https://i.imgur.com/Sepaguv.jpg?1' alt='Holding My Certificate after Graduation'/>
 </div>
 
-About a week later when I was visiting Atlanta to interview for jobs and I got an email from one of my former classmates. It was a job offer! He wanted me to come be a web developer at the company at which he was the COO of. I graciously accepted after some negotiations and made my way back to Savannah, hopeful for the future. I spent 9 months working there before the COVID pandemic. I didn't feel safe about their lack of COVID precautions and ended up leaving in May of 2020.
+About a week later, I was visiting Atlanta to interview for jobs when I got an email from one of my former classmates. It was a job offer! He wanted me to come be a web developer at the company at which he was the COO of. I graciously accepted after some negotiations and made my way back to Savannah, hopeful for the future. I spent 9 months working there before the COVID pandemic. I didn't feel safe about their lack of COVID precautions and ended up leaving in May of 2020.
 
 ##### Present Day, Current Year
-As of today, I'm back in Atlanta where I work on projects to hone my existing web development skills and acquire new ones. My plan, as of March, 2021, is to learn new frameworks like GraphQL, Apollo, React Native, Docker, and others through projects just like I did in boot camp. Be sure to check out [my projects page](https://ethanbon.com/projects) to see what I've been up to lately. I also plan to continue work on this site, writing blogs and adding projects periodically whilst applying for jobs. Of course, there's a chance you are reading this sometime in the far future, in which case: I definitely landed that awesome developer job and am probably meditating, sleeping, or coding at this very moment.
+As of today, I'm back in Atlanta where I work on projects to hone my existing web development skills and acquire new ones. My plan, as of March, 2021, is to learn new frameworks like GraphQL, Apollo, React Native, Docker, and others through projects just like I did in boot camp. Be sure to check out [my projects page](https://ethanbon.com/projects) to see what I've been up to lately. I also plan to continue working on this site, writing blogs and adding projects periodically whilst applying for jobs. Of course, there's a chance you are reading this sometime in the far future, in which case: I definitely landed that awesome developer job and am probably meditating, sleeping, or coding at this very moment.
 
-Thank you for taking the time to read about this small part of my story. Be sure to click the heart if you enjoyed it. Feel free to [get in touch](https://ethanbon.com/contact) if you have any questions, comments, concerns, if you think this blog was nice, if you hated the blog, or honestly any reason you want—I'd love to hear from you.
+Thank you for taking the time to read about this small part of my story. Be sure to click the heart if you enjoyed it. Feel free to [get in touch](https://ethanbon.com/contact) if you have any questions, comments, concerns, if you think this blog was nice, didn't like it, or honestly any reason you want—I'd love to hear from you.
 
 *Last Updated March 11, 2021*
 
