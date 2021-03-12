@@ -40,9 +40,9 @@ Graduation day was finally here, accompanied by our nervous excitement as my cla
 About a week later when I was visiting Atlanta to interview for jobs and I got an email from one of my former classmates. It was a job offer! He wanted me to come be a web developer at the company at which he was the COO of. I graciously accepted after some negotiations and made my way back to Savannah, hopeful for the future. I spent 9 months working there before the COVID pandemic. I didn't feel safe about their lack of COVID precautions and ended up leaving in May of 2020.
 
 ##### Present Day, Current Year
-As of today, I work on new projects with the aim of honing my developer skills and learning new ones. My plan, as of March, 2021, is to learn new frameworks like GraphQL, Apollo, React Native, Docker, and others through projects like I did in boot camp. Of course there's a chance you are reading this in the far future so check out [my projects page](https://ethanbon.com/projects) to see what I've been up to lately.
+As of today, I'm back in Atlanta where I work on projects to hone my existing web development skills and acquire new ones. My plan, as of March, 2021, is to learn new frameworks like GraphQL, Apollo, React Native, Docker, and others through projects just like I did in boot camp. I also plan to continue work on this site, writing blogs and adding projects periodically whilst applying for jobs. Of course there's a chance you are reading this in the far future so check out [my projects page](https://ethanbon.com/projects) to see what I've been up to lately.
 
-Thank you for taking the time to read about this piece of my story. Be sure to click the heart if you enjoyed it. Feel free to [get in touch](https://ethanbon.com/contact) if you have any questions, comments, concerns, if you think this blog was nice, if you hated the blog, or honestly any reason you want—I'd love to hear from you.
+Thank you for taking the time to read about this small part of my story. Be sure to click the heart if you enjoyed it. Feel free to [get in touch](https://ethanbon.com/contact) if you have any questions, comments, concerns, if you think this blog was nice, if you hated the blog, or honestly any reason you want—I'd love to hear from you.
 
 *Last Updated March 11, 2021*
 
