@@ -8,6 +8,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBolt, faHeartBroken, faLock } from '@fortawesome/free-solid-svg-icons';
 import Headline from './shared/Headline';
 import BackButton from './shared/BackButton';
+import MarkdownRenderer from '../MarkdownRenderer';
 import { projects } from '../../assets/projects';
 import {
   popIn,
@@ -23,8 +24,7 @@ const Project = ({ darkMode, toggleTheme }) => {
     title,
     image,
     description,
-    info,
-    moreInfo,
+    mdLink,
     site,
     github,
     tags,
@@ -67,8 +67,7 @@ const Project = ({ darkMode, toggleTheme }) => {
           </AliceCarousel>
         </ProjectPictures>
         <InfoHeader></InfoHeader>
-        <Info>{info}</Info>
-        {moreInfo && <><br /><Info>{moreInfo}</Info></>}
+        <Info><MarkdownRenderer content={mdLink} /></Info>
         <BackButton delay={800} link='/projects' text='Back to Projects' />
         <TagsHeader>Tags</TagsHeader>
         <Tags>{tags.map((tag, i) => (<Tag key={i}>{tag}</Tag>))}</Tags>
