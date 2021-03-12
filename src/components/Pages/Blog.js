@@ -47,42 +47,30 @@ const Blog = ({ darkMode, toggleTheme }) => {
     }, 500);
   };
 
+  const BlogBarJsx = <BlogBar>
+    <BackButton link='/blog' text='Back to Blog Posts' delay={0}/>
+    {blogLikes[blogDBName]
+      ? <div>
+        <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
+          <FontAwesomeIcon icon={faSolidHeart} />
+        </LikeButton>&nbsp;{localBlogLikes}
+      </div>
+      : <div>
+        <LikeButton title='Like' onClick={handleLikeBlog}>
+          <FontAwesomeIcon icon={faHeart} />
+        </LikeButton>&nbsp;{localBlogLikes}
+      </div>
+    }
+  </BlogBar>;
+
   return (
     <>
       <Headline title={blogObj.title} darkMode={darkMode} toggleTheme={toggleTheme} />
-      <BlogBar>
-        <BackButton link='/blog' text='Back to Blog Posts' delay={0}/>
-        {blogLikes[blogDBName]
-          ? <div>
-            <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
-              <FontAwesomeIcon icon={faSolidHeart} />
-            </LikeButton>&nbsp;{localBlogLikes}
-          </div>
-          : <div>
-            <LikeButton title='Like' onClick={handleLikeBlog}>
-              <FontAwesomeIcon icon={faHeart} />
-            </LikeButton>&nbsp;{localBlogLikes}
-          </div>
-        }
-      </BlogBar>
+      {BlogBarJsx}
       <BlogWrapper>
         <MarkdownRenderer content={blog} />
       </BlogWrapper>
-      <BlogBar>
-        <BackButton link='/blog' text='Back to Blog Posts' delay={800}/>
-        {blogLikes[blogLink]
-          ? <div>
-            <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
-              <FontAwesomeIcon icon={faSolidHeart} />
-            </LikeButton>&nbsp;{localBlogLikes}
-          </div>
-          : <div>
-            <LikeButton title='Like' onClick={handleLikeBlog}>
-              <FontAwesomeIcon icon={faHeart} />
-            </LikeButton>&nbsp;{localBlogLikes}
-          </div>
-        }
-      </BlogBar>
+      {BlogBarJsx}
     </>
   );
 };
