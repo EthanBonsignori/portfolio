@@ -40,7 +40,9 @@ Graduation day was finally here, accompanied by our nervous excitement as my cla
 About a week later when I was visiting Atlanta to interview for jobs and I got an email from one of my former classmates. It was a job offer! He wanted me to come be a web developer at the company at which he was the COO of. I graciously accepted after some negotiations and made my way back to Savannah, hopeful for the future. I spent 9 months working there before the COVID pandemic. I didn't feel safe about their lack of COVID precautions and ended up leaving in May of 2020.
 
 ##### Present Day, Current Year
+As of today, I work on new projects with the aim of honing my skills and picking up new ones. My plan, as of March, 2021, is to learn new frameworks like GraphQL, Apollo, React Native, Docker, and others through different projects. Of course there's a chance you are reading this in the future so check out [my projects page](https://ethanbon.com/projects) to see what I've been up to lately.
 
+Thank you for taking the time to read about my developer story. Be sure to click the heart if you enjoyed it, and feel free to [get in touch](https://ethanbon.com/contact) if you have any questions or comments. I look forward to hearing from you.
 
-*Last Updated March 10, 2021*
+*Last Updated March 11, 2021*
 
