@@ -47,7 +47,7 @@ const newBlog = () => `
 
 ~Blog text here~
 
-*Last updated ${getBlogDate}*
+*Last updated ${getBlogDate()}*
 `;
 
 const getBlogObj = (title, file, link) => `
