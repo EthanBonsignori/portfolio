@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
 import ThemeToggle from './ThemeToggle';
+import breakpoints from '../../../utils/breakpoints';
 import { drawBorder } from '../../../utils/keyframes';
 
 const Headline = ({ title, darkMode, toggleTheme }) => (
@@ -35,6 +36,10 @@ const PageHeadline = styled.div`
     width: 100%;
     animation: ${drawBorder} 1s forwards;
     transition: width 0.5s ease-out;
+  }
+
+  ${breakpoints.mobile} {
+    flex-direction: column-reverse;
   }
 `;
 
