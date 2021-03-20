@@ -1,26 +1,28 @@
 import { createGlobalStyle } from 'styled-components';
-import NothingYouCouldDoWoff from '../assets/fonts/nothing-you-could-do.woff';
-import NothingYouCouldDoWoff2 from '../assets/fonts/nothing-you-could-do.woff2';
-import PiazzollaRegulareot from '../assets/fonts/piazzolla-v8-latin-regular.eot';
-import PiazzollaRegularwoff2 from '../assets/fonts/piazzolla-v8-latin-regular.woff2';
-import PiazzollaRegularwoff from '../assets/fonts/piazzolla-v8-latin-regular.woff';
-import PiazzollaRegularttf from '../assets/fonts/piazzolla-v8-latin-regular.ttf';
-import PiazzollaRegularsvg from '../assets/fonts/piazzolla-v8-latin-regular.svg';
-import Piazzolla800eot from '../assets/fonts/piazzolla-v8-latin-800.eot';
-import Piazzolla800woff2 from '../assets/fonts/piazzolla-v8-latin-800.woff2';
-import Piazzolla800woff from '../assets/fonts/piazzolla-v8-latin-800.woff';
-import Piazzolla800ttf from '../assets/fonts/piazzolla-v8-latin-800.ttf';
-import Piazzolla800svg from '../assets/fonts/piazzolla-v8-latin-800.svg';
-import PiazzollaItaliceot from '../assets/fonts/piazzolla-v8-latin-italic.eot';
-import PiazzollaItalicwoff2 from '../assets/fonts/piazzolla-v8-latin-italic.woff2';
-import PiazzollaItalicwoff from '../assets/fonts/piazzolla-v8-latin-italic.woff';
-import PiazzollaItalicttf from '../assets/fonts/piazzolla-v8-latin-italic.ttf';
-import PiazzollaItalicsvg from '../assets/fonts/piazzolla-v8-latin-italic.svg';
-import Piazzolla800Italiceot from '../assets/fonts/piazzolla-v8-latin-800italic.eot';
-import Piazzolla800Italicwoff2 from '../assets/fonts/piazzolla-v8-latin-800italic.woff2';
-import Piazzolla800Italicwoff from '../assets/fonts/piazzolla-v8-latin-800italic.woff';
-import Piazzolla800Italicttf from '../assets/fonts/piazzolla-v8-latin-800italic.ttf';
-import Piazzolla800Italicsvg from '../assets/fonts/piazzolla-v8-latin-800italic.svg';
+import {
+  NothingYouCouldDoWoff,
+  NothingYouCouldDoWoff2,
+  PiazzollaRegulareot,
+  PiazzollaRegularwoff2,
+  PiazzollaRegularwoff,
+  PiazzollaRegularttf,
+  PiazzollaRegularsvg,
+  Piazzolla800eot,
+  Piazzolla800woff2,
+  Piazzolla800woff,
+  Piazzolla800ttf,
+  Piazzolla800svg,
+  PiazzollaItaliceot,
+  PiazzollaItalicwoff2,
+  PiazzollaItalicwoff,
+  PiazzollaItalicttf,
+  PiazzollaItalicsvg,
+  Piazzolla800Italiceot,
+  Piazzolla800Italicwoff2,
+  Piazzolla800Italicwoff,
+  Piazzolla800Italicttf,
+  Piazzolla800Italicsvg,
+} from '../assets/fonts';
 
 const GlobalStyle = createGlobalStyle`
   html, * {
@@ -45,10 +47,53 @@ const GlobalStyle = createGlobalStyle`
     padding-right: 30px;
     border-left: 3px solid ${({ darkMode }) => (darkMode ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.3)')}
   }
+
+  code {
+    margin: 0 4px;
+    color: ${({ theme }) => theme.color.accent};
+    background-color: ${({ darkMode }) => (darkMode ? 'rgba(255, 255, 255, .06)' : 'rgba(23, 42, 58, .06)')};
+  }
+
   .blog-image {
     width: 100%;
+    height: 100%;
     text-align: center;
-    background-color: ${({ darkMode }) => (darkMode ? '#242424' : '#cfcfcf')}
+    background-color: ${({ darkMode }) => (darkMode ? '#242424' : '#cfcfcf')};
+  }
+
+  .blog-screenshot {
+    width: 100%;
+    text-align: center;
+    -webkit-box-shadow: 5px 5px 16px -4px #000000; 
+    box-shadow: 5px 5px 16px -4px #000000;
+  }
+
+  pre {
+    margin-top: -15px;
+  }
+
+  .github-link {
+    margin-bottom: 0 !important;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    span {
+      margin-bottom: 3px;
+      
+    }
+  }
+
+  .github-logo {
+    content:url(${({ darkMode }) => (darkMode ? 'https://i.imgur.com/XeN2w2v.png' : 'https://i.imgur.com/FkW1LP0.png')});
+
+    width: 16px;
+    height: auto;
+    margin-right: 4px;
   }
 
   @font-face {
