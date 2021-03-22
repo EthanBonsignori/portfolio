@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Navbar from './Navbar';
+import Footer from './Footer';
 import About from './Pages/About';
 import BlogList from './Pages/BlogList';
 import Blog from './Pages/Blog';
@@ -12,22 +13,31 @@ import breakpoints from '../utils/breakpoints';
 
 const Main = ({ darkMode, toggleTheme }) => (
   <>
-    <Navbar />
-    <PageContent>
-      <PageContentWrapper>
-        <Routes>
-          <Route path='/' element={<About darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='blog' element={<BlogList darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='blog/:blogLink' element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='projects' element={<Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='projects/:projectLink' element={<Project darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          <Route path='contact' element={<Contact darkMode={darkMode} toggleTheme={toggleTheme} />} />
-          {/* <Route element={<NotFound darkMode={darkMode} toggleTheme={toggleTheme} />} /> */}
-        </Routes>
-      </PageContentWrapper>
-    </PageContent>
+    <Wrapper>
+      <Navbar />
+      <PageContent>
+        <PageContentWrapper>
+          <Routes>
+            <Route path='/' element={<About darkMode={darkMode} toggleTheme={toggleTheme} />} />
+            <Route path='blog' element={<BlogList darkMode={darkMode} toggleTheme={toggleTheme} />} />
+            <Route path='blog/:blogLink' element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
+            <Route path='projects' element={<Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
+            <Route path='projects/:projectLink' element={<Project darkMode={darkMode} toggleTheme={toggleTheme} />} />
+            <Route path='contact' element={<Contact darkMode={darkMode} toggleTheme={toggleTheme} />} />
+            {/* <Route element={<NotFound darkMode={darkMode} toggleTheme={toggleTheme} />} /> */}
+          </Routes>
+        </PageContentWrapper>
+      </PageContent>
+      <Footer darkMode={darkMode} />
+    </Wrapper>
   </>
 );
+
+const Wrapper = styled.div`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+`;
 
 const PageContent = styled.div`
   display: flex;
@@ -48,10 +58,12 @@ const PageContent = styled.div`
 
 const PageContentWrapper = styled.div`
   width: 70%;
-  ${breakpoints.mobile} {
+
+  ${breakpoints.landscape} {
     width: 100%;
   }
-  ${breakpoints.landscape} {
+
+  ${breakpoints.mobile} {
     width: 100%;
   }
 `;
