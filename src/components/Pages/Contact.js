@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faGithub, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import {
+  faGithub, faLinkedin, faFacebook, faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 import Headline from './shared/Headline';
 import ContactForm from '../ContactForm';
 import breakpoints from '../../utils/breakpoints';
@@ -18,7 +20,7 @@ const Contact = ({ darkMode, toggleTheme }) => (
         <ContactLink
           title='Email'
           target='_blank'
-          rel="noreferrer noopener"
+          rel='noreferrer noopener'
           href='mailto:ebonsignori@gmail.com'
         >
           <ContactCard>
@@ -28,7 +30,7 @@ const Contact = ({ darkMode, toggleTheme }) => (
         <ContactLink
           title='GitHub'
           target='_blank'
-          rel="noreferrer noopener"
+          rel='noreferrer noopener'
           href='https://www.github.com/EthanBonsignori/'
         >
           <ContactCard>
@@ -38,7 +40,7 @@ const Contact = ({ darkMode, toggleTheme }) => (
         <ContactLink
           title='LinkedIn'
           target='_blank'
-          rel="noreferrer noopener"
+          rel='noreferrer noopener'
           href='https://www.linkedin.com/in/EthanBonsignori/'
         >
           <ContactCard>
@@ -48,11 +50,21 @@ const Contact = ({ darkMode, toggleTheme }) => (
         <ContactLink
           title='Facebook'
           target='_blank'
-          rel="noreferrer noopener"
-          href='https://www.facebook.com/EthanBonsignori/'
+          rel='noreferrer noopener'
+          href='https://www.facebook.com/ethan.bonsignori/'
         >
           <ContactCard>
             <FontAwesomeIcon icon={faFacebook} />
+          </ContactCard>
+        </ContactLink>
+        <ContactLink
+          title='Twitter'
+          target='_blank'
+          rel='noreferrer noopener'
+          href='https://www.twitter.com/EthanBonsignori/'
+        >
+          <ContactCard>
+            <FontAwesomeIcon icon={faTwitter} />
           </ContactCard>
         </ContactLink>
       </CardsPositioner>
@@ -108,10 +120,11 @@ const ContactCard = styled.div`
 const ContactLink = styled.a`
   color: #fff;
   text-decoration: none;
+  transition: all .2s ease-in-out;
 
   &:hover,
   &:active {
-    opacity: 0.8;
+    transform: scale(1.2);
   }
 `;
 
