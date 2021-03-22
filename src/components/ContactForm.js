@@ -41,7 +41,7 @@ const ContactForm = () => {
           {status === 'SUCCESS'
             ? <Status>Thanks for reaching out! I&#39;ll get back to you as soon as possible.</Status>
             : <SubmitWrapper>
-              <SubmitButton><FontAwesomeIcon icon={faPaperPlane} /></SubmitButton>
+              <SubmitButton title='Send'>SEND <FontAwesomeIcon icon={faPaperPlane} /></SubmitButton>
             </SubmitWrapper>
           }
           {status === 'ERROR' && <Status>Error: Please make sure you entered a valid email address.</Status>}
@@ -100,48 +100,15 @@ const SubmitWrapper = styled.div`
 const SubmitButton = styled.button`
   cursor: pointer;
   background: ${({ theme }) => theme.color.salmon};
-  color: ${({ theme }) => theme.color.salmon};
+  width: 50%;
+  
   border: none;
   outline: none;
-  margin: 10px 0;
-  width: 50%;
   padding: 0.6em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  
+  margin: 10px 0;
 
-  &::before {
-    color: #fff;
-    position: absolute;
-    box-sizing: inherit;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    content: 'Send';
-    z-index: 11;
-    transition: z-index 0.5s ease-out, color 0.5s ease-out;
-  }
-
-  svg {
-    transition: color 0.5s ease-out, z-index 0.5s;
-    z-index: -100;
-  }
-
-  &:hover svg {
-    color: #fff;
-    z-index: 100;
-  }
-  &:hover::before {
-    color: ${({ theme }) => theme.color.salmon};
-    z-index: -1;
-  }
-
-  &:active {
-    opacity: 0.8;
+  ${breakpoints.landscape} {
+    width: 60%;
   }
 
   ${breakpoints.mobile} {
