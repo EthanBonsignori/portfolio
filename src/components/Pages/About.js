@@ -12,9 +12,9 @@ const About = ({ darkMode, toggleTheme }) => (
     <AboutSection>
       <ProfilePicture />
       <span>
-        <Cursive darkMode={darkMode}>Hi,</Cursive><br />
-        I&#39;m a web developer based out of Atlanta, GA. I&#39;ve been developing software
-        for 2 years since I attended a 6-month Full-Stack Boot camp offered
+        <Cursive darkMode={darkMode}>Hi, I&#39;m Ethan Bonsignori.</Cursive><br />
+        I&#39;m a <b>Web Developer</b> based out of Atlanta, GA. I&#39;ve been developing software
+        for 2 years following a 6-month Full-Stack Boot camp offered
         by Georgia Tech in 2019. I quickly fell in love with the design and
         problem solving that comes with web development and haven&#39;t looked back since.
         I enjoy working with React.js, Next.js, and Node.js.
@@ -23,9 +23,7 @@ const About = ({ darkMode, toggleTheme }) => (
         <InlineLink title='Contact Me' to='/contact'>find some ways to get in touch.</InlineLink>
         <br />
         <br />
-        <i>Thanks for stopping by,</i>
-        <br />
-        <Cursive darkMode={darkMode}>Ethan</Cursive>
+        <i>Thanks for stopping by!</i>
       </span>
     </AboutSection>
   </>
@@ -64,7 +62,6 @@ const Cursive = styled.span`
   font-size: 1.5em;
   color: ${({ darkMode, theme }) => (darkMode ? theme.color.neonBlue : theme.color.salmon)};
   font-family: 'Nothing You Could Do', cursive;
-  padding-left: 5px;
 `;
 
 const InlineLink = styled(Link)``;
