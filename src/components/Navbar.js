@@ -125,7 +125,8 @@ const NavbarContainer = styled.div`
   width: 70%;
   border-radius: 5px;
   padding: 10px 5px;
-  background: ${({ theme }) => theme.color.background};
+  transition: background-color 500ms ease-in-out;
+  background-color: ${({ theme }) => theme.color.background};
   -webkit-box-shadow: ${({ theme }) => theme.boxShadow};
           box-shadow: ${({ theme }) => theme.boxShadow};
 
@@ -221,14 +222,13 @@ const Tab = styled.button`
   ${breakpoints.mobile} {
     flex-direction: column;
     padding-top: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
   }
 `;
 
 const TabDot = styled.div`
   width: 7px;
   height: 7px;
+  transition: background-color 500ms ease-in-out;
   background-color: ${({ active, theme }) => (active ? theme.color.neonBlue : theme.color.activeTab)};
   margin-right: 5px;
 
