@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import useWindowDimensions from '../hooks/useWindowDimensions';
 import logo from '../assets/images/eb-logo.png';
 import breakpoints from '../utils/breakpoints';
 import {
@@ -13,6 +14,7 @@ import {
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
   const navbarRef = useRef(null);
+  const { width } = useWindowDimensions();
   const location = useLocation();
   const activeTab = location.pathname;
 
@@ -31,45 +33,63 @@ const Navbar = () => {
     };
   }, []);
 
+  const isMobile = width < 768;
+
   return (
-    <NavbarWrapper ref={navbarRef} sticky={sticky}>
-      <NavbarPositioner>
+    <>
+      {isMobile
+        ? <MobileNavbarWrapper>
+          <MobileNavbarContainer>
+            <NavbarHeader>
+              <NavbarLogo />
+              <TabLink to='/'>
+              ETHAN BONSIGNORI
+              </TabLink>
+            </NavbarHeader>
+          </MobileNavbarContainer>
+        </MobileNavbarWrapper>
+        : null
+      }
+      <NavbarWrapper ref={navbarRef} sticky={sticky}>
         <NavbarContainer>
-          <NavbarHeader>
-            <NavbarLogo />
-            <TabLink to='/'>
-          ETHAN BONSIGNORI
-            </TabLink>
-          </NavbarHeader>
+          {isMobile
+            ? null
+            : <NavbarHeader>
+              <NavbarLogo />
+              <TabLink to='/'>
+              ETHAN BONSIGNORI
+              </TabLink>
+            </NavbarHeader>
+          }
           <NavbarTabs sticky={sticky}>
             <TabLink to='/'>
               <Tab active={activeTab === ABOUT}>
                 <TabDot active={activeTab === ABOUT} />
-            ABOUT
+                ABOUT
               </Tab>
             </TabLink>
             <TabLink to='/blog'>
               <Tab active={activeTab === BLOG}>
                 <TabDot active={activeTab === BLOG} />
-            BLOG
+                BLOG
               </Tab>
             </TabLink>
             <TabLink to='/projects'>
               <Tab active={activeTab === PROJECTS}>
                 <TabDot active={activeTab === PROJECTS} />
-            PROJECTS
+                PROJECTS
               </Tab>
             </TabLink>
             <TabLink to='/contact'>
               <Tab active={activeTab === CONTACT}>
                 <TabDot active={activeTab === CONTACT} />
-            CONTACT
+                CONTACT
               </Tab>
             </TabLink>
           </NavbarTabs>
         </NavbarContainer>
-      </NavbarPositioner>
-    </NavbarWrapper>
+      </NavbarWrapper>
+    </>
   );
 };
 
@@ -77,12 +97,11 @@ const NavbarWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2em;
-  margin-left: 20vw;
-  margin-right: 20vw;
+  margin: 1em 20vw;
+  margin-top: 2em;
   padding-top: 10px;
 
-  position: ${({ sticky }) => (sticky ? 'sticky' : 'static')};
+  position: sticky;
   top: 0;
   z-index: 100;
 
@@ -93,13 +112,16 @@ const NavbarWrapper = styled.nav`
 
   ${breakpoints.mobile} {
     margin: 1.2em;
-    padding-top: 5px;
+    margin-top: 0;
+    padding-top: 0;
     padding-bottom: 0;
-    margin-top: 15px;
   }
 `;
 
-const NavbarPositioner = styled.div`
+const NavbarContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 70%;
   border-radius: 5px;
   padding: 10px 5px;
@@ -112,25 +134,36 @@ const NavbarPositioner = styled.div`
   }
 
   ${breakpoints.mobile} {
-    width: 100%;
-    padding-bottom: 1px;
-  }
-`;
-
-const NavbarContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-
-  ${breakpoints.landscape} {
-    width: 100%;
-  }
-
-  ${breakpoints.mobile} {
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    padding-bottom: 1px;
+
+    min-height: 60px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    -webkit-box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const MobileNavbarWrapper = styled(NavbarWrapper)`
+  ${breakpoints.mobile} {
+    margin: 1.2em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 0.5em;
+  }
+`;
+
+const MobileNavbarContainer = styled(NavbarContainer)`
+  ${breakpoints.mobile} {
+    min-height: 0px;
+    height: 45px;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 `;
 
@@ -148,7 +181,7 @@ const NavbarHeader = styled.div`
   width: 33.333%;
 
   ${breakpoints.landscape} {
-    width: 45%;
+    width: 40%;
   }
 
   ${breakpoints.mobile} {
@@ -167,12 +200,11 @@ const NavbarTabs = styled.div`
   top: 0;
 
   ${breakpoints.landscape} {
-    width: 55%;
+    width: 60%;
   }
 
   ${breakpoints.mobile} {
     width: 100%;
-    margin-top: 1.5em;
   }
 `;
 
