@@ -11,8 +11,8 @@ const About = ({ darkMode, toggleTheme }) => (
     <Headline title='ABOUT ME' darkMode={darkMode} toggleTheme={toggleTheme} />
     <AboutSection>
       <ProfilePicture />
-      <span>
-        <Cursive darkMode={darkMode}>Hi, I&#39;m Ethan Bonsignori.</Cursive><br />
+      <div>
+        <Cursive darkMode={darkMode}>Hi, I&#39;m Ethan Bonsignori.</Cursive>
         I&#39;m a <b>Web Developer</b> based out of Atlanta, GA. I&#39;ve been developing software
         for 2 years following a 6-month Full-Stack Boot camp offered
         by Georgia Tech in 2019. I quickly fell in love with the design and
@@ -23,8 +23,8 @@ const About = ({ darkMode, toggleTheme }) => (
         <InlineLink title='Contact Me' to='/contact'>find some ways to get in touch.</InlineLink>
         <br />
         <br />
-        <i>Thanks for stopping by!</i>
-      </span>
+        <Thanks>Thanks for stopping by!</Thanks>
+      </div>
     </AboutSection>
   </>
 );
@@ -58,10 +58,27 @@ const ProfilePicture = styled.div`
   }
 `;
 
-const Cursive = styled.span`
+const Cursive = styled.div`
   font-size: 1.5em;
   color: ${({ darkMode, theme }) => (darkMode ? theme.color.neonBlue : theme.color.salmon)};
   font-family: 'Nothing You Could Do', cursive;
+
+  ${breakpoints.mobile} {
+    margin-top: 1em;
+    width: 100%;
+    text-align: center;
+  }
+`;
+
+const Thanks = styled.div`
+  font-style: italic;
+  color: ${({ theme }) => theme.color.text};
+  font-family: 'Piazzolla', sans-serif;
+
+  ${breakpoints.mobile} {
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 const InlineLink = styled(Link)``;
