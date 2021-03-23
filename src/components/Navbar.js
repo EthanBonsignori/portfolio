@@ -33,40 +33,42 @@ const Navbar = () => {
 
   return (
     <NavbarWrapper ref={navbarRef} sticky={sticky}>
-      <NavbarContainer>
-        <NavbarHeader>
-          <NavbarLogo />
-          <TabLink to='/'>
+      <NavbarPositioner>
+        <NavbarContainer>
+          <NavbarHeader>
+            <NavbarLogo />
+            <TabLink to='/'>
           ETHAN BONSIGNORI
-          </TabLink>
-        </NavbarHeader>
-        <NavbarTabs sticky={sticky}>
-          <TabLink to='/'>
-            <Tab active={activeTab === ABOUT}>
-              <TabDot active={activeTab === ABOUT} />
+            </TabLink>
+          </NavbarHeader>
+          <NavbarTabs sticky={sticky}>
+            <TabLink to='/'>
+              <Tab active={activeTab === ABOUT}>
+                <TabDot active={activeTab === ABOUT} />
             ABOUT
-            </Tab>
-          </TabLink>
-          <TabLink to='/blog'>
-            <Tab active={activeTab === BLOG}>
-              <TabDot active={activeTab === BLOG} />
+              </Tab>
+            </TabLink>
+            <TabLink to='/blog'>
+              <Tab active={activeTab === BLOG}>
+                <TabDot active={activeTab === BLOG} />
             BLOG
-            </Tab>
-          </TabLink>
-          <TabLink to='/projects'>
-            <Tab active={activeTab === PROJECTS}>
-              <TabDot active={activeTab === PROJECTS} />
+              </Tab>
+            </TabLink>
+            <TabLink to='/projects'>
+              <Tab active={activeTab === PROJECTS}>
+                <TabDot active={activeTab === PROJECTS} />
             PROJECTS
-            </Tab>
-          </TabLink>
-          <TabLink to='/contact'>
-            <Tab active={activeTab === CONTACT}>
-              <TabDot active={activeTab === CONTACT} />
+              </Tab>
+            </TabLink>
+            <TabLink to='/contact'>
+              <Tab active={activeTab === CONTACT}>
+                <TabDot active={activeTab === CONTACT} />
             CONTACT
-            </Tab>
-          </TabLink>
-        </NavbarTabs>
-      </NavbarContainer>
+              </Tab>
+            </TabLink>
+          </NavbarTabs>
+        </NavbarContainer>
+      </NavbarPositioner>
     </NavbarWrapper>
   );
 };
@@ -78,37 +80,50 @@ const NavbarWrapper = styled.nav`
   margin: 2em;
   margin-left: 20vw;
   margin-right: 20vw;
-  background: ${({ theme }) => theme.color.background};
+  padding-top: 10px;
 
   position: ${({ sticky }) => (sticky ? 'sticky' : 'static')};
-  padding-top: 30px;
   top: 0;
   z-index: 100;
 
+  ${breakpoints.landscape} {
+    margin-left: 15vw;
+    margin-right: 15vw;
+  }
 
   ${breakpoints.mobile} {
-    margin: 0;
-    padding: 30px 0;
+    margin: 1.2em;
+    padding-top: 5px;
     padding-bottom: 0;
-    margin-top: 1px;
-  }
-
-  ${breakpoints.landscape} {
-    margin-left: 5vw;
-    margin-right: 5vw;
+    margin-top: 15px;
   }
 `;
+
+const NavbarPositioner = styled.div`
+  width: 70%;
+  border-radius: 5px;
+  padding: 10px 5px;
+  background: ${({ theme }) => theme.color.background};
+  -webkit-box-shadow: ${({ theme }) => theme.boxShadow};
+          box-shadow: ${({ theme }) => theme.boxShadow};
+
+  ${breakpoints.landscape} {
+    width: 100%;
+  }
+
+  ${breakpoints.mobile} {
+    width: 100%;
+  }
+`;
+
 const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 70%;
-  padding-bottom: 10px;
-  border-bottom: 2px solid ${({ theme }) => theme.color.navbarScroll};
-  transition: border 500ms ease;
+  width: 100%;
 
   ${breakpoints.landscape} {
-    width: 80%;
+    width: 100%;
   }
 
   ${breakpoints.mobile} {
@@ -116,8 +131,6 @@ const NavbarContainer = styled.div`
     justify-content: center;
     width: 100%;
   }
-
-
 `;
 
 const NavbarLogo = styled.div`
@@ -165,17 +178,27 @@ const NavbarTabs = styled.div`
 const Tab = styled.button`
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   border: none;
   outline: none;
   background: ${({ active, theme }) => (active ? theme.color.activeTab : 'none')};
+  border-radius: 4px;
+
+  ${breakpoints.mobile} {
+    flex-direction: column;
+  }
 `;
 
 const TabDot = styled.div`
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
   background-color: ${({ active, theme }) => (active ? theme.color.neonBlue : theme.color.activeTab)};
   margin-right: 5px;
+
+  ${breakpoints.mobile} {
+    margin: 0;
+  }
 `;
 
 const TabLink = styled(Link)`

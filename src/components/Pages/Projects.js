@@ -129,10 +129,13 @@ const ProjectCard = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-radius: 4px;
   width: 100%;
   padding: 0.5em;
   margin: 0.5em 0;
+  transition: background-color 500ms ease-in-out;
   background-color: ${({ theme }) => theme.color.cardBackground};
+
 `;
 
 const ProjectTitle = styled.span`

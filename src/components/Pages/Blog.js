@@ -76,7 +76,6 @@ const Blog = ({ darkMode, toggleTheme }) => {
 };
 
 const BlogWrapper = styled.div`
-  opacity: 0;
   animation: ${fadeIn} 1s forwards;
   animation-delay: 500ms;
 `;

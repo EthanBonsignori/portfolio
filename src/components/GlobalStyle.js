@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import lightFabric from '../assets/images/light-fabric.png';
+import darkFabric from '../assets/images/dark-fabric.png';
 import {
   NothingYouCouldDoWoff,
   NothingYouCouldDoWoff2,
@@ -26,11 +28,11 @@ import {
 
 const GlobalStyle = createGlobalStyle`
   html, * {
-    transition: background-color 500ms ease-in-out;
+    transition: background-image 500ms ease-in-out;
   }
   body {
     font-family: 'Piazzolla';
-    background: ${({ theme }) => theme.color.background};
+    background-image: url(${({ darkMode }) => (darkMode ? darkFabric : lightFabric)});
     margin: 0;
   }
   div, a, p, input, textarea, button, 
@@ -66,6 +68,16 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
     -webkit-box-shadow: 5px 5px 16px -4px #000000; 
     box-shadow: 5px 5px 16px -4px #000000;
+  }
+
+  .blog-info {
+    width: 100%;
+    background-color: ${({ darkMode }) => (darkMode ? 'rgba(0, 0, 0, 0.2);' : 'rgba(245, 245, 245, 0.5)')};
+    
+
+    padding: 16px 24px;
+    border-radius: 3px;
+    border-left: 4px solid ${({ theme }) => theme.color.accent};
   }
 
   pre {

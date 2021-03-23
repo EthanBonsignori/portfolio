@@ -57,8 +57,14 @@ const PageContent = styled.div`
 `;
 
 const PageContentWrapper = styled.div`
+  background-color: ${({ theme }) => theme.color.background};
   width: 70%;
 
+  padding: 1em;
+  border-radius: 5px;
+  transition: background-color 500ms ease-in-out;
+  -webkit-box-shadow: ${({ theme }) => theme.boxShadow};
+          box-shadow: ${({ theme }) => theme.boxShadow};
   ${breakpoints.landscape} {
     width: 100%;
   }
