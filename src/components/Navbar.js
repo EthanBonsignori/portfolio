@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import useWindowDimensions from '../hooks/useWindowDimensions';
@@ -12,37 +12,17 @@ import {
 } from '../constants/routesConstants';
 
 const Navbar = () => {
-  const [sticky, setSticky] = useState(false);
-  const navbarRef = useRef(null);
-  const { width } = useWindowDimensions();
+  const isMobile = useWindowDimensions().width < 768;
   const location = useLocation();
   const activeTab = location.pathname;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const navbarOffset = navbarRef?.current?.offsetTop;
-      if (window.pageYOffset >= navbarOffset) {
-        return setSticky(true);
-      }
-      return true;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const isMobile = width < 768;
-
   return (
     <>
       {isMobile
         ? <MobileNavbarWrapper>
           <MobileNavbarContainer>
             <NavbarHeader>
-              <NavbarLogo />
               <TabLink to='/'>
+                <NavbarLogo />
               ETHAN BONSIGNORI
               </TabLink>
             </NavbarHeader>
@@ -50,7 +30,7 @@ const Navbar = () => {
         </MobileNavbarWrapper>
         : null
       }
-      <NavbarWrapper ref={navbarRef} sticky={sticky}>
+      <NavbarWrapper>
         <NavbarContainer>
           {isMobile
             ? null
@@ -61,7 +41,7 @@ const Navbar = () => {
               </TabLink>
             </NavbarHeader>
           }
-          <NavbarTabs sticky={sticky}>
+          <NavbarTabs>
             <TabLink to='/'>
               <Tab active={activeTab === ABOUT}>
                 <TabDot active={activeTab === ABOUT} />
@@ -195,7 +175,7 @@ const NavbarTabs = styled.div`
   display: flex;
   height: 25px;
   width: 66.666%;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   position: ${({ sticky }) => (sticky ? 'sticky' : 'static')};
   top: 0;
@@ -220,6 +200,7 @@ const Tab = styled.button`
   border-radius: 4px;
 
   ${breakpoints.mobile} {
+    width: 100%;
     flex-direction: column;
     padding-top: 0;
   }
@@ -243,6 +224,14 @@ const TabDot = styled.div`
 
 const TabLink = styled(Link)`
   text-decoration: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${breakpoints.landscape} {
+    width: 100%;
+  }
 `;
 
 export default Navbar;
