@@ -84,6 +84,7 @@ const ContactCard = styled.div`
 
 const ContactLink = styled.a`
   cursor: pointer;
+  font-size: 1.2em;
   margin: 0 0.5em;
   opacity: 0.4;
   text-decoration: none;
