@@ -113,6 +113,7 @@ const NavbarPositioner = styled.div`
 
   ${breakpoints.mobile} {
     width: 100%;
+    padding-bottom: 1px;
   }
 `;
 
@@ -187,6 +188,9 @@ const Tab = styled.button`
 
   ${breakpoints.mobile} {
     flex-direction: column;
+    padding-top: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 `;
 
@@ -197,7 +201,11 @@ const TabDot = styled.div`
   margin-right: 5px;
 
   ${breakpoints.mobile} {
+    width: 20px;
     margin: 0;
+    border-radius: 3px;
+    border-top-left-radius: ${({ active }) => (active ? '0px' : '3px')};
+    border-top-right-radius: ${({ active }) => (active ? '0px' : '3px')};
   }
 `;
 
