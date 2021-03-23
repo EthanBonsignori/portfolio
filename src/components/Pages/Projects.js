@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBolt } from '@fortawesome/free-solid-svg-icons';
-import useWindowDimensions from '../../hooks/useWindowDimeonsions';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { tags, projects } from '../../assets/projects';
 import Headline from './shared/Headline';
 import breakpoints from '../../utils/breakpoints';
