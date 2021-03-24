@@ -35,8 +35,8 @@ const Navbar = () => {
           {isMobile
             ? null
             : <NavbarHeader>
-              <NavbarLogo />
               <TabLink to='/'>
+                <NavbarLogo />
               ETHAN BONSIGNORI
               </TabLink>
             </NavbarHeader>
