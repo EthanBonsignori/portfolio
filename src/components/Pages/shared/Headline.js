@@ -66,9 +66,8 @@ const Lightbulb = styled.div`
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: ${({ darkMode }) => (darkMode ? 'transparent' : 'yellow')};
-    filter: blur(2px);
-    z-index: -1;
+    background-color: ${({ darkMode }) => (darkMode ? 'transparent' : 'yellow')};
+    filter: blur(5px);
     opacity: 0.6;
   }
 

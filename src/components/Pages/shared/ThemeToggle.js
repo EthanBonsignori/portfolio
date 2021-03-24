@@ -37,6 +37,7 @@ const Label = styled.label`
   width: 35px;
   height: 21px;
   background: ${({ theme }) => theme.color.neonBlue};
+  transition: background-color 500ms ease-in-out;
   margin: 0 auto;
   text-indent: -9999px;
 
