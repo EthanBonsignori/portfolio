@@ -14,7 +14,8 @@ import {
 const Navbar = () => {
   const isMobile = useWindowDimensions().width < 768;
   const location = useLocation();
-  const activeTab = location.pathname;
+  // Gets the base route (i.e. /blog) from /blog/blog-title
+  const activeTab = location.pathname.split('/')[1];
   return (
     <>
       {isMobile
