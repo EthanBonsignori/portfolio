@@ -78,6 +78,7 @@ const BlogPost = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0.2em 0;
+  transition: background-color 500ms ease-in-out;
   background-color: ${({ theme }) => theme.color.cardBackground};
   padding: 0.5em;
 `;
@@ -123,7 +124,8 @@ const SelectWrapper = styled.div`
 `;
 const SortSelect = styled.select`
   color: ${({ theme }) => theme.color.text};
-  background: ${({ theme }) => theme.color.cardBackground};
+  transition: all 500ms ease-in-out;
+  background-color: ${({ theme }) => theme.color.cardBackground};
   border: 1px solid ${({ theme }) => theme.color.cardBackground};
 
   option {

@@ -27,17 +27,16 @@ import {
 } from '../assets/fonts';
 
 const GlobalStyle = createGlobalStyle`
-  html, * {
-    transition: background-image 500ms ease-in-out;
-  }
   body {
     font-family: 'Piazzolla';
+    transition: background-image 500ms ease-in-out;
     background-image: url(${({ darkMode }) => (darkMode ? darkFabric : lightFabric)});
     margin: 0;
   }
   div, a, p, input, textarea, button, 
   h1, h2, h3, h4, h5, h6 {
     color: ${({ theme }) => theme.color.text};
+    transition: color 500ms ease-in-out;
     font-family: 'Piazzolla';
     box-sizing: border-box;
   }

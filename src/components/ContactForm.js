@@ -80,7 +80,8 @@ const Input = styled.input`
   outline: none;
   border: none;
 
-  background: ${({ theme }) => theme.color.activeTab};
+  transition: background-color 500ms ease-in-out;
+  background-color: ${({ theme }) => theme.color.activeTab};
 `;
 
 const Textarea = styled(Input).attrs({ as: 'textarea' })`

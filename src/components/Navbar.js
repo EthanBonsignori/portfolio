@@ -197,6 +197,7 @@ const Tab = styled.button`
   cursor: pointer;
   border: none;
   outline: none;
+  transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
   background: ${({ active, theme }) => (active ? theme.color.activeTab : 'none')};
   border-radius: 4px;
 
@@ -229,6 +230,7 @@ const TabLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+
 
   ${breakpoints.landscape} {
     width: 100%;
