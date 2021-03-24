@@ -11,7 +11,7 @@ import {
   CONTACT,
 } from '../constants/routesConstants';
 
-const Navbar = () => {
+const Navbar = ({ darkMode }) => {
   const isMobile = useWindowDimensions().width < 768;
   const location = useLocation();
   // Gets the base route (i.e. /blog) from /blog/blog-title
@@ -20,7 +20,7 @@ const Navbar = () => {
     <>
       {isMobile
         ? <MobileNavbarWrapper>
-          <MobileNavbarContainer>
+          <MobileNavbarContainer darkMode={darkMode}>
             <NavbarHeader>
               <TabLink to='/'>
                 <NavbarLogo />
@@ -32,7 +32,7 @@ const Navbar = () => {
         : null
       }
       <NavbarWrapper>
-        <NavbarContainer>
+        <NavbarContainer darkMode={darkMode}>
           {isMobile
             ? null
             : <NavbarHeader>
@@ -125,8 +125,10 @@ const NavbarContainer = styled.div`
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 
-    -webkit-box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.1);
-            box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: ${({ darkMode }) => (darkMode
+    ? '6px 6px 8px 0px rgba(0, 0, 0, 1)'
+    : '6px 6px 8px 0px rgba(0, 0, 0, 0.1)'
+  )};
   }
 `;
 

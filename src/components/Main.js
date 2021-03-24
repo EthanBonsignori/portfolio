@@ -14,7 +14,7 @@ import breakpoints from '../utils/breakpoints';
 const Main = ({ darkMode, toggleTheme }) => (
   <>
     <Wrapper>
-      <Navbar />
+      <Navbar darkMode={darkMode} />
       <PageContent>
         <PageContentWrapper>
           <Routes>

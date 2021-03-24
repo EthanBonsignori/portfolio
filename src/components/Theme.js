@@ -1,17 +1,13 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-const theme = {
-  boxShadow: '4px 4px 8px 0px rgba(0,0,0,0.2)',
-};
-
 const baseColors = {
   salmon: '#FF6B6B',
   neonBlue: '#70D7D0',
 };
 
 const darkTheme = {
-  ...theme,
+  boxShadow: '4px 4px 8px 0px rgba(0,0,0,1)',
   color: {
     ...baseColors,
     background: '#141414',
@@ -25,7 +21,7 @@ const darkTheme = {
 };
 
 const lightTheme = {
-  ...theme,
+  boxShadow: '4px 4px 8px 0px rgba(0,0,0,0.2)',
   color: {
     ...baseColors,
     background: '#F0F2F5',
