@@ -295,9 +295,9 @@ export default CropModal;
 Back in ```App.js``` we need to import ```CropModal``` and add the function to toggle it's open/close state. We will also import the [React Hook](https://reactjs.org/docs/hooks-intro.html) [```useState```](https://reactjs.org/docs/hooks-state.html) to store both the modal state and our Base64 image string so we can provide them to ```CropModal``` as props. Let's add the ```toggleModal``` function and call it at the end of our current ```handleChange``` so we can test opening the Modal after an image is selected for cropping. Edit ```App.js``` as follows:
 
 <div>
-<a class="github-link" href="https://gist.github.com/EthanBonsignori/c0fdc9ee6f3c184cbfc8bab260faf313" target="_blank">
+<a class="github-link" href="https://github.com/EthanBonsignori/picture-upload-tutorial/blob/main/src/components/App.js" target="_blank">
 <img class="github-logo" />
-<span>App.js gist 3</span>
+<span>.../src/components/App.js</span>
 </a>
 
 ```javascript
@@ -461,7 +461,6 @@ function CropModal(props) {
         keepSelection // crop won't reset on click
         imageStyle={{ maxHeight: '75vh'}} // prevents image from pushing modal off-screen
       />
-      <button class="upload-label">Save</button>
     </Modal>
   );
 };
@@ -480,9 +479,9 @@ The final functionality we're missing is to save our cropped image. The way that
 I am opting to use ```.toDataURL``` for simplicity. We'll need to add both canvas and a button to execute the save function. The canvas has a style of ```display: "none"``` because it's just there for the download. Our ```handleSave``` function is just two lines and will log our cropped image.
 
 <div>
-<a class="github-link" href="https://gist.github.com/EthanBonsignori/cba0c8ca2623279c4a169e223bfb0bff" target="_blank">
+<a class="github-link" href="https://github.com/EthanBonsignori/picture-upload-tutorial/blob/part-1-frontend/src/components/CropModal.js" target="_blank">
 <img class="github-logo" />
-<span>CropModal.js gist 2</span>
+<span>.../src/components/CropModal.js</span>
 </a>
 
 ```javascript
