@@ -71,12 +71,10 @@ const GlobalStyle = createGlobalStyle`
 
   .blog-info {
     width: 100%;
-    background-color: ${({ darkMode }) => (darkMode ? 'rgba(0, 0, 0, 0.2);' : 'rgba(245, 245, 245, 0.5)')};
-    
-
+    background-color: ${({ darkMode }) => (darkMode ? 'rgba(0, 0, 0, 0.6);' : 'rgba(215, 215, 215, 0.5)')};
     padding: 16px 24px;
-    border-radius: 3px;
     border-left: 4px solid ${({ theme }) => theme.color.accent};
+    border-radius: 3px;
   }
 
   pre {
