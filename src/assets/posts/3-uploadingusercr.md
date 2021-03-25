@@ -18,12 +18,13 @@ This is a three part tutorial that will teach you how to add a profile picture f
 
 ## Contents
 * [Overview](#overview)
-* [Setting up the Frontend](#frontend)
+* [Setting up the Frontend](#frontend) (Part 1)
   1. [Creating a React App](#react)
   2. [Configuring the Image Upload Input](#input)
   3. [Setting up the Crop Modal](#modal)
   4. [Setting up Image Cropping](#crop)
-* [Setting up the Backend](#back)
+* Uploading to Digital Ocean Spaces (Part 2) **WIP**
+* Setting up a Backend to Store Image Links (Part 3) **WIP**
 
 ## Overview
 
