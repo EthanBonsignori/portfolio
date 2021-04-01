@@ -37,11 +37,10 @@ const BlogList = ({ darkMode, toggleTheme }) => {
           <Link to={b.blogLink}>
             {b.title}
           </Link>
-          <BlogDate>{b.createdAt}</BlogDate>
         </BlogPostHeader>
         <BlogDetails>
           <span>⟶&nbsp;{b.category}</span>
-          <span>{b.author}</span>
+          <span>{b.createdAt}</span>
         </BlogDetails>
       </BlogPost>
     ));
@@ -93,9 +92,7 @@ const BlogPostHeader = styled.div`
     flex-wrap: wrap;
   }
 `;
-const BlogDate = styled.span`
-  font-size: 0.8em;
-`;
+
 const BlogDetails = styled.div`
   display: flex;
   justify-content: space-between;
