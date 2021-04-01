@@ -1,9 +1,14 @@
 <img align="right" src="src/assets/images/eb-logo.png" height="200px" />
 
 # My Portfolio
-My personal developer portfolio, blog, and place to show off projects. Designed from scratch with React.
+Personal developer portfolio, blog, and place to show off projects. Designed from scratch with [React](https://reactjs.org/), [Webpack](https://webpack.js.org/), and [Styled Components](https://styled-components.com/). Fully mobile responsive through use of standardized media queries. Also features a toggleable light 🌞 and dark 🌙 theme!
 
-## ⚠️ Currently a work in progress, will be updated with images, gifs, and more when finished ⚠️
+## Adding a new Blog
 
-
-### ⚡ Live: https://ethanbon.com
+Run the following command replacing the brackets with the title:
+```bash
+npm run blog {blog title here}
+```
+This creates a new entry in the posts folder such as: ```src/assets/posts/x-title.md``` where:
+* **x:** numerical order of blog based on when it was created
+* **title:** up to the first 15 characters (lower cased and spaces removed) of the blog, for normalized file names
