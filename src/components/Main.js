@@ -62,7 +62,7 @@ const PageContentWrapper = styled.div`
 
   padding: 1em;
   border-radius: 5px;
-  transition: background-color 500ms ease-in-out;
+  transition: background-color 500ms ease-in-out, box-shadow 500ms ease-in-out;
   -webkit-box-shadow: ${({ theme }) => theme.boxShadow};
           box-shadow: ${({ theme }) => theme.boxShadow};
   ${breakpoints.landscape} {

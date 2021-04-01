@@ -74,7 +74,7 @@ const Navbar = ({ darkMode }) => {
   );
 };
 
-const NavbarWrapper = styled.nav`
+const NavbarWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,7 +106,7 @@ const NavbarContainer = styled.div`
   width: 70%;
   border-radius: 5px;
   padding: 10px 5px;
-  transition: background-color 500ms ease-in-out;
+  transition: background-color 500ms ease-in-out, box-shadow 500ms ease-in-out;
   background-color: ${({ theme }) => theme.color.background};
   -webkit-box-shadow: ${({ theme }) => theme.boxShadow};
           box-shadow: ${({ theme }) => theme.boxShadow};
@@ -174,7 +174,7 @@ const NavbarHeader = styled.div`
   }
 `;
 
-const NavbarTabs = styled.div`
+const NavbarTabs = styled.nav`
   display: flex;
   height: 25px;
   width: 66.666%;
