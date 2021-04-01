@@ -62,7 +62,14 @@ const Project = ({ darkMode, toggleTheme }) => {
         </LinksWrapper>
         <Description>{description}</Description>
         <ProjectPictures>
-          <AliceCarousel autoPlay autoHeight autoPlayInterval={6000} mouseTracking infinite disableButtonsControls>
+          <AliceCarousel
+            autoPlay
+            autoHeight
+            autoPlayInterval={8000}
+            mouseTracking
+            infinite
+            disableButtonsControls
+          >
             {screenshots.map((ss, i) => (<Screenshot key={i} image={ss} />))}
           </AliceCarousel>
         </ProjectPictures>

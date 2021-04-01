@@ -105,6 +105,13 @@ const GlobalStyle = createGlobalStyle`
     margin-right: 4px;
   }
 
+  .alice-carousel__dots-item {
+    transition: background-color 200ms ease;
+  }
+  .alice-carousel__dots-item:not(.__custom):hover, .alice-carousel__dots-item:not(.__custom).__active {
+    background-color: ${({ theme }) => theme.color.accent};
+  }
+
   @font-face {
     font-family: 'Nothing You Could Do';
     src: local('Nothing You Could Do'), local('NothingYouCouldDo'),
