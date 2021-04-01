@@ -49,8 +49,8 @@ export const projects = [
     description: `A user-friendly bridge website for ex-Pogo.com
       players to play free online multiplayer contract bridge.`,
     mdLink: ebridgeMD,
-    site: 'https://ebridge.club',
-    github: '',
+    site: '',
+    github: 'https://github.com/ebridge/bridge-web',
     tags: [
       'javascript',
       'node',
