@@ -12,18 +12,29 @@ const About = ({ darkMode, toggleTheme }) => (
     <AboutSection>
       <ProfilePicture />
       <div>
-        <Cursive darkMode={darkMode}>Hi, I&#39;m Ethan Bonsignori.</Cursive>
-        I&#39;m a <b>Web Developer</b> based out of Atlanta, GA. I&#39;ve been developing software
-        for 2 years following a 6-month Full-Stack Boot camp offered
-        by Georgia Tech in 2019. I quickly fell in love with the design and
-        problem solving that comes with web development and haven&#39;t looked back since.
-        I enjoy working with React.js, Next.js, and Node.js.
-        Here you can&#32;<InlineLink title='Projects' to='/projects'>check out my recent work</InlineLink>,&nbsp;
-        <InlineLink title='Blog' to='/blog'>read some of my thoughts</InlineLink>, and&nbsp;
-        <InlineLink title='Contact Me' to='/contact'>find some ways to get in touch.</InlineLink>
-        <br />
-        <br />
-        <Thanks>Thanks for stopping by!</Thanks>
+        <Intro darkMode={darkMode}>
+          <Cursive>Hi, I&#39;m&nbsp;</Cursive>
+          <Name>Ethan Bonsignori.</Name>
+        </Intro>
+        I&#39;m a self-taught <b>Web Developer</b> based out of Atlanta, GA.
+        I&#39;ve been creating apps and websites for 2 years and enjoy learning new technologies and frameworks.
+        I love both the design and problem solving aspects of web development. My unique background of graphic design
+        and IT mesh perfectly for the job. Currently I am building apps with JavaScript frameworks like <b>React</b> and
+        <b>Node.js</b> and writing technical guides over <Link to='/blog' title='My Blog'>on my blog</Link>.
+        <i> Thanks for stopping by!</i>
+        <ButtonsContainer>
+          <Link to='/projects'>
+            <ActionButton title='My Projects'>Check Out My Projects</ActionButton>
+          </Link>
+          <div>
+            <Link to='/blog'>
+              <SubButton title='My Blog'>Read My Blog</SubButton>
+            </Link>
+            <Link to='/contact'>
+              <SubButton title='Contact Me'>Contact Me</SubButton>
+            </Link>
+          </div>
+        </ButtonsContainer>
       </div>
     </AboutSection>
   </>
@@ -32,7 +43,6 @@ const About = ({ darkMode, toggleTheme }) => (
 const AboutSection = styled.section`
   display: flex;
   flex-direction: row;
-
   opacity: 0;
   animation: ${fadeIn} 1s forwards;
 
@@ -44,11 +54,14 @@ const AboutSection = styled.section`
 const ProfilePicture = styled.div`
   background-image: url(${profilePicture});
   background-size: cover;
-  min-width: 175px;
+  min-width: 166px;
   height: 175px;
+  margin-top: 0.5em;
   margin-right: 1em;
-  margin-top: 2.4em;
   align-self: baseline;
+  border-radius: 5px;
+  box-shadow: ${({ theme }) => theme.boxShadow};
+  transition: box-shadow 500ms ease-in-out;
 
   ${breakpoints.mobile} {
     margin: 0;
@@ -58,29 +71,59 @@ const ProfilePicture = styled.div`
   }
 `;
 
-const Cursive = styled.div`
+const Intro = styled.div`
   font-size: 1.5em;
-  color: ${({ darkMode, theme }) => (darkMode ? theme.color.neonBlue : theme.color.salmon)};
+
+  ${breakpoints.mobile} {
+    margin-top: 0.5em;
+    width: 100%;
+    text-align: center;
+  }
+`;
+const Cursive = styled.span`
   font-family: 'Nothing You Could Do', cursive;
-
-  ${breakpoints.mobile} {
-    margin-top: 1em;
-    width: 100%;
-    text-align: center;
-  }
+`;
+const Name = styled.span`
+  font-weight: bold;
 `;
 
-const Thanks = styled.div`
-  font-style: italic;
+const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 1em;
+
+  ${breakpoints.mobile} {
+    flex-direction: column;
+  }
+`;
+const ActionButton = styled.button`
+  cursor: pointer;
   color: ${({ theme }) => theme.color.text};
-  font-family: 'Piazzolla', sans-serif;
+  background-color: ${({ theme }) => theme.color.accent};
+  box-shadow: ${({ theme }) => theme.boxShadow};
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+  padding: 0.3em 0.8em;
+  transition: background-color 500ms ease-in-out, color 500ms ease-in-out, box-shadow 500ms ease;
 
-  ${breakpoints.mobile} {
-    width: 100%;
-    text-align: center;
+  &:hover, &:active {
+    opacity: 0.8;
+    box-shadow: none;
   }
 `;
 
-const InlineLink = styled(Link)``;
+const SubButton = styled(ActionButton)`
+  background-color: ${({ theme }) => theme.color.activeTab};
+  margin: 0 0.2em;
+  box-shadow: none;
+
+  ${breakpoints.mobile} {
+    margin: 1em 0.5em;
+  }
+`;
 
 export default About;
