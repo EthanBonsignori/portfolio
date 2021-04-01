@@ -1,6 +1,6 @@
+import uploadingcroppe1 from './posts/3-uploadingcropp1.md';
 import mydeveloperstor from './posts/2-mydeveloperstor.md';
 import lookingbackatpa from './posts/1-lookingbackatpa.md';
-import uploadingusercr from './posts/3-uploadingusercr.md';
 
 const posts = [
   {
@@ -20,12 +20,12 @@ const posts = [
     mdLink: lookingbackatpa,
   },
   {
-    title: 'Uploading Cropped Profile Images to Digital Ocean Spaces Part 1: Overview and Frontend',
+    title: 'Uploading Cropped Profile Images to Digital Ocean Spaces Part 1: Frontend',
     author: 'Ethan Bonsignori',
     category: 'Technology',
     createdAt: 'March 17, 2021',
-    blogLink: 'uploading-cropped-profile-images-to-digital-ocean-spaces-1',
-    mdLink: uploadingusercr,
+    blogLink: 'uploading-cropped-profile-images-to-digital-ocean-spaces-part-1',
+    mdLink: uploadingcroppe1,
   },
 ];
 
