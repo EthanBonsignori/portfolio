@@ -214,7 +214,7 @@ const TabDot = styled.div`
   width: 7px;
   height: 7px;
   transition: background-color 500ms ease-in-out;
-  background-color: ${({ active, theme }) => (active ? theme.color.neonBlue : theme.color.activeTab)};
+  background-color: ${({ active, theme }) => (active ? theme.color.main : theme.color.activeTab)};
   margin-right: 5px;
 
   ${breakpoints.mobile} {
