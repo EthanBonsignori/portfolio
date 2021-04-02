@@ -12,10 +12,12 @@ const darkTheme = {
     ...baseColors,
     background: '#141414',
     cardBackground: '#242424',
+    main: '#FF6B6B',
     accent: '#70D7D0',
     navbarScroll: '#222222',
     activeTab: '#333333',
     text: '#fff',
+    otherText: '#3a4a5a',
   },
 
 };
@@ -26,10 +28,12 @@ const lightTheme = {
     ...baseColors,
     background: '#F0F2F5',
     cardBackground: '#fff',
+    main: '#70D7D0',
     accent: '#FF6B6B',
     navbarScroll: '#f5f5f5',
     activeTab: '#DEDEDE',
     text: '#3a4a5a',
+    otherText: '#fff',
   },
 };
 
