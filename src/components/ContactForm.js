@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import ActionButton from './Pages/shared/ActionButton';
 import breakpoints from '../utils/breakpoints';
 import { fadeIn } from '../utils/keyframes';
 
-const ContactForm = () => {
+const ContactForm = ({ darkMode }) => {
   const [status, setStatus] = useState('');
 
   const submitForm = evt => {
@@ -41,7 +42,11 @@ const ContactForm = () => {
           {status === 'SUCCESS'
             ? <Status>Thanks for reaching out! I&#39;ll get back to you as soon as possible.</Status>
             : <SubmitWrapper>
-              <SubmitButton title='Send'>SEND <FontAwesomeIcon icon={faPaperPlane} /></SubmitButton>
+              <SubmitButton
+                title='Send'
+                darkMode={darkMode}
+              >Send <FontAwesomeIcon icon={faPaperPlane} />
+              </SubmitButton>
             </SubmitWrapper>
           }
           {status === 'ERROR' && <Status>Error: Please make sure you entered a valid email address.</Status>}
@@ -98,14 +103,8 @@ const SubmitWrapper = styled.div`
   display: flex;
 `;
 
-const SubmitButton = styled.button`
-  cursor: pointer;
-  background: ${({ theme }) => theme.color.salmon};
+const SubmitButton = styled(ActionButton)`
   width: 50%;
-  
-  border: none;
-  outline: none;
-  padding: 0.6em;
   margin: 10px 0;
 
   ${breakpoints.landscape} {

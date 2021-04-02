@@ -13,7 +13,7 @@ import { fadeIn } from '../../utils/keyframes';
 const Contact = ({ darkMode, toggleTheme }) => (
   <>
     <Headline title='CONTACT' darkMode={darkMode} toggleTheme={toggleTheme} />
-    <ContactForm />
+    <ContactForm darkMode={darkMode} />
     <CardsWrapper>
       <CardsPositioner>
         CONNECT:

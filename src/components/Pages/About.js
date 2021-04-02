@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Headline from './shared/Headline';
+import ActionButton from './shared/ActionButton';
 import profilePicture from '../../assets/images/profile_pic.jpg';
 import breakpoints from '../../utils/breakpoints';
 import { fadeIn } from '../../utils/keyframes';
@@ -24,16 +25,16 @@ const About = ({ darkMode, toggleTheme }) => (
         <i> Thanks for stopping by!</i>
         <ButtonsContainer>
           <Link to='/projects'>
-            <ActionButton title='My Projects'>Check Out My Projects</ActionButton>
+            <ActionButton title='My Projects' darkMode={darkMode}>Check Out My Projects</ActionButton>
           </Link>
-          <div>
+          <SubButtonsContainer>
             <Link to='/blog'>
               <SubButton title='My Blog'>Read My Blog</SubButton>
             </Link>
             <Link to='/contact'>
               <SubButton title='Contact Me'>Contact Me</SubButton>
             </Link>
-          </div>
+          </SubButtonsContainer>
         </ButtonsContainer>
       </div>
     </AboutSection>
@@ -98,31 +99,21 @@ const ButtonsContainer = styled.div`
     flex-direction: column;
   }
 `;
-const ActionButton = styled.button`
-  cursor: pointer;
-  color: ${({ theme }) => theme.color.text};
-  background-color: ${({ theme }) => theme.color.accent};
-  box-shadow: ${({ theme }) => theme.boxShadow};
-  font-weight: bold;
-  border: none;
-  border-radius: 3px;
-  font-size: 1em;
-  padding: 0.3em 0.8em;
-  transition: background-color 500ms ease-in-out, color 500ms ease-in-out, box-shadow 500ms ease;
 
-  &:hover, &:active {
-    opacity: 0.8;
-    box-shadow: none;
-  }
+const SubButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const SubButton = styled(ActionButton)`
+  color: ${({ theme }) => theme.color.text};
   background-color: ${({ theme }) => theme.color.activeTab};
   margin: 0 0.2em;
   box-shadow: none;
 
   ${breakpoints.mobile} {
-    margin: 1em 0.5em;
+    margin: 1em 0.4em;
+    padding: 3px 9px;
   }
 `;
 
