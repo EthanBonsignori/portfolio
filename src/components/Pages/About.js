@@ -93,7 +93,7 @@ const ButtonsContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  margin-top: 1em;
+  margin-top: 1.5em;
 
   ${breakpoints.mobile} {
     flex-direction: column;
