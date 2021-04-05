@@ -24,7 +24,7 @@ const Navbar = ({ darkMode }) => {
             <NavbarHeader>
               <TabLink to='/'>
                 <NavbarLogo />
-              ETHAN BONSIGNORI
+                ETHAN BONSIGNORI
               </TabLink>
             </NavbarHeader>
           </MobileNavbarContainer>
@@ -36,10 +36,10 @@ const Navbar = ({ darkMode }) => {
           {isMobile
             ? null
             : <NavbarHeader>
-              <TabLink to='/'>
+              <HomeLink to='/'>
                 <NavbarLogo />
-              ETHAN BONSIGNORI
-              </TabLink>
+                ETHAN BONSIGNORI
+              </HomeLink>
             </NavbarHeader>
           }
           <NavbarTabs>
@@ -105,7 +105,7 @@ const NavbarContainer = styled.div`
   justify-content: space-between;
   width: 70%;
   border-radius: 5px;
-  padding: 10px 5px;
+  padding: 10px 0;
   transition: background-color 500ms ease-in-out, box-shadow 500ms ease-in-out;
   background-color: ${({ theme }) => theme.color.background};
   -webkit-box-shadow: ${({ theme }) => theme.boxShadow};
@@ -162,6 +162,7 @@ const NavbarLogo = styled.div`
 const NavbarHeader = styled.div`
   display: flex;
   align-items: center;
+  justify-content: baseline;
   width: 33.333%;
 
   ${breakpoints.landscape} {
@@ -233,10 +234,14 @@ const TabLink = styled(Link)`
   justify-content: center;
   align-items: center;
 
-
   ${breakpoints.landscape} {
     width: 100%;
   }
+`;
+
+const HomeLink = styled(TabLink)`
+  justify-content: left;
+  margin-left: 1em;
 `;
 
 export default Navbar;
