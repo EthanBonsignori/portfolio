@@ -5,10 +5,10 @@ import useWindowDimensions from '../hooks/useWindowDimensions';
 import logo from '../assets/images/eb-logo.png';
 import breakpoints from '../utils/breakpoints';
 import {
-  ABOUT,
+  HOME,
   BLOG,
   PROJECTS,
-  CONTACT,
+  DESIGN,
 } from '../constants/routesConstants';
 
 const Navbar = ({ darkMode }) => {
@@ -44,9 +44,9 @@ const Navbar = ({ darkMode }) => {
           }
           <NavbarTabs>
             <TabLink to='/'>
-              <Tab active={activeTab === ABOUT}>
-                <TabDot active={activeTab === ABOUT} />
-                ABOUT
+              <Tab active={activeTab === HOME}>
+                <TabDot active={activeTab === HOME} />
+                HOME
               </Tab>
             </TabLink>
             <TabLink to='/blog'>
@@ -61,10 +61,10 @@ const Navbar = ({ darkMode }) => {
                 PROJECTS
               </Tab>
             </TabLink>
-            <TabLink to='/contact'>
-              <Tab active={activeTab === CONTACT}>
-                <TabDot active={activeTab === CONTACT} />
-                CONTACT
+            <TabLink to='/design'>
+              <Tab active={activeTab === DESIGN}>
+                <TabDot active={activeTab === DESIGN} />
+                DESIGN
               </Tab>
             </TabLink>
           </NavbarTabs>

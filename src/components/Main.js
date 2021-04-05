@@ -3,12 +3,12 @@ import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import About from './Pages/About';
+import Home from './Pages/Home';
 import BlogList from './Pages/BlogList';
 import Blog from './Pages/Blog';
 import Projects from './Pages/Projects';
 import Project from './Pages/Project';
-import Contact from './Pages/Contact';
+import Design from './Pages/Design';
 import breakpoints from '../utils/breakpoints';
 
 const Main = ({ darkMode, toggleTheme }) => (
@@ -18,12 +18,12 @@ const Main = ({ darkMode, toggleTheme }) => (
       <PageContent>
         <PageContentWrapper>
           <Routes>
-            <Route path='/' element={<About darkMode={darkMode} toggleTheme={toggleTheme} />} />
+            <Route path='/' element={<Home darkMode={darkMode} toggleTheme={toggleTheme} />} />
             <Route path='blog' element={<BlogList darkMode={darkMode} toggleTheme={toggleTheme} />} />
             <Route path='blog/:blogLink' element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
             <Route path='projects' element={<Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
             <Route path='projects/:projectLink' element={<Project darkMode={darkMode} toggleTheme={toggleTheme} />} />
-            <Route path='contact' element={<Contact darkMode={darkMode} toggleTheme={toggleTheme} />} />
+            <Route path='design' element={<Design darkMode={darkMode} toggleTheme={toggleTheme} />} />
             {/* <Route element={<NotFound darkMode={darkMode} toggleTheme={toggleTheme} />} /> */}
           </Routes>
         </PageContentWrapper>

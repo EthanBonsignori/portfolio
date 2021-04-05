@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import ActionButton from './Pages/shared/ActionButton';
 import breakpoints from '../utils/breakpoints';
-import { fadeIn } from '../utils/keyframes';
 
 const ContactForm = ({ darkMode }) => {
   const [status, setStatus] = useState('');
@@ -30,52 +27,30 @@ const ContactForm = ({ darkMode }) => {
 
   return (
     <>
-      <FormWrapper>
-        <Form
-          onSubmit={submitForm}
-          action='https://formspree.io/f/xoqpbkdn'
-          method='POST'
-        >
-          <div style={{ width: '100%' }}>EMAIL ME</div>
-          <Input type='email' name='email' placeholder='Email' />
-          <Textarea type='text' name='message' placeholder='Message' rows='7' />
-          {status === 'SUCCESS'
-            ? <Status>Thanks for reaching out! I&#39;ll get back to you as soon as possible.</Status>
-            : <SubmitWrapper>
-              <SubmitButton
-                title='Send'
-                darkMode={darkMode}
-              >Send <FontAwesomeIcon icon={faPaperPlane} />
-              </SubmitButton>
-            </SubmitWrapper>
-          }
-          {status === 'ERROR' && <Status>Error: Please make sure you entered a valid email address.</Status>}
-        </Form>
-      </FormWrapper>
+      <Form
+        onSubmit={submitForm}
+        action='https://formspree.io/f/xoqpbkdn'
+        method='POST'
+      >
+        <Input type='email' name='email' placeholder='Email' />
+        <Textarea type='text' name='message' placeholder='Message' rows='7' />
+        {status === 'SUCCESS'
+          ? <Status>Thanks for reaching out! I&#39;ll get back to you as soon as possible.</Status>
+          : <SubmitWrapper>
+            <SubmitButton title='Send' darkMode={darkMode}>Send</SubmitButton>
+          </SubmitWrapper>
+        }
+        {status === 'ERROR' && <Status>Error: Please make sure you entered a valid email address.</Status>}
+      </Form>
     </>
   );
 };
 
-const FormWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-  opacity: 0;
-  animation: ${fadeIn} 800ms forwards;
-  animation-delay: 50ms;
-`;
-
 const Form = styled.form`
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
-  width: 60%;
-  
-  ${breakpoints.mobile} {
-    width: 100%;
-  }
 `;
 
 const Input = styled.input`
@@ -100,19 +75,19 @@ const Status = styled.p`
 
 const SubmitWrapper = styled.div`
   width: 100%;
+  margin-top: 1em;
   display: flex;
 `;
 
 const SubmitButton = styled(ActionButton)`
   width: 50%;
-  margin: 10px 0;
 
   ${breakpoints.landscape} {
     width: 60%;
   }
 
   ${breakpoints.mobile} {
-    width: 70%;
+    width: 50%;
   }
 `;
 
