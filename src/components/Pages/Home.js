@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import Headline from './shared/Headline';
 import ActionButton from './shared/ActionButton';
 import ContactForm from '../ContactForm';
@@ -44,7 +44,7 @@ const Home = ({ darkMode, toggleTheme }) => (
 
       </ProjectsWrapper>
     </Section> */}
-    <Section>
+    <ContactSection>
       <FormWrapper>
         <Cursive>~ Get In Touch <FontAwesomeIcon icon={faPaperPlane} /></Cursive>
         <ContactForm darkMode={darkMode} />
@@ -60,7 +60,7 @@ const Home = ({ darkMode, toggleTheme }) => (
           <li>...to say Hi!</li>
         </BulletList>
       </ContactReasons>
-    </Section>
+    </ContactSection>
   </>
 );
 
@@ -75,31 +75,28 @@ const AboutSection = styled.section`
   }
 `;
 
-const Section = styled(AboutSection)`
+const ContactSection = styled(AboutSection)`
   margin-top: 5em;
-
-  ${breakpoints.mobile} {
-    margin-left: 0;
-  }
+  animation-delay: 500ms;
 `;
 
-const SectionHeadline = styled.div`
-  display: flex;
-  align-items: center;
+// const SectionHeadline = styled.div`
+//   display: flex;
+//   align-items: center;
 
-  a {
-    margin-left: 1em;
-  }
+//   a {
+//     margin-left: 1em;
+//   }
 
-  ${breakpoints.mobile} {
-    flex-direction: column;
-  }
-`;
+//   ${breakpoints.mobile} {
+//     flex-direction: column;
+//   }
+// `;
 
-const ProjectsWrapper = styled.div`
-  display: flex;
+// const ProjectsWrapper = styled.div`
+//   display: flex;
 
-`;
+// `;
 
 const FormWrapper = styled.div`
   width: 70%;
