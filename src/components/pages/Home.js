@@ -9,6 +9,7 @@ import ContactForm from '../ContactForm';
 import MarkdownRenderer from '../MarkdownRenderer';
 import breakpoints from '../../utils/breakpoints';
 import { fadeIn } from '../../utils/keyframes';
+import { latestBlogPost, latestProject } from '../../utils/getLatestContent';
 import aboutMarkdown from '../../assets/about.md';
 import profilePicture from '../../assets/images/profile_pic.jpg';
 
@@ -35,15 +36,43 @@ const Home = ({ darkMode, toggleTheme }) => (
         </ButtonsContainer>
       </div>
     </AboutSection>
-    {/* <Section>
-      <SectionHeadline>
-        <Cursive>Recent Projects</Cursive>
-        <Link to='projects'>View All Projects →</Link>
-      </SectionHeadline>
-      <ProjectsWrapper>
 
-      </ProjectsWrapper>
-    </Section> */}
+    <RecentSection>
+      <SubSection>
+        <Cursive>Recent Project</Cursive>
+        <ContentLink to={`project/${latestProject.projectLink}`} title='View Project'>
+          <ContentCard>
+            <CardImage image={latestProject.image} />
+            <CardInnerContent>
+              <CardTitle><b>{latestProject.title}</b> - {latestProject.description}</CardTitle>
+              <CardButtonWrapper>
+                <div></div>
+                <CardActionButton title='View Project'>View</CardActionButton>
+              </CardButtonWrapper>
+            </CardInnerContent>
+          </ContentCard>
+        </ContentLink>
+        <Link to='projects'>View All Projects →</Link>
+      </SubSection>
+
+      <SubSection>
+        <Cursive>Latest Blog Post</Cursive>
+        <ContentLink to={`blog/${latestBlogPost.blogLink}`} title='View Post'>
+          <ContentCard>
+            <CardImage image={latestBlogPost.splash} />
+            <CardInnerContent>
+              <CardTitle><b>{latestBlogPost.title}</b></CardTitle>
+              <CardButtonWrapper>
+                {latestBlogPost.createdAt}
+                <CardActionButton title='View Post'>View</CardActionButton>
+              </CardButtonWrapper>
+            </CardInnerContent>
+          </ContentCard>
+        </ContentLink>
+        <Link to='blog'>View All Blog Posts →</Link>
+      </SubSection>
+    </RecentSection>
+
     <ContactSection>
       <FormWrapper>
         <Cursive>~ Get In Touch <FontAwesomeIcon icon={faPaperPlane} /></Cursive>
@@ -75,28 +104,122 @@ const AboutSection = styled.section`
   }
 `;
 
+const RecentSection = styled(AboutSection)`
+  margin-top: 5em;
+  animation-delay: 300ms;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  ${breakpoints.mobile} {
+    margin-top: 2em;
+    flex-direction: column;
+  }
+`;
+
 const ContactSection = styled(AboutSection)`
   margin-top: 5em;
   animation-delay: 500ms;
 `;
 
-// const SectionHeadline = styled.div`
-//   display: flex;
-//   align-items: center;
+const SubSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
 
-//   a {
-//     margin-left: 1em;
-//   }
+  ${breakpoints.mobile} {
+    width: 100%;
+    margin-top: 3em;
+  }
+`;
 
-//   ${breakpoints.mobile} {
-//     flex-direction: column;
-//   }
-// `;
+const ContentLink = styled(Link)`
+  width: 100%;
+  text-decoration: none;
+  margin-bottom: 1.5em;
+  margin-top: 0.5em;
 
-// const ProjectsWrapper = styled.div`
-//   display: flex;
+  ${breakpoints.mobile} {
+    margin-bottom: 1em;
+  }
+`;
 
-// `;
+const ContentCard = styled.div`
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid ${({ theme }) => theme.color.activeTab};
+  border-radius: 6px;
+  min-height: 120px;
+  background-image: ${({ theme }) => `linear-gradient(to right, ${theme.color.activeTab}, rgba(0, 0, 0, 0))`};
+  display: flex;
+  flex-direction: row;
+`;
+
+const CardImage = styled.div`
+  background-image: url(${({ image }) => image});
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 33.333%;
+
+  ${breakpoints.mobile} {
+    position: absolute;
+    z-index: 99;
+    width: 50%;
+    opacity: 0.3;
+  }
+`;
+
+const CardInnerContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 66.666%;
+
+  ${breakpoints.mobile} {
+    width: 100%;
+    z-index: 100;
+  }
+`;
+
+const CardTitle = styled.div`
+  padding: 5px;
+  width: 100%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  ${breakpoints.mobile} {
+    text-align: center;
+  }
+`;
+
+const CardButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+
+  ${breakpoints.mobile} {
+    padding: 10px 1em;
+  }
+`;
+
+const CardActionButton = styled(ActionButton)`
+  width: 70px;
+  text-decoration: none;
+  box-shadow: none;
+`;
 
 const FormWrapper = styled.div`
   width: 70%;
