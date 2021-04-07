@@ -40,7 +40,7 @@ const Home = ({ darkMode, toggleTheme }) => (
     <RecentSection>
       <SubSection>
         <Cursive>Recent Project</Cursive>
-        <ContentLink to={`project/${latestProject.projectLink}`} title='View Project'>
+        <ContentLink to={`projects/${latestProject.projectLink}`} title='View Project'>
           <ContentCard>
             <CardImage image={latestProject.image} />
             <CardInnerContent>
@@ -120,6 +120,11 @@ const RecentSection = styled(AboutSection)`
 const ContactSection = styled(AboutSection)`
   margin-top: 5em;
   animation-delay: 500ms;
+  padding: 0 2em;
+
+  ${breakpoints.mobile} {
+    padding: 0 1em;
+  }
 `;
 
 const SubSection = styled.div`
@@ -154,6 +159,7 @@ const ContentCard = styled.div`
   border-radius: 6px;
   min-height: 120px;
   background-image: ${({ theme }) => `linear-gradient(to right, ${theme.color.activeTab}, rgba(0, 0, 0, 0))`};
+  transition: border 500ms ease-in-out;
   display: flex;
   flex-direction: row;
 `;
