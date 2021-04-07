@@ -3,12 +3,12 @@ import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import Home from './Pages/Home';
-import BlogList from './Pages/BlogList';
-import Blog from './Pages/Blog';
-import Projects from './Pages/Projects';
-import Project from './Pages/Project';
-import Design from './Pages/Design';
+import Home from './pages/Home';
+import BlogList from './pages/BlogList';
+import Blog from './pages/Blog';
+import Projects from './pages/Projects';
+import Project from './pages/Project';
+import Design from './pages/Design';
 import breakpoints from '../utils/breakpoints';
 
 const Main = ({ darkMode, toggleTheme }) => (
