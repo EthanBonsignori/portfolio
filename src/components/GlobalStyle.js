@@ -75,6 +75,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 16px 24px;
     border-left: 4px solid ${({ theme }) => theme.color.accent};
     border-radius: 3px;
+    transition: background-color 500ms ease-in-out, color 500ms ease, border-color 500ms;
   }
 
   pre {
