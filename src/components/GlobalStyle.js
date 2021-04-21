@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import breakpoints from '../utils/breakpoints';
 import lightFabric from '../assets/images/light-fabric.png';
 import darkFabric from '../assets/images/dark-fabric.png';
 import {
@@ -55,6 +56,15 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ darkMode }) => (darkMode ? 'rgba(255, 255, 255, .06)' : 'rgba(23, 42, 58, .06)')};
   }
 
+  .blog-image-wrapper {
+    width: 100%;
+    text-align: center;
+    
+    img {
+      max-width: 100%;
+    }
+  }
+
   .blog-image {
     width: 100%;
     height: 100%;
@@ -76,6 +86,58 @@ const GlobalStyle = createGlobalStyle`
     border-left: 4px solid ${({ theme }) => theme.color.accent};
     border-radius: 3px;
     transition: background-color 500ms ease-in-out, color 500ms ease, border-color 500ms;
+  }
+
+  .blog-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .blog-flex ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    flex-direction: row;
+
+    ${breakpoints.mobile} {
+      flex-direction: column;
+
+      li:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  .blog-flex li {
+    border: 1px solid ${({ theme }) => theme.color.activeTab};
+    border-radius: 3px;
+    flex: 1 0 50%;
+    margin: 0 1em;
+
+    ${breakpoints.mobile} {
+      margin-top: 1em;
+    }
+  }
+  .blog-flex a {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-decoration: none;
+    height: 230px;
+    padding: 2em;
+    
+    &::after {
+      content: 'View';
+      color: #0069ff;
+      text-decoration: underline;
+      margin-top: 1em;
+    }
+  }
+  .blog-flex img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
   }
 
   pre {
