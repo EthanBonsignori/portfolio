@@ -10,6 +10,7 @@ const posts = [
     createdAt: 'March 3, 2021',
     blogLink: 'my-developer-story',
     mdLink: mydeveloperstor,
+    splash: 'https://i.imgur.com/3Dv1hM3.png',
   },
   {
     title: 'Looking Back at Past Portfolios',
@@ -18,6 +19,7 @@ const posts = [
     createdAt: 'March 2, 2021',
     blogLink: 'looking-back-at-past-portfolios',
     mdLink: lookingbackatpa,
+    splash: 'https://i.imgur.com/3Dv1hM3.png',
   },
   {
     title: 'Uploading Cropped Profile Images to Digital Ocean Spaces Part 1: Frontend',
@@ -26,6 +28,7 @@ const posts = [
     createdAt: 'March 17, 2021',
     blogLink: 'uploading-cropped-profile-images-to-digital-ocean-spaces-part-1',
     mdLink: uploadingcroppe1,
+    splash: 'https://i.imgur.com/3Dv1hM3.png',
   },
 ];
 
