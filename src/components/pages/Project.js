@@ -61,18 +61,20 @@ const Project = ({ darkMode, toggleTheme }) => {
           }
         </LinksWrapper>
         <Description>{description}</Description>
-        <ProjectPictures>
-          <AliceCarousel
-            autoPlay
-            autoHeight
-            autoPlayInterval={8000}
-            mouseTracking
-            infinite
-            disableButtonsControls
-          >
-            {screenshots.map((ss, i) => (<Screenshot key={i} image={ss} />))}
-          </AliceCarousel>
-        </ProjectPictures>
+        {screenshots.length
+          ? <ProjectPictures>
+            <AliceCarousel
+              autoPlay
+              autoHeight
+              autoPlayInterval={8000}
+              mouseTracking
+              infinite
+              disableButtonsControls
+            >
+              {screenshots.map((ss, i) => (<Screenshot key={i} image={ss} />))}
+            </AliceCarousel>
+          </ProjectPictures>
+          : null}
         <InfoHeader></InfoHeader>
         <Info><MarkdownRenderer content={mdLink} /></Info>
         <BackButton delay={800} link='/projects' text='Back to Projects' />
