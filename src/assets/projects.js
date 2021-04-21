@@ -63,7 +63,6 @@ export const projects = [
     site: '',
     github: 'https://github.com/EthanBonsignori/reddit-clone',
     tags: [
-      'javascript',
       'typescript',
       'node',
       'react',
