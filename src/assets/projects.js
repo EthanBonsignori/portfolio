@@ -1,9 +1,16 @@
+import redditcloneLogo from './images/redditclone-logo.png';
 import ebridgeLogo from './images/ebridge-logo.png';
 import dailychartLogo from './images/dailychart-logo.png';
 import menyouLogo from './images/menyou-logo.png';
+import redditcloneMD from './projects/redditclone.md';
 import ebridgeMD from './projects/ebridge.md';
 import dailychartMD from './projects/dailychart.md';
 import menyouMD from './projects/menyou.md';
+import {
+  reddit1,
+  reddit2,
+  reddit3,
+} from './images/RedditClone';
 import {
   ebridge1,
   ebridge2,
@@ -28,19 +35,47 @@ import {
 export const tags = [
   'all',
   'javascript',
+  'typescript',
   'node',
   'react',
   'redux',
   'next.js',
+  'chakra',
   'styled-components',
   'electron',
   'express',
+  'graphql',
   'postgreSQL',
   'socket.io',
   'firebase',
+  'typeorm',
+  'apollo',
 ];
 
 export const projects = [
+  {
+    title: 'cReddit - Reddit Clone',
+    projectLink: 'reddit-clone',
+    active: true,
+    image: redditcloneLogo,
+    description: 'A fullstack reddit clone built with GraphQL, Typescript, Next.js, React and Chakra UI.',
+    mdLink: redditcloneMD,
+    site: '',
+    github: 'https://github.com/EthanBonsignori/reddit-clone',
+    tags: [
+      'javascript',
+      'typescript',
+      'node',
+      'react',
+      'next.js',
+      'chakra',
+      'graphql',
+      'postgreSQL',
+      'apollo',
+      'typeorm',
+    ],
+    screenshots: [redditcloneLogo, reddit1, reddit2, reddit3],
+  },
   {
     title: 'eBridge Club',
     projectLink: 'ebridge',
