@@ -54,13 +54,13 @@ export const tags = [
 
 export const projects = [
   {
-    title: 'cReddit - Reddit Clone',
+    title: 'notReddit - Reddit Clone',
     projectLink: 'reddit-clone',
     active: true,
     image: redditcloneLogo,
     description: 'A fullstack reddit clone built with GraphQL, Typescript, Next.js, React and Chakra UI.',
     mdLink: redditcloneMD,
-    site: '',
+    site: 'https://notreddit.website',
     github: 'https://github.com/EthanBonsignori/reddit-clone',
     tags: [
       'typescript',

@@ -1,3 +1,3 @@
-cReddit is an app that seeks to clone (new) reddit's homepage using React and Chakra UI. The reason I am creating this app is to learn new frameworks along the way. While creating cReddit, I am teaching myself Typescript, GraphQL, Typeorm, Apollo, Chakra UI, and more. It's a sort of trial by fire! Currently you can find the repo for the code above, as it is not deployed yet, but it will be in the very near future.
+notReddit is an app that seeks to clone (new) reddit's homepage using React and Chakra UI. The reason I created this app is to learn new frameworks and libraries while creating it. I am teaching myself Typescript, GraphQL, Typeorm, Apollo, Chakra UI, and more with notReddit. It's a sort of trial by fire! The current site is a work in progress and seeks to eventually have all of the look and some of the features of reddit's homepage, without diving too deep into things like subreddits, awards, or profiles.
 
-Check back soon for screenshots and a deployed site.
+Check back soon for more progress!
