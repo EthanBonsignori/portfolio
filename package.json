@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open --mode development",
+    "dev": "npm run start",
     "build": "webpack --mode production",
     "lint": "eslint ./src",
     "lint.functions": "eslint ./functions",
