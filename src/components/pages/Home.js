@@ -359,6 +359,7 @@ const ButtonsContainer = styled.div`
 
 const MainButton = styled(ActionButton)`
   width: 100%;
+  color: ${({ theme }) => theme.color.text};
 `;
 
 const SubButton = styled(ActionButton)`
