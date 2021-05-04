@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
-import breakpoints from '../utils/breakpoints';
 import fonts from '../assets/fonts';
-import lightFabric from '../assets/images/light-fabric.png';
 import darkFabric from '../assets/images/dark-fabric.png';
+import lightFabric from '../assets/images/light-fabric.png';
+import breakpoints from '../utils/breakpoints';
 
 const GlobalStyle = createGlobalStyle`
   body {

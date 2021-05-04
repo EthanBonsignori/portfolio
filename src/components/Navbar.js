@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import useWindowDimensions from '../hooks/useWindowDimensions';
 import logo from '../assets/images/eb-logo.png';
-import breakpoints from '../utils/breakpoints';
 import {
-  HOME,
   BLOG,
-  PROJECTS,
   DESIGN,
+  HOME,
+  PROJECTS,
 } from '../constants/routesConstants';
+import useWindowDimensions from '../hooks/useWindowDimensions';
+import breakpoints from '../utils/breakpoints';
 
 const Navbar = ({ darkMode }) => {
   const isMobile = useWindowDimensions().width < 768;
