@@ -1,31 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import breakpoints from '../utils/breakpoints';
+import fonts from '../assets/fonts';
 import lightFabric from '../assets/images/light-fabric.png';
 import darkFabric from '../assets/images/dark-fabric.png';
-import {
-  NothingYouCouldDoWoff,
-  NothingYouCouldDoWoff2,
-  PiazzollaRegulareot,
-  PiazzollaRegularwoff2,
-  PiazzollaRegularwoff,
-  PiazzollaRegularttf,
-  PiazzollaRegularsvg,
-  Piazzolla800eot,
-  Piazzolla800woff2,
-  Piazzolla800woff,
-  Piazzolla800ttf,
-  Piazzolla800svg,
-  PiazzollaItaliceot,
-  PiazzollaItalicwoff2,
-  PiazzollaItalicwoff,
-  PiazzollaItalicttf,
-  PiazzollaItalicsvg,
-  Piazzolla800Italiceot,
-  Piazzolla800Italicwoff2,
-  Piazzolla800Italicwoff,
-  Piazzolla800Italicttf,
-  Piazzolla800Italicsvg,
-} from '../assets/fonts';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -178,8 +155,8 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Nothing You Could Do';
     src: local('Nothing You Could Do'), local('NothingYouCouldDo'),
-    url(${NothingYouCouldDoWoff2}) format('woff2'),
-    url(${NothingYouCouldDoWoff}) format('woff');
+    url(${fonts.NothingYouCouldDoWoff2}) format('woff2'),
+    url(${fonts.NothingYouCouldDoWoff}) format('woff');
     font-weight: 600;
     font-style: normal;
   }
@@ -189,38 +166,38 @@ const GlobalStyle = createGlobalStyle`
   font-family: 'Piazzolla';
   font-style: normal;
   font-weight: normal;
-  src: url(${PiazzollaRegulareot}); /* IE9 Compat Modes */
+  src: url(${fonts.PiazzollaRegulareot}); /* IE9 Compat Modes */
   src: local(''),
-       url(${PiazzollaRegulareot}) format('embedded-opentype'), /* IE6-IE8 */
-       url(${PiazzollaRegularwoff2}) format('woff2'), /* Super Modern Browsers */
-       url(${PiazzollaRegularwoff}) format('woff'), /* Modern Browsers */
-       url(${PiazzollaRegularttf}) format('truetype'), /* Safari, Android, iOS */
-       url(${PiazzollaRegularsvg}) format('svg'); /* Legacy iOS */
+       url(${fonts.PiazzollaRegulareot}) format('embedded-opentype'), /* IE6-IE8 */
+       url(${fonts.PiazzollaRegularwoff2}) format('woff2'), /* Super Modern Browsers */
+       url(${fonts.PiazzollaRegularwoff}) format('woff'), /* Modern Browsers */
+       url(${fonts.PiazzollaRegularttf}) format('truetype'), /* Safari, Android, iOS */
+       url(${fonts.PiazzollaRegularsvg}) format('svg'); /* Legacy iOS */
 }
 /* piazzolla-800 - latin */
 @font-face {
   font-family: 'Piazzolla';
   font-style: bold;
   font-weight: 800;
-  src: url(${Piazzolla800eot}); /* IE9 Compat Modes */
+  src: url(${fonts.Piazzolla800eot}); /* IE9 Compat Modes */
   src: local(''),
-       url(${Piazzolla800eot}) format('embedded-opentype'), /* IE6-IE8 */
-       url(${Piazzolla800woff2}) format('woff2'), /* Super Modern Browsers */
-       url(${Piazzolla800woff}) format('woff'), /* Modern Browsers */
-       url(${Piazzolla800ttf}) format('truetype'), /* Safari, Android, iOS */
-       url(${Piazzolla800svg}) format('svg'); /* Legacy iOS */
+       url(${fonts.Piazzolla800eot}) format('embedded-opentype'), /* IE6-IE8 */
+       url(${fonts.Piazzolla800woff2}) format('woff2'), /* Super Modern Browsers */
+       url(${fonts.Piazzolla800woff}) format('woff'), /* Modern Browsers */
+       url(${fonts.Piazzolla800ttf}) format('truetype'), /* Safari, Android, iOS */
+       url(${fonts.Piazzolla800svg}) format('svg'); /* Legacy iOS */
 }
 /* piazzolla-italic - latin */
 @font-face {
   font-family: 'Piazzolla';
   font-style: italic;
-  src: url(${PiazzollaItaliceot}); /* IE9 Compat Modes */
+  src: url(${fonts.PiazzollaItaliceot}); /* IE9 Compat Modes */
   src: local(''),
-       url(${PiazzollaItaliceot}) format('embedded-opentype'), /* IE6-IE8 */
-       url(${PiazzollaItalicwoff2}) format('woff2'), /* Super Modern Browsers */
-       url(${PiazzollaItalicwoff}) format('woff'), /* Modern Browsers */
-       url(${PiazzollaItalicttf}) format('truetype'), /* Safari, Android, iOS */
-       url(${PiazzollaItalicsvg}) format('svg'); /* Legacy iOS */
+       url(${fonts.PiazzollaItaliceot}) format('embedded-opentype'), /* IE6-IE8 */
+       url(${fonts.PiazzollaItalicwoff2}) format('woff2'), /* Super Modern Browsers */
+       url(${fonts.PiazzollaItalicwoff}) format('woff'), /* Modern Browsers */
+       url(${fonts.PiazzollaItalicttf}) format('truetype'), /* Safari, Android, iOS */
+       url(${fonts.PiazzollaItalicsvg}) format('svg'); /* Legacy iOS */
 }
 
 /* piazzolla-800italic - latin */
@@ -228,13 +205,13 @@ const GlobalStyle = createGlobalStyle`
   font-family: 'Piazzolla';
   font-style: italic;
   font-weight: 800;
-  src: url(${Piazzolla800Italiceot}); /* IE9 Compat Modes */
+  src: url(${fonts.Piazzolla800Italiceot}); /* IE9 Compat Modes */
   src: local(''),
-       url(${Piazzolla800Italiceot}) format('embedded-opentype'), /* IE6-IE8 */
-       url(${Piazzolla800Italicwoff2}) format('woff2'), /* Super Modern Browsers */
-       url(${Piazzolla800Italicwoff}) format('woff'), /* Modern Browsers */
-       url(${Piazzolla800Italicttf}) format('truetype'), /* Safari, Android, iOS */
-       url(${Piazzolla800Italicsvg}) format('svg'); /* Legacy iOS */
+       url(${fonts.Piazzolla800Italiceot}) format('embedded-opentype'), /* IE6-IE8 */
+       url(${fonts.Piazzolla800Italicwoff2}) format('woff2'), /* Super Modern Browsers */
+       url(${fonts.Piazzolla800Italicwoff}) format('woff'), /* Modern Browsers */
+       url(${fonts.Piazzolla800Italicttf}) format('truetype'), /* Safari, Android, iOS */
+       url(${fonts.Piazzolla800Italicsvg}) format('svg'); /* Legacy iOS */
 }
 
 `;

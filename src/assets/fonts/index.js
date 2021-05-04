@@ -21,7 +21,7 @@ import Piazzolla800Italicwoff from './piazzolla-v8-latin-800italic.woff';
 import Piazzolla800Italicttf from './piazzolla-v8-latin-800italic.ttf';
 import Piazzolla800Italicsvg from './piazzolla-v8-latin-800italic.svg';
 
-export {
+const fonts = {
   NothingYouCouldDoWoff,
   NothingYouCouldDoWoff2,
   PiazzollaRegulareot,
@@ -45,3 +45,5 @@ export {
   Piazzolla800Italicttf,
   Piazzolla800Italicsvg,
 };
+
+export default fonts;
