@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExpandAlt } from '@fortawesome/free-solid-svg-icons';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import Headline from './shared/Headline';
 import ActionButton from './shared/ActionButton';
@@ -47,7 +48,9 @@ const Home = ({ darkMode, toggleTheme }) => (
               <CardTitle><b>{latestProject.title}</b> - {latestProject.description}</CardTitle>
               <CardButtonWrapper>
                 <div></div>
-                <CardActionButton title='View Project'>View</CardActionButton>
+                <CardActionButton title='View Project'>
+                  <FontAwesomeIcon icon={faExpandAlt} size='lg'/>
+                </CardActionButton>
               </CardButtonWrapper>
             </CardInnerContent>
           </ContentCard>
@@ -64,7 +67,9 @@ const Home = ({ darkMode, toggleTheme }) => (
               <CardTitle><b>{latestBlogPost.title}</b></CardTitle>
               <CardButtonWrapper>
                 {latestBlogPost.createdAt}
-                <CardActionButton title='View Post'>View</CardActionButton>
+                <CardActionButton title='View Post'>
+                  <FontAwesomeIcon icon={faExpandAlt} size='lg'/>
+                </CardActionButton>
               </CardButtonWrapper>
             </CardInnerContent>
           </ContentCard>
@@ -213,18 +218,26 @@ const CardButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
   padding: 5px;
+  position: 'relative';
+  min-height: 30px;
 
   ${breakpoints.mobile} {
     padding: 10px 1em;
   }
 `;
 
-const CardActionButton = styled(ActionButton)`
-  width: 70px;
+const CardActionButton = styled.button`
+  cursor: pointer;
   text-decoration: none;
+  border: none;
+  outline: none;
   box-shadow: none;
+  background: none;
+  color: ${({ theme }) => theme.color.main};
+  position: absolute;
+  right: 0;
 `;
 
 const FormWrapper = styled.div`
