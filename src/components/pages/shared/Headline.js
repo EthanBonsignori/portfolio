@@ -1,10 +1,10 @@
+import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
-import ThemeToggle from './ThemeToggle';
 import breakpoints from '../../../utils/breakpoints';
 import { drawBorder } from '../../../utils/keyframes';
+import ThemeToggle from './ThemeToggle';
 
 const Headline = ({ title, darkMode, toggleTheme }) => (
   <PageHeadline darkMode={darkMode}>

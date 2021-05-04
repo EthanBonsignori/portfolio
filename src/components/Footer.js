@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook, faGithub, faLinkedin, faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import styled from 'styled-components';
 
 const Footer = ({ darkMode }) => (
   <FooterWrapper>

@@ -1,10 +1,10 @@
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import Headline from './shared/Headline';
 import designs from '../../assets/designs';
 import breakpoints from '../../utils/breakpoints';
+import Headline from './shared/Headline';
 
 const Design = ({ darkMode, toggleTheme }) => {
   const designsJsx = designs.map((design, i) => (

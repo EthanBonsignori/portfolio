@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import ActionButton from './pages/shared/ActionButton';
 import breakpoints from '../utils/breakpoints';
+import ActionButton from './pages/shared/ActionButton';
 
 const ContactForm = ({ darkMode }) => {
   const [status, setStatus] = useState('');

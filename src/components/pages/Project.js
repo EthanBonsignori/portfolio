@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBolt, faHeartBroken, faLock } from '@fortawesome/free-solid-svg-icons';
-import Headline from './shared/Headline';
-import BackButton from './shared/BackButton';
-import MarkdownRenderer from '../MarkdownRenderer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect } from 'react';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import { projects } from '../../assets/projects';
 import {
-  popIn,
   fadeIn,
-  logoSlide,
+  logoSlide, popIn,
+
   titleSlide,
 } from '../../utils/keyframes';
+import MarkdownRenderer from '../MarkdownRenderer';
+import BackButton from './shared/BackButton';
+import Headline from './shared/Headline';
 
 const Project = ({ darkMode, toggleTheme }) => {
   const { projectLink } = useParams();

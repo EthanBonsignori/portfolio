@@ -1,16 +1,16 @@
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import Headline from './shared/Headline';
-import BackButton from './shared/BackButton';
-import MarkdownRenderer from '../MarkdownRenderer';
 import blogPosts from '../../assets/blogPosts';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { getBlog, likeBlog, unlikeBlog } from '../../utils/blogApi';
 import { fadeIn } from '../../utils/keyframes';
+import MarkdownRenderer from '../MarkdownRenderer';
+import BackButton from './shared/BackButton';
+import Headline from './shared/Headline';
 
 const Blog = ({ darkMode, toggleTheme }) => {
   const [localBlogLikes, setLocalBlogLikes] = useState(0);

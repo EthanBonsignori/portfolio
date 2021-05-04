@@ -1,14 +1,14 @@
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faBolt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faBolt } from '@fortawesome/free-solid-svg-icons';
+import { projects, tags } from '../../assets/projects';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
-import { tags, projects } from '../../assets/projects';
-import Headline from './shared/Headline';
 import breakpoints from '../../utils/breakpoints';
-import { pulse, fadeIn } from '../../utils/keyframes';
+import { fadeIn, pulse } from '../../utils/keyframes';
+import Headline from './shared/Headline';
 
 const Projects = ({ darkMode, toggleTheme }) => {
   const [activeTags, setActiveTags] = useState(tags);

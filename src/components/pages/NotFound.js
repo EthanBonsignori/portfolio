@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Headline from './shared/Headline';
 import BackButton from './shared/BackButton';
+import Headline from './shared/Headline';
 
 console.log('ok');
 const NotFound = ({ darkMode, toggleTheme }) => (

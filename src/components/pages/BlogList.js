@@ -1,12 +1,12 @@
+import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
-import Headline from './shared/Headline';
 import blogPosts from '../../assets/blogPosts';
 import breakpoints from '../../utils/breakpoints';
 import { fadeIn } from '../../utils/keyframes';
+import Headline from './shared/Headline';
 
 const BlogList = ({ darkMode, toggleTheme }) => {
   const [dateSort, setDateSort] = useState('descending');

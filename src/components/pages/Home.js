@@ -1,18 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExpandAlt } from '@fortawesome/free-solid-svg-icons';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
-import Headline from './shared/Headline';
-import ActionButton from './shared/ActionButton';
-import ContactForm from '../ContactForm';
-import MarkdownRenderer from '../MarkdownRenderer';
-import breakpoints from '../../utils/breakpoints';
-import { fadeIn } from '../../utils/keyframes';
-import { latestBlogPost, latestProject } from '../../utils/getLatestContent';
+import { faExpandAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import aboutMarkdown from '../../assets/about.md';
 import profilePicture from '../../assets/images/profile_pic.jpg';
+import breakpoints from '../../utils/breakpoints';
+import { latestBlogPost, latestProject } from '../../utils/getLatestContent';
+import { fadeIn } from '../../utils/keyframes';
+import ContactForm from '../ContactForm';
+import MarkdownRenderer from '../MarkdownRenderer';
+import ActionButton from './shared/ActionButton';
+import Headline from './shared/Headline';
 
 const Home = ({ darkMode, toggleTheme }) => (
   <>
