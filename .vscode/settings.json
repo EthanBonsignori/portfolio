@@ -3,8 +3,19 @@
     "fa",
     "fontawesome",
     "fortawesome",
+    "gruvbox",
+    "italiceot",
+    "italicsvg",
+    "italicttf",
+    "italicwoff",
     "linkedin",
     "noopener",
-    "noreferrer"
+    "noreferrer",
+    "opentype",
+    "piazzolla",
+    "regulareot",
+    "regularsvg",
+    "regularttf",
+    "regularwoff"
   ]
 }
