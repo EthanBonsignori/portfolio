@@ -9,6 +9,8 @@
     "build": "webpack --mode production",
     "lint": "eslint ./src",
     "lint.functions": "eslint ./functions",
+    "prettier.check": "npx prettier --check .",
+    "prettier": "npx prettier --write .",
     "deploy.all": "npm run build && firebase deploy",
     "deploy": "npm run build && firebase deploy --only hosting",
     "blog": "node ./scripts/createBlog.js"
