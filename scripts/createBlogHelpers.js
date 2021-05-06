@@ -1,20 +1,22 @@
-const getBlogTitleFromArgs = () => process.argv.splice(2, process.argv.length).join(' ');
+const getBlogTitleFromArgs = () =>
+  process.argv.splice(2, process.argv.length).join(' ');
 
-const getFilenameFromTitle = (number, title) => `${number}-${title
-  .replace(/-|\s/g, '')
-  .substring(0, 15)
-  .toLowerCase()}`;
+const getFilenameFromTitle = (number, title) =>
+  `${number}-${title.replace(/-|\s/g, '').substring(0, 15).toLowerCase()}`;
 
-const getBlogLinkFromTitle = title => title.replace(/\s/g, '-').toLowerCase();
+const getBlogLinkFromTitle = (title) => title.replace(/\s/g, '-').toLowerCase();
 
-const removeIndex = str => str.substring(2, str.length);
+const removeIndex = (str) => str.substring(2, str.length);
 
-const getImportStr = file => `import ${removeIndex(file)} from './posts/${file}.md';
+const getImportStr = (file) => `import ${removeIndex(
+  file,
+)} from './posts/${file}.md';
 `;
 
-const getCommaIndex = str => str.lastIndexOf('];');
+const getCommaIndex = (str) => str.lastIndexOf('];');
 
-const insertAtStrIndex = (index, str, blog) => `${str.slice(0, index - 1)}${blog}${str.slice(index)}`;
+const insertAtStrIndex = (index, str, blog) =>
+  `${str.slice(0, index - 1)}${blog}${str.slice(index)}`;
 
 const getBlogDate = () => {
   const options = {

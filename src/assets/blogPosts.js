@@ -22,7 +22,8 @@ const posts = [
     splash: 'https://i.imgur.com/3Dv1hM3.png',
   },
   {
-    title: 'Uploading Cropped Profile Images to Digital Ocean Spaces Part 1: Frontend',
+    title:
+      'Uploading Cropped Profile Images to Digital Ocean Spaces Part 1: Frontend',
     author: 'Ethan Bonsignori',
     category: 'Technology',
     createdAt: 'March 17, 2021',

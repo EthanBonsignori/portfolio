@@ -29,7 +29,9 @@ const Home = ({ darkMode, toggleTheme }) => (
         </AboutText>
         <ButtonsContainer>
           <Link to='/projects' className='__main'>
-            <MainButton title='My Projects' darkMode={darkMode}>Check Out My Projects</MainButton>
+            <MainButton title='My Projects' darkMode={darkMode}>
+              Check Out My Projects
+            </MainButton>
           </Link>
           <Link to='/blog' className='__sub'>
             <SubButton title='My Blog'>Read My Blog</SubButton>
@@ -41,15 +43,19 @@ const Home = ({ darkMode, toggleTheme }) => (
     <RecentSection>
       <SubSection>
         <Cursive>Recent Project</Cursive>
-        <ContentLink to={`projects/${latestProject.projectLink}`} title='View Project'>
+        <ContentLink
+          to={`projects/${latestProject.projectLink}`}
+          title='View Project'>
           <ContentCard>
             <CardImage image={latestProject.image} />
             <CardInnerContent>
-              <CardTitle><b>{latestProject.title}</b> - {latestProject.description}</CardTitle>
+              <CardTitle>
+                <b>{latestProject.title}</b> - {latestProject.description}
+              </CardTitle>
               <CardButtonWrapper>
                 <div></div>
                 <CardActionButton title='View Project'>
-                  <FontAwesomeIcon icon={faExpandAlt} size='lg'/>
+                  <FontAwesomeIcon icon={faExpandAlt} size='lg' />
                 </CardActionButton>
               </CardButtonWrapper>
             </CardInnerContent>
@@ -64,11 +70,13 @@ const Home = ({ darkMode, toggleTheme }) => (
           <ContentCard>
             <CardImage image={latestBlogPost.splash} />
             <CardInnerContent>
-              <CardTitle><b>{latestBlogPost.title}</b></CardTitle>
+              <CardTitle>
+                <b>{latestBlogPost.title}</b>
+              </CardTitle>
               <CardButtonWrapper>
                 {latestBlogPost.createdAt}
                 <CardActionButton title='View Post'>
-                  <FontAwesomeIcon icon={faExpandAlt} size='lg'/>
+                  <FontAwesomeIcon icon={faExpandAlt} size='lg' />
                 </CardActionButton>
               </CardButtonWrapper>
             </CardInnerContent>
@@ -80,7 +88,9 @@ const Home = ({ darkMode, toggleTheme }) => (
 
     <ContactSection>
       <FormWrapper>
-        <Cursive>~ Get In Touch <FontAwesomeIcon icon={faPaperPlane} /></Cursive>
+        <Cursive>
+          ~ Get In Touch <FontAwesomeIcon icon={faPaperPlane} />
+        </Cursive>
         <ContactForm darkMode={darkMode} />
       </FormWrapper>
       <ContactReasons>
@@ -163,7 +173,8 @@ const ContentCard = styled.div`
   border: 1px solid ${({ theme }) => theme.color.activeTab};
   border-radius: 6px;
   min-height: 120px;
-  background-image: ${({ theme }) => `linear-gradient(to right, ${theme.color.activeTab}, rgba(0, 0, 0, 0))`};
+  background-image: ${({ theme }) =>
+    `linear-gradient(to right, ${theme.color.activeTab}, rgba(0, 0, 0, 0))`};
   transition: border 500ms ease-in-out;
   display: flex;
   flex-direction: row;
@@ -268,7 +279,7 @@ const ContactReasons = styled.div`
 
 const BulletList = styled.ul`
   list-style-type: square;
-    
+
   li::marker {
     transition: color 500ms ease-in-out;
     color: ${({ theme }) => theme.color.main};
@@ -307,8 +318,8 @@ const Intro = styled.div`
 `;
 const AboutText = styled.div`
   margin-bottom: 2em;
-  
-  a { 
+
+  a {
     text-decoration-color: ${({ theme }) => theme.color.accent};
   }
 `;
@@ -347,7 +358,7 @@ const ButtonsContainer = styled.div`
 
   .__main {
     width: 50%;
-    
+
     ${breakpoints.landscape} {
       width: 60%;
     }
@@ -359,7 +370,7 @@ const ButtonsContainer = styled.div`
 
   .__sub {
     width: 30%;
-    
+
     ${breakpoints.landscape} {
       width: 37%;
     }
@@ -380,7 +391,7 @@ const SubButton = styled(ActionButton)`
   background-color: ${({ theme }) => theme.color.activeTab};
   box-shadow: none;
   color: ${({ theme }) => theme.color.text};
-  
+
   &:hover {
     color: ${({ theme }) => theme.color.accent};
   }

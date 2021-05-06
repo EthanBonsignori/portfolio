@@ -23,37 +23,52 @@ function createNewDoc(blog) {
 
 app.get('/:blog', (req, res) => {
   const { blog } = req.params;
-  db.collection('blog').doc(blog).get().then(doc => {
-    if (doc.exists) {
-      return res.status(200).json(doc.data());
-    }
-    createNewDoc(blog);
-    return res.status(200).json({ likes: 0 });
-  })
-    .catch(error => res.status(500).json({ message: 'Error in GET /:blog', error }));
+  db.collection('blog')
+    .doc(blog)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        return res.status(200).json(doc.data());
+      }
+      createNewDoc(blog);
+      return res.status(200).json({ likes: 0 });
+    })
+    .catch((error) =>
+      res.status(500).json({ message: 'Error in GET /:blog', error }),
+    );
 });
 
 app.put('/:blog', (req, res) => {
   const { blog } = req.params;
-  db.collection('blog').doc(blog).get().then(doc => {
-    if (doc.exists) {
-      blogCol.doc(blog).update({ likes: increment });
+  db.collection('blog')
+    .doc(blog)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        blogCol.doc(blog).update({ likes: increment });
+        return res.status(200).json({ success: true });
+      }
+      createNewDoc(blog);
       return res.status(200).json({ success: true });
-    }
-    createNewDoc(blog);
-    return res.status(200).json({ success: true });
-  })
-    .catch(error => res.status(500).json({ message: 'Error in PUT /:blog', error }));
+    })
+    .catch((error) =>
+      res.status(500).json({ message: 'Error in PUT /:blog', error }),
+    );
 });
 
 app.put('/:blog/unlike', (req, res) => {
   const { blog } = req.params;
-  db.collection('blog').doc(blog).get().then(doc => {
-    if (doc.exists) {
-      blogCol.doc(blog).update({ likes: decrement });
+  db.collection('blog')
+    .doc(blog)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        blogCol.doc(blog).update({ likes: decrement });
+        return res.status(200).json({ success: true });
+      }
       return res.status(200).json({ success: true });
-    }
-    return res.status(200).json({ success: true });
-  })
-    .catch(error => res.status(500).json({ message: 'Error in PUT /:blog/unlike', error }));
+    })
+    .catch((error) =>
+      res.status(500).json({ message: 'Error in PUT /:blog/unlike', error }),
+    );
 });

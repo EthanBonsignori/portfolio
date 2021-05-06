@@ -28,7 +28,9 @@ export async function likeBlog(blog) {
 
 export async function unlikeBlog(blog) {
   try {
-    const res = await window.fetch(`${route}/${blog}/unlike`, { method: 'PUT' });
+    const res = await window.fetch(`${route}/${blog}/unlike`, {
+      method: 'PUT',
+    });
     if (!res.ok) {
       return console.error(`Error Unliking blog: ${blog}`, res);
     }

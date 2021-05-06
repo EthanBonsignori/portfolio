@@ -8,7 +8,7 @@ import Theme from './Theme';
 const App = () => {
   const [darkMode, setDarkMode] = useLocalStorage('darkMode', true);
 
-  const handleToggleTheme = evt => {
+  const handleToggleTheme = (evt) => {
     setDarkMode(evt?.target?.checked);
   };
 
@@ -16,7 +16,7 @@ const App = () => {
     <Theme darkMode={darkMode}>
       <GlobalStyle darkMode={darkMode} />
       <Router>
-        <Main darkMode={darkMode} toggleTheme={handleToggleTheme}/>
+        <Main darkMode={darkMode} toggleTheme={handleToggleTheme} />
       </Router>
     </Theme>
   );

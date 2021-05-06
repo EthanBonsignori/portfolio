@@ -12,7 +12,7 @@ export default [
     description: '',
   },
   {
-    name: 'A Midsummer Night\'s Dream',
+    name: "A Midsummer Night's Dream",
     url: 'https://i.imgur.com/6nXnf8A.png',
     type: 'Rack Card',
     description: '',
@@ -53,5 +53,4 @@ export default [
     type: 'Logo',
     description: '',
   },
-
 ];

@@ -18,12 +18,36 @@ const Main = ({ darkMode, toggleTheme }) => (
       <PageContent>
         <PageContentWrapper>
           <Routes>
-            <Route path='/' element={<Home darkMode={darkMode} toggleTheme={toggleTheme} />} />
-            <Route path='blog' element={<BlogList darkMode={darkMode} toggleTheme={toggleTheme} />} />
-            <Route path='blog/:blogLink' element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />} />
-            <Route path='projects' element={<Projects darkMode={darkMode} toggleTheme={toggleTheme} />} />
-            <Route path='projects/:projectLink' element={<Project darkMode={darkMode} toggleTheme={toggleTheme} />} />
-            <Route path='design' element={<Design darkMode={darkMode} toggleTheme={toggleTheme} />} />
+            <Route
+              path='/'
+              element={<Home darkMode={darkMode} toggleTheme={toggleTheme} />}
+            />
+            <Route
+              path='blog'
+              element={
+                <BlogList darkMode={darkMode} toggleTheme={toggleTheme} />
+              }
+            />
+            <Route
+              path='blog/:blogLink'
+              element={<Blog darkMode={darkMode} toggleTheme={toggleTheme} />}
+            />
+            <Route
+              path='projects'
+              element={
+                <Projects darkMode={darkMode} toggleTheme={toggleTheme} />
+              }
+            />
+            <Route
+              path='projects/:projectLink'
+              element={
+                <Project darkMode={darkMode} toggleTheme={toggleTheme} />
+              }
+            />
+            <Route
+              path='design'
+              element={<Design darkMode={darkMode} toggleTheme={toggleTheme} />}
+            />
             {/* <Route element={<NotFound darkMode={darkMode} toggleTheme={toggleTheme} />} /> */}
           </Routes>
         </PageContentWrapper>
@@ -64,7 +88,7 @@ const PageContentWrapper = styled.div`
   border-radius: 5px;
   transition: background-color 500ms ease-in-out, box-shadow 500ms ease-in-out;
   -webkit-box-shadow: ${({ theme }) => theme.boxShadow};
-          box-shadow: ${({ theme }) => theme.boxShadow};
+  box-shadow: ${({ theme }) => theme.boxShadow};
   ${breakpoints.landscape} {
     width: 100%;
   }

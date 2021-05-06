@@ -26,14 +26,18 @@ const createBlog = async () => {
 
   let blogsData = '';
   if (!blogTitle) {
-    return console.warn('No blog title entered... Try again with: \n\r\n\r npm run blog {new blog title here}');
+    return console.warn(
+      'No blog title entered... Try again with: \n\r\n\r npm run blog {new blog title here}',
+    );
   }
 
-  fs.writeFile(`${assetsPath}/posts/${mdFilename}.md`, newBlog(), err => {
+  fs.writeFile(`${assetsPath}/posts/${mdFilename}.md`, newBlog(), (err) => {
     if (err) {
       return console.error(err);
     }
-    return console.log(`New blog post successfully created @ assets/posts/${mdFilename}.md.`);
+    return console.log(
+      `New blog post successfully created @ assets/posts/${mdFilename}.md.`,
+    );
   });
 
   return fs.readFile(`${assetsPath}/blogPosts.js`, 'utf8', (err, data) => {
@@ -44,11 +48,13 @@ const createBlog = async () => {
     const mergedData = insertAtStrIndex(insertIndex, data, blogObj);
     const importStr = getImportStr(mdFilename);
     blogsData = `${importStr}${mergedData}`;
-    return fs.writeFile(`${assetsPath}/blogPosts.js`, blogsData, error => {
+    return fs.writeFile(`${assetsPath}/blogPosts.js`, blogsData, (error) => {
       if (err) {
         return console.error(error);
       }
-      return console.log('New data & import successfully added to assets/blogPosts.js');
+      return console.log(
+        'New data & import successfully added to assets/blogPosts.js',
+      );
     });
   });
 };

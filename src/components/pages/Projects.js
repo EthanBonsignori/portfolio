@@ -14,7 +14,7 @@ const Projects = ({ darkMode, toggleTheme }) => {
   const [activeTags, setActiveTags] = useState(tags);
   const { width } = useWindowDimensions();
 
-  const handleTag = evt => {
+  const handleTag = (evt) => {
     const { title } = evt.target;
     if (title === 'all') {
       // toggle between all active & all inactive
@@ -25,7 +25,7 @@ const Projects = ({ darkMode, toggleTheme }) => {
     }
     if (activeTags.includes(title)) {
       // remove tag if already active
-      return setActiveTags(activeTags.filter(i => i !== title));
+      return setActiveTags(activeTags.filter((i) => i !== title));
     }
     // add tag
     return setActiveTags([...activeTags, title]);
@@ -33,44 +33,59 @@ const Projects = ({ darkMode, toggleTheme }) => {
 
   const getFilteredProjectsJSX = () => {
     // filter projects by if their tags are in activeTags arr
-    const filteredProjects = projects.filter(p => p.tags.some(tag => activeTags.includes(tag)));
+    const filteredProjects = projects.filter((p) =>
+      p.tags.some((tag) => activeTags.includes(tag)),
+    );
 
     if (filteredProjects.length === 0) {
-      return <ProjectCard>There doesn&apos;t seem to be anything here. Try changing the filters.</ProjectCard>;
+      return (
+        <ProjectCard>
+          There doesn&apos;t seem to be anything here. Try changing the filters.
+        </ProjectCard>
+      );
     }
     // map filtered projects to jsx
     return filteredProjects.map((p, i) => (
       <ProjectCard key={i}>
-        {width > 768 ? <ProjectImage image={p.image}/> : null}
+        {width > 768 ? <ProjectImage image={p.image} /> : null}
         <ProjectCardContent>
           <ProjectTitle>
-            {width <= 768 ? <ProjectImage image={p.image}/> : null}
+            {width <= 768 ? <ProjectImage image={p.image} /> : null}
             {p.title}
-            {p.active ? <ProjectActive title='In Active Development'/> : null}
+            {p.active ? <ProjectActive title='In Active Development' /> : null}
           </ProjectTitle>
-          <ProjectDescription>
-            {p.description}
-          </ProjectDescription>
+          <ProjectDescription>{p.description}</ProjectDescription>
           <ProjectButtonsWrapper>
             <Link to={p.projectLink}>
               <ProjectButton title='Project Page'>View More</ProjectButton>
             </Link>
             <ProjectLinksWrapper>
-              {p.site
-                ? <ProjectLink href={p.site} target='_blank' title='View Live Site' darkMode={darkMode}>
-                  <FontAwesomeIcon style={{ color: 'yellow' }} icon={faBolt} />&#32;Live
+              {p.site ? (
+                <ProjectLink
+                  href={p.site}
+                  target='_blank'
+                  title='View Live Site'
+                  darkMode={darkMode}>
+                  <FontAwesomeIcon style={{ color: 'yellow' }} icon={faBolt} />
+                  &#32;Live
                 </ProjectLink>
-                : null}
-              {p.github
-                ? <ProjectLink href={p.github} target='_blank' title='View on GitHub' darkMode={darkMode}>
-                  <FontAwesomeIcon icon={faGithub} />&#32;GitHub
+              ) : null}
+              {p.github ? (
+                <ProjectLink
+                  href={p.github}
+                  target='_blank'
+                  title='View on GitHub'
+                  darkMode={darkMode}>
+                  <FontAwesomeIcon icon={faGithub} />
+                  &#32;GitHub
                 </ProjectLink>
-                : null
-              }
+              ) : null}
             </ProjectLinksWrapper>
           </ProjectButtonsWrapper>
           <ProjectTags>
-            {p.tags.map((tag, j) => <ProjectTag key={j}>{tag}</ProjectTag>)}
+            {p.tags.map((tag, j) => (
+              <ProjectTag key={j}>{tag}</ProjectTag>
+            ))}
           </ProjectTags>
         </ProjectCardContent>
       </ProjectCard>
@@ -82,19 +97,20 @@ const Projects = ({ darkMode, toggleTheme }) => {
       key={i}
       title={tag}
       active={activeTags.includes(tag)}
-      onClick={handleTag}
-    >
+      onClick={handleTag}>
       {tag}
     </Tag>
   ));
 
   return (
     <>
-      <Headline title='PROJECTS' darkMode={darkMode} toggleTheme={toggleTheme} />
+      <Headline
+        title='PROJECTS'
+        darkMode={darkMode}
+        toggleTheme={toggleTheme}
+      />
       <ProjectsWrapper>
-        <TagsWrapper>
-          {tagsJSX}
-        </TagsWrapper>
+        <TagsWrapper>{tagsJSX}</TagsWrapper>
         {getFilteredProjectsJSX()}
       </ProjectsWrapper>
       <Outlet />
@@ -121,7 +137,8 @@ const Tag = styled.button`
   cursor: pointer;
   outline: none;
   margin: 0.2em 0.3em;
-  border: ${({ active, theme }) => (active ? `1px solid ${theme.color.accent}` : '1px solid transparent')};
+  border: ${({ active, theme }) =>
+    active ? `1px solid ${theme.color.accent}` : '1px solid transparent'};
   background-color: ${({ theme }) => theme.color.activeTab};
 `;
 
@@ -135,7 +152,6 @@ const ProjectCard = styled.div`
   margin: 0.5em 0;
   transition: background-color 500ms ease-in-out;
   background-color: ${({ theme }) => theme.color.cardBackground};
-
 `;
 
 const ProjectTitle = styled.span`
@@ -147,7 +163,8 @@ const ProjectTitle = styled.span`
 
 const ProjectActive = styled.div`
   position: absolute;
-  top: 10px; right: 10px;
+  top: 10px;
+  right: 10px;
   width: 8px;
   height: 8px;
   background-color: green;
@@ -226,13 +243,14 @@ const ProjectLink = styled.a`
   text-decoration: none;
   margin-right: 1em;
   border: 1px solid ${({ theme }) => theme.color.text};
-  width:  90px;
+  width: 90px;
   text-align: center;
   font-size: 0.8em;
   transition: background-color 250ms;
 
   &:hover {
-    background-color: ${({ darkMode }) => (darkMode ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.2)')};
+    background-color: ${({ darkMode }) =>
+      darkMode ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.2)'};
   }
 
   ${breakpoints.mobile} {

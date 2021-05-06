@@ -15,9 +15,12 @@ import Headline from './shared/Headline';
 const Blog = ({ darkMode, toggleTheme }) => {
   const [localBlogLikes, setLocalBlogLikes] = useState(0);
   const existingBlogLikes = localStorage.getItem('blogLikes') || {};
-  const [blogLikes, setBlogLikes] = useLocalStorage('blogLikes', existingBlogLikes);
+  const [blogLikes, setBlogLikes] = useLocalStorage(
+    'blogLikes',
+    existingBlogLikes,
+  );
   const { blogLink } = useParams();
-  const blogObj = blogPosts.find(b => b.blogLink === blogLink);
+  const blogObj = blogPosts.find((b) => b.blogLink === blogLink);
   const blogDBName = blogLink.replace(/-/g, '');
   const blog = blogObj.mdLink;
 
@@ -47,25 +50,34 @@ const Blog = ({ darkMode, toggleTheme }) => {
     }, 500);
   };
 
-  const BlogBarJsx = <BlogBar>
-    <BackButton link='/blog' text='Back to Blog Posts' delay={0}/>
-    {blogLikes[blogDBName]
-      ? <div>
-        <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
-          <FontAwesomeIcon icon={faSolidHeart} />
-        </LikeButton>&nbsp;{localBlogLikes}
-      </div>
-      : <div>
-        <LikeButton title='Like' onClick={handleLikeBlog}>
-          <FontAwesomeIcon icon={faHeart} />
-        </LikeButton>&nbsp;{localBlogLikes}
-      </div>
-    }
-  </BlogBar>;
+  const BlogBarJsx = (
+    <BlogBar>
+      <BackButton link='/blog' text='Back to Blog Posts' delay={0} />
+      {blogLikes[blogDBName] ? (
+        <div>
+          <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
+            <FontAwesomeIcon icon={faSolidHeart} />
+          </LikeButton>
+          &nbsp;{localBlogLikes}
+        </div>
+      ) : (
+        <div>
+          <LikeButton title='Like' onClick={handleLikeBlog}>
+            <FontAwesomeIcon icon={faHeart} />
+          </LikeButton>
+          &nbsp;{localBlogLikes}
+        </div>
+      )}
+    </BlogBar>
+  );
 
   return (
     <>
-      <Headline title={blogObj.title} darkMode={darkMode} toggleTheme={toggleTheme} />
+      <Headline
+        title={blogObj.title}
+        darkMode={darkMode}
+        toggleTheme={toggleTheme}
+      />
       {BlogBarJsx}
       <BlogWrapper>
         <MarkdownRenderer content={blog} />

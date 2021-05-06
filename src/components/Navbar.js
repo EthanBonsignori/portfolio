@@ -2,12 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../assets/images/eb-logo.png';
-import {
-  BLOG,
-  DESIGN,
-  HOME,
-  PROJECTS,
-} from '../constants/routesConstants';
+import { BLOG, DESIGN, HOME, PROJECTS } from '../constants/routesConstants';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import breakpoints from '../utils/breakpoints';
 
@@ -18,8 +13,8 @@ const Navbar = ({ darkMode }) => {
   const activeTab = location.pathname.split('/')[1];
   return (
     <>
-      {isMobile
-        ? <MobileNavbarWrapper>
+      {isMobile ? (
+        <MobileNavbarWrapper>
           <MobileNavbarContainer darkMode={darkMode}>
             <NavbarHeader>
               <TabLink to='/'>
@@ -29,19 +24,17 @@ const Navbar = ({ darkMode }) => {
             </NavbarHeader>
           </MobileNavbarContainer>
         </MobileNavbarWrapper>
-        : null
-      }
+      ) : null}
       <NavbarWrapper>
         <NavbarContainer darkMode={darkMode}>
-          {isMobile
-            ? null
-            : <NavbarHeader>
+          {isMobile ? null : (
+            <NavbarHeader>
               <HomeLink to='/'>
                 <NavbarLogo />
                 ETHAN BONSIGNORI
               </HomeLink>
             </NavbarHeader>
-          }
+          )}
           <NavbarTabs>
             <TabLink to='/'>
               <Tab active={activeTab === HOME}>
@@ -109,7 +102,7 @@ const NavbarContainer = styled.div`
   transition: background-color 500ms ease-in-out, box-shadow 500ms ease-in-out;
   background-color: ${({ theme }) => theme.color.background};
   -webkit-box-shadow: ${({ theme }) => theme.boxShadow};
-          box-shadow: ${({ theme }) => theme.boxShadow};
+  box-shadow: ${({ theme }) => theme.boxShadow};
 
   ${breakpoints.landscape} {
     width: 100%;
@@ -125,10 +118,10 @@ const NavbarContainer = styled.div`
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 
-    box-shadow: ${({ darkMode }) => (darkMode
-    ? '6px 6px 8px 0px rgba(0, 0, 0, 1)'
-    : '6px 6px 8px 0px rgba(0, 0, 0, 0.1)'
-  )};
+    box-shadow: ${({ darkMode }) =>
+      darkMode
+        ? '6px 6px 8px 0px rgba(0, 0, 0, 1)'
+        : '6px 6px 8px 0px rgba(0, 0, 0, 0.1)'};
   }
 `;
 
@@ -201,7 +194,8 @@ const Tab = styled.button`
   border: none;
   outline: none;
   transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
-  background: ${({ active, theme }) => (active ? theme.color.activeTab : 'none')};
+  background: ${({ active, theme }) =>
+    active ? theme.color.activeTab : 'none'};
   border-radius: 4px;
 
   ${breakpoints.mobile} {
@@ -215,7 +209,8 @@ const TabDot = styled.div`
   width: 7px;
   height: 7px;
   transition: background-color 500ms ease-in-out;
-  background-color: ${({ active, theme }) => (active ? theme.color.main : theme.color.activeTab)};
+  background-color: ${({ active, theme }) =>
+    active ? theme.color.main : theme.color.activeTab};
   margin-right: 5px;
 
   ${breakpoints.mobile} {

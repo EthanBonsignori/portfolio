@@ -1,5 +1,9 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faBolt, faHeartBroken, faLock } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBolt,
+  faHeartBroken,
+  faLock,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import AliceCarousel from 'react-alice-carousel';
@@ -7,19 +11,14 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { projects } from '../../assets/projects';
-import {
-  fadeIn,
-  logoSlide, popIn,
-
-  titleSlide,
-} from '../../utils/keyframes';
+import { fadeIn, logoSlide, popIn, titleSlide } from '../../utils/keyframes';
 import MarkdownRenderer from '../MarkdownRenderer';
 import BackButton from './shared/BackButton';
 import Headline from './shared/Headline';
 
 const Project = ({ darkMode, toggleTheme }) => {
   const { projectLink } = useParams();
-  const project = projects.find(p => p.projectLink === projectLink);
+  const project = projects.find((p) => p.projectLink === projectLink);
   const {
     title,
     image,
@@ -38,48 +37,73 @@ const Project = ({ darkMode, toggleTheme }) => {
     <>
       <Headline title='PROJECT' darkMode={darkMode} toggleTheme={toggleTheme} />
       <ProjectWrapper>
-        <ProjectLogoAnimated image={image}/>
+        <ProjectLogoAnimated image={image} />
         <ProjectLogo image={image} />
         <ProjectTitle>{title}</ProjectTitle>
         <ProjectTitleAnimated>{title}</ProjectTitleAnimated>
         <LinksWrapper>
-          {site
-            ? <ProjectLink target='_blank' href={site} title='View Live Site' darkMode={darkMode}>
-              <FontAwesomeIcon style={{ color: 'yellow' }} icon={faBolt} />&nbsp;Live Site
+          {site ? (
+            <ProjectLink
+              target='_blank'
+              href={site}
+              title='View Live Site'
+              darkMode={darkMode}>
+              <FontAwesomeIcon style={{ color: 'yellow' }} icon={faBolt} />
+              &nbsp;Live Site
             </ProjectLink>
-            : <PrivateLink title='This project is not Deployed' darkMode={darkMode}>
-              <FontAwesomeIcon icon={faHeartBroken} />&nbsp;Not Deployed
+          ) : (
+            <PrivateLink
+              title='This project is not Deployed'
+              darkMode={darkMode}>
+              <FontAwesomeIcon icon={faHeartBroken} />
+              &nbsp;Not Deployed
             </PrivateLink>
-          }
-          {github
-            ? <ProjectLink target='_blank' href={github} title='View on GitHub' darkMode={darkMode}>
-              <FontAwesomeIcon icon={faGithub} />&nbsp;GitHub
+          )}
+          {github ? (
+            <ProjectLink
+              target='_blank'
+              href={github}
+              title='View on GitHub'
+              darkMode={darkMode}>
+              <FontAwesomeIcon icon={faGithub} />
+              &nbsp;GitHub
             </ProjectLink>
-            : <PrivateLink title='The GitHub repo for this project is Private' darkMode={darkMode}>
-              <FontAwesomeIcon icon={faLock} />&nbsp;Private Repo
+          ) : (
+            <PrivateLink
+              title='The GitHub repo for this project is Private'
+              darkMode={darkMode}>
+              <FontAwesomeIcon icon={faLock} />
+              &nbsp;Private Repo
             </PrivateLink>
-          }
+          )}
         </LinksWrapper>
         <Description>{description}</Description>
-        {screenshots.length
-          ? <ProjectPictures>
+        {screenshots.length ? (
+          <ProjectPictures>
             <AliceCarousel
               autoPlay
               autoHeight
               autoPlayInterval={8000}
               mouseTracking
               infinite
-              disableButtonsControls
-            >
-              {screenshots.map((ss, i) => (<Screenshot key={i} image={ss} />))}
+              disableButtonsControls>
+              {screenshots.map((ss, i) => (
+                <Screenshot key={i} image={ss} />
+              ))}
             </AliceCarousel>
           </ProjectPictures>
-          : null}
+        ) : null}
         <InfoHeader></InfoHeader>
-        <Info><MarkdownRenderer content={mdLink} /></Info>
+        <Info>
+          <MarkdownRenderer content={mdLink} />
+        </Info>
         <BackButton delay={800} link='/projects' text='Back to Projects' />
         <TagsHeader>Tags</TagsHeader>
-        <Tags>{tags.map((tag, i) => (<Tag key={i}>{tag}</Tag>))}</Tags>
+        <Tags>
+          {tags.map((tag, i) => (
+            <Tag key={i}>{tag}</Tag>
+          ))}
+        </Tags>
       </ProjectWrapper>
     </>
   );
@@ -139,7 +163,8 @@ const ProjectLink = styled.a`
   transition: background-color 250ms;
 
   &:hover {
-    background-color: ${({ darkMode }) => (darkMode ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.2)')};
+    background-color: ${({ darkMode }) =>
+      darkMode ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.2)'};
   }
 `;
 
@@ -159,7 +184,7 @@ const Description = styled.div`
 const ProjectPictures = styled.div`
   align-self: center;
   opacity: 0;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   margin: 1em 0;
   width: 100%;
   height: 360px;

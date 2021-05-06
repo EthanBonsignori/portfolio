@@ -2,12 +2,12 @@
 import React from 'react';
 import '../assets/css/gruvbox-dark.css';
 
-const wrapMarkup = html => ({
+const wrapMarkup = (html) => ({
   __html: html,
 });
 
 const MarkdownRenderer = ({ content }) => (
-  <div className="markdown" dangerouslySetInnerHTML={wrapMarkup(content)} />
+  <div className='markdown' dangerouslySetInnerHTML={wrapMarkup(content)} />
 );
 
 export default MarkdownRenderer;

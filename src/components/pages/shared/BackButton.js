@@ -8,7 +8,8 @@ import { fadeIn } from '../../../utils/keyframes';
 const BackButton = ({ link, text, delay }) => (
   <Link to={link || '/'}>
     <StyledButton title='Back' delay={delay}>
-      <FontAwesomeIcon icon={faLongArrowAltLeft} />&nbsp;{text || 'Back'}
+      <FontAwesomeIcon icon={faLongArrowAltLeft} />
+      &nbsp;{text || 'Back'}
     </StyledButton>
   </Link>
 );

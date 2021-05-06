@@ -3,7 +3,12 @@ import styled from 'styled-components';
 
 const ThemeToggle = ({ darkMode, toggleTheme }) => (
   <>
-    <Input type='checkbox' id='toggle' checked={darkMode} onChange={toggleTheme} />
+    <Input
+      type='checkbox'
+      id='toggle'
+      checked={darkMode}
+      onChange={toggleTheme}
+    />
     <Label htmlFor='toggle'>Toggle</Label>
   </>
 );
@@ -14,16 +19,16 @@ const Input = styled.input`
   visibility: hidden;
 
   &:checked + label {
-    background: ${({ theme }) => theme.color.salmon}
+    background: ${({ theme }) => theme.color.salmon};
   }
 
   &:checked + label:after {
     left: calc(100% - 5px);
     -webkit-transform: translateX(-100%);
-       -moz-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-         -o-transform: translateX(-100%);
-            transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 `;
 
@@ -42,8 +47,8 @@ const Label = styled.label`
   text-indent: -9999px;
 
   -webkit-border-radius: 100px;
-     -moz-border-radius: 100px;
-          border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
 
   &:after {
     content: '';

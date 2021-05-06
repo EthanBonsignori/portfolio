@@ -30,15 +30,11 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif|ico)$/,
-        use: [
-          'file-loader',
-        ],
+        use: ['file-loader'],
       },
       {
         test: /\.(eot|woff|woff2|ttf)$/,
-        use: [
-          'url-loader',
-        ],
+        use: ['url-loader'],
       },
       {
         test: /\.(md)$/,
@@ -48,7 +44,10 @@ module.exports = {
             loader: 'markdown-loader',
             options: {
               highlight: (code, lang) => {
-                if (!lang || ['text', 'literal', 'nohighlight'].includes(lang)) {
+                if (
+                  !lang ||
+                  ['text', 'literal', 'nohighlight'].includes(lang)
+                ) {
                   return `<pre class="hljs">${code}</pre>`;
                 }
                 const html = highlight.highlight(lang, code).value;

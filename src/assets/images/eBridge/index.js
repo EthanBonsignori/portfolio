@@ -5,11 +5,4 @@ import ebridge4 from './4.png';
 import ebridge5 from './5.png';
 import ebridge6 from './6.png';
 
-export {
-  ebridge1,
-  ebridge2,
-  ebridge3,
-  ebridge4,
-  ebridge5,
-  ebridge6,
-};
+export { ebridge1, ebridge2, ebridge3, ebridge4, ebridge5, ebridge6 };

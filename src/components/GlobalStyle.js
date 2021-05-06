@@ -8,7 +8,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Piazzolla';
     transition: background-image 500ms ease-in-out;
-    background-image: url(${({ darkMode }) => (darkMode ? darkFabric : lightFabric)});
+    background-image: url(${({ darkMode }) =>
+      darkMode ? darkFabric : lightFabric});
     margin: 0;
   }
   div, a, p, input, textarea, button, 
@@ -24,13 +25,15 @@ const GlobalStyle = createGlobalStyle`
     margin-right: 0;
     padding-left: 30px;
     padding-right: 30px;
-    border-left: 3px solid ${({ darkMode }) => (darkMode ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.3)')}
+    border-left: 3px solid ${({ darkMode }) =>
+      darkMode ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.3)'}
   }
 
   code {
     margin: 0 4px;
     color: ${({ theme }) => theme.color.accent};
-    background-color: ${({ darkMode }) => (darkMode ? 'rgba(255, 255, 255, .06)' : 'rgba(23, 42, 58, .06)')};
+    background-color: ${({ darkMode }) =>
+      darkMode ? 'rgba(255, 255, 255, .06)' : 'rgba(23, 42, 58, .06)'};
   }
 
   .blog-image-wrapper {
@@ -58,7 +61,8 @@ const GlobalStyle = createGlobalStyle`
 
   .blog-info {
     width: 100%;
-    background-color: ${({ darkMode }) => (darkMode ? 'rgba(0, 0, 0, 0.6);' : 'rgba(215, 215, 215, 0.5)')};
+    background-color: ${({ darkMode }) =>
+      darkMode ? 'rgba(0, 0, 0, 0.6);' : 'rgba(215, 215, 215, 0.5)'};
     padding: 16px 24px;
     border-left: 4px solid ${({ theme }) => theme.color.accent};
     border-radius: 3px;
@@ -138,7 +142,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .github-logo {
-    content:url(${({ darkMode }) => (darkMode ? 'https://i.imgur.com/XeN2w2v.png' : 'https://i.imgur.com/FkW1LP0.png')});
+    content:url(${({ darkMode }) =>
+      darkMode
+        ? 'https://i.imgur.com/XeN2w2v.png'
+        : 'https://i.imgur.com/FkW1LP0.png'});
 
     width: 16px;
     height: auto;
@@ -168,10 +175,16 @@ const GlobalStyle = createGlobalStyle`
   font-weight: normal;
   src: url(${fonts.PiazzollaRegulareot}); /* IE9 Compat Modes */
   src: local(''),
-       url(${fonts.PiazzollaRegulareot}) format('embedded-opentype'), /* IE6-IE8 */
-       url(${fonts.PiazzollaRegularwoff2}) format('woff2'), /* Super Modern Browsers */
+       url(${
+         fonts.PiazzollaRegulareot
+       }) format('embedded-opentype'), /* IE6-IE8 */
+       url(${
+         fonts.PiazzollaRegularwoff2
+       }) format('woff2'), /* Super Modern Browsers */
        url(${fonts.PiazzollaRegularwoff}) format('woff'), /* Modern Browsers */
-       url(${fonts.PiazzollaRegularttf}) format('truetype'), /* Safari, Android, iOS */
+       url(${
+         fonts.PiazzollaRegularttf
+       }) format('truetype'), /* Safari, Android, iOS */
        url(${fonts.PiazzollaRegularsvg}) format('svg'); /* Legacy iOS */
 }
 /* piazzolla-800 - latin */
@@ -182,9 +195,13 @@ const GlobalStyle = createGlobalStyle`
   src: url(${fonts.Piazzolla800eot}); /* IE9 Compat Modes */
   src: local(''),
        url(${fonts.Piazzolla800eot}) format('embedded-opentype'), /* IE6-IE8 */
-       url(${fonts.Piazzolla800woff2}) format('woff2'), /* Super Modern Browsers */
+       url(${
+         fonts.Piazzolla800woff2
+       }) format('woff2'), /* Super Modern Browsers */
        url(${fonts.Piazzolla800woff}) format('woff'), /* Modern Browsers */
-       url(${fonts.Piazzolla800ttf}) format('truetype'), /* Safari, Android, iOS */
+       url(${
+         fonts.Piazzolla800ttf
+       }) format('truetype'), /* Safari, Android, iOS */
        url(${fonts.Piazzolla800svg}) format('svg'); /* Legacy iOS */
 }
 /* piazzolla-italic - latin */
@@ -193,10 +210,16 @@ const GlobalStyle = createGlobalStyle`
   font-style: italic;
   src: url(${fonts.PiazzollaItaliceot}); /* IE9 Compat Modes */
   src: local(''),
-       url(${fonts.PiazzollaItaliceot}) format('embedded-opentype'), /* IE6-IE8 */
-       url(${fonts.PiazzollaItalicwoff2}) format('woff2'), /* Super Modern Browsers */
+       url(${
+         fonts.PiazzollaItaliceot
+       }) format('embedded-opentype'), /* IE6-IE8 */
+       url(${
+         fonts.PiazzollaItalicwoff2
+       }) format('woff2'), /* Super Modern Browsers */
        url(${fonts.PiazzollaItalicwoff}) format('woff'), /* Modern Browsers */
-       url(${fonts.PiazzollaItalicttf}) format('truetype'), /* Safari, Android, iOS */
+       url(${
+         fonts.PiazzollaItalicttf
+       }) format('truetype'), /* Safari, Android, iOS */
        url(${fonts.PiazzollaItalicsvg}) format('svg'); /* Legacy iOS */
 }
 
@@ -207,10 +230,18 @@ const GlobalStyle = createGlobalStyle`
   font-weight: 800;
   src: url(${fonts.Piazzolla800Italiceot}); /* IE9 Compat Modes */
   src: local(''),
-       url(${fonts.Piazzolla800Italiceot}) format('embedded-opentype'), /* IE6-IE8 */
-       url(${fonts.Piazzolla800Italicwoff2}) format('woff2'), /* Super Modern Browsers */
-       url(${fonts.Piazzolla800Italicwoff}) format('woff'), /* Modern Browsers */
-       url(${fonts.Piazzolla800Italicttf}) format('truetype'), /* Safari, Android, iOS */
+       url(${
+         fonts.Piazzolla800Italiceot
+       }) format('embedded-opentype'), /* IE6-IE8 */
+       url(${
+         fonts.Piazzolla800Italicwoff2
+       }) format('woff2'), /* Super Modern Browsers */
+       url(${
+         fonts.Piazzolla800Italicwoff
+       }) format('woff'), /* Modern Browsers */
+       url(${
+         fonts.Piazzolla800Italicttf
+       }) format('truetype'), /* Safari, Android, iOS */
        url(${fonts.Piazzolla800Italicsvg}) format('svg'); /* Legacy iOS */
 }
 

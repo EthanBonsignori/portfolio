@@ -1,5 +1,8 @@
 import {
-  faFacebook, faGithub, faLinkedin, faTwitter,
+  faFacebook,
+  faGithub,
+  faLinkedin,
+  faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
@@ -15,8 +18,7 @@ const Footer = ({ darkMode }) => (
           title='GitHub'
           target='_blank'
           rel='noreferrer noopener'
-          href='https://www.github.com/EthanBonsignori/'
-        >
+          href='https://www.github.com/EthanBonsignori/'>
           <FontAwesomeIcon icon={faGithub} />
         </ContactLink>
       </ContactCard>
@@ -26,8 +28,7 @@ const Footer = ({ darkMode }) => (
           title='LinkedIn'
           target='_blank'
           rel='noreferrer noopener'
-          href='https://www.linkedin.com/in/EthanBonsignori/'
-        >
+          href='https://www.linkedin.com/in/EthanBonsignori/'>
           <FontAwesomeIcon icon={faLinkedin} />
         </ContactLink>
       </ContactCard>
@@ -37,8 +38,7 @@ const Footer = ({ darkMode }) => (
           title='Facebook'
           target='_blank'
           rel='noreferrer noopener'
-          href='https://www.facebook.com/ethan.bonsignori/'
-        >
+          href='https://www.facebook.com/ethan.bonsignori/'>
           <FontAwesomeIcon icon={faFacebook} />
         </ContactLink>
       </ContactCard>
@@ -48,8 +48,7 @@ const Footer = ({ darkMode }) => (
           title='Twitter'
           target='_blank'
           rel='noreferrer noopener'
-          href='https://www.twitter.com/EthanBonsignori/'
-        >
+          href='https://www.twitter.com/EthanBonsignori/'>
           <FontAwesomeIcon icon={faTwitter} />
         </ContactLink>
       </ContactCard>
@@ -79,7 +78,7 @@ const ContactText = styled.span`
 `;
 
 const ContactCard = styled.div`
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &:hover,
   &:active a {
@@ -93,7 +92,7 @@ const ContactLink = styled.a`
   margin: 0 0.5em;
   opacity: 0.4;
   text-decoration: none;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &:hover,
   &:active {

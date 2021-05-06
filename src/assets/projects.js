@@ -6,11 +6,7 @@ import redditcloneMD from './projects/redditclone.md';
 import ebridgeMD from './projects/ebridge.md';
 import dailychartMD from './projects/dailychart.md';
 import menyouMD from './projects/menyou.md';
-import {
-  reddit1,
-  reddit2,
-  reddit3,
-} from './images/RedditClone';
+import { reddit1, reddit2, reddit3 } from './images/RedditClone';
 import {
   ebridge1,
   ebridge2,
@@ -19,10 +15,7 @@ import {
   ebridge5,
   ebridge6,
 } from './images/eBridge';
-import {
-  dailychart1,
-  dailychart2,
-} from './images/DailyChart';
+import { dailychart1, dailychart2 } from './images/DailyChart';
 import {
   menyou1,
   menyou2,
@@ -58,7 +51,8 @@ export const projects = [
     projectLink: 'reddit-clone',
     active: true,
     image: redditcloneLogo,
-    description: 'A fullstack reddit clone built with GraphQL, Typescript, Next.js, React and Chakra UI.',
+    description:
+      'A fullstack reddit clone built with GraphQL, Typescript, Next.js, React and Chakra UI.',
     mdLink: redditcloneMD,
     site: 'https://notreddit.website',
     github: 'https://github.com/EthanBonsignori/reddit-clone',
@@ -97,21 +91,15 @@ export const projects = [
       'postgreSQL',
       'socket.io',
     ],
-    screenshots: [
-      ebridge1,
-      ebridge2,
-      ebridge3,
-      ebridge4,
-      ebridge5,
-      ebridge6,
-    ],
+    screenshots: [ebridge1, ebridge2, ebridge3, ebridge4, ebridge5, ebridge6],
   },
   {
     title: 'Daily Chart',
     projectLink: 'dailychart',
     active: false,
     image: dailychartLogo,
-    description: 'Track any daily data with this fully customizable electron chart app.',
+    description:
+      'Track any daily data with this fully customizable electron chart app.',
     mdLink: dailychartMD,
     site: '',
     github: 'https://github.com/EthanBonsignori/daily-chart',
@@ -130,13 +118,6 @@ export const projects = [
     site: 'https://ethanbonsignori.github.io/MenYou/',
     github: 'https://github.com/EthanBonsignori/MenYou',
     tags: ['javascript', 'firebase'],
-    screenshots: [
-      menyou1,
-      menyou2,
-      menyou3,
-      menyou4,
-      menyou5,
-      menyou6,
-    ],
+    screenshots: [menyou1, menyou2, menyou3, menyou4, menyou5, menyou6],
   },
 ];

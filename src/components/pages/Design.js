@@ -18,20 +18,19 @@ const Design = ({ darkMode, toggleTheme }) => {
           href={design.url}
           target='_blank'
           rel='noreferrer'
-          title='View Image'
-        >View <FontAwesomeIcon icon={faExternalLinkAlt}/>
+          title='View Image'>
+          View <FontAwesomeIcon icon={faExternalLinkAlt} />
         </OverlayLink>
       </DesignItemOverlay>
       <DesignItem image={design.url} />
     </DesignItemWrapper>
   ));
 
-  return (<>
-    <Headline title='DESIGN' darkMode={darkMode} toggleTheme={toggleTheme} />
-    <DesignsWrapper>
-      {designsJsx}
-    </DesignsWrapper>
-  </>
+  return (
+    <>
+      <Headline title='DESIGN' darkMode={darkMode} toggleTheme={toggleTheme} />
+      <DesignsWrapper>{designsJsx}</DesignsWrapper>
+    </>
   );
 };
 
@@ -75,7 +74,8 @@ const DesignItemOverlay = styled.div`
   background-image: linear-gradient(#000, rgba(0, 0, 0, 0));
   opacity: 0;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     opacity: 1;
   }
 `;

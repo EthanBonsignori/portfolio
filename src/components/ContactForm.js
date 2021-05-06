@@ -6,7 +6,7 @@ import ActionButton from './pages/shared/ActionButton';
 const ContactForm = ({ darkMode }) => {
   const [status, setStatus] = useState('');
 
-  const submitForm = evt => {
+  const submitForm = (evt) => {
     evt.preventDefault();
     const form = evt.target;
     const data = new FormData(form);
@@ -30,17 +30,26 @@ const ContactForm = ({ darkMode }) => {
       <Form
         onSubmit={submitForm}
         action='https://formspree.io/f/xoqpbkdn'
-        method='POST'
-      >
+        method='POST'>
         <Input type='email' name='email' placeholder='Email' />
         <Textarea type='text' name='message' placeholder='Message' rows='7' />
-        {status === 'SUCCESS'
-          ? <Status>Thanks for reaching out! I&#39;ll get back to you as soon as possible.</Status>
-          : <SubmitWrapper>
-            <SubmitButton title='Send' darkMode={darkMode}>Send</SubmitButton>
+        {status === 'SUCCESS' ? (
+          <Status>
+            Thanks for reaching out! I&#39;ll get back to you as soon as
+            possible.
+          </Status>
+        ) : (
+          <SubmitWrapper>
+            <SubmitButton title='Send' darkMode={darkMode}>
+              Send
+            </SubmitButton>
           </SubmitWrapper>
-        }
-        {status === 'ERROR' && <Status>Error: Please make sure you entered a valid email address.</Status>}
+        )}
+        {status === 'ERROR' && (
+          <Status>
+            Error: Please make sure you entered a valid email address.
+          </Status>
+        )}
       </Form>
     </>
   );

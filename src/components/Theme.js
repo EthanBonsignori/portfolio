@@ -19,7 +19,6 @@ const darkTheme = {
     text: '#fff',
     otherText: '#3a4a5a',
   },
-
 };
 
 const lightTheme = {
@@ -38,7 +37,9 @@ const lightTheme = {
 };
 
 const Theme = ({ darkMode, children }) => (
-  <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>{children}</ThemeProvider>
+  <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+    {children}
+  </ThemeProvider>
 );
 
 export default Theme;

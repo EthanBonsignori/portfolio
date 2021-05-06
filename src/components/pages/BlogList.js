@@ -22,21 +22,25 @@ const BlogList = ({ darkMode, toggleTheme }) => {
   const getBlogsJsx = () => {
     let sortedPosts = blogPosts;
     if (dateSort === 'descending') {
-      sortedPosts = blogPosts.sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+      sortedPosts = blogPosts.sort(
+        (a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt),
+      );
     } else {
-      sortedPosts = blogPosts.sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt));
+      sortedPosts = blogPosts.sort(
+        (a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt),
+      );
     }
 
     if (categorySort !== 'all') {
-      sortedPosts = blogPosts.filter(post => post.category.toLowerCase() === categorySort);
+      sortedPosts = blogPosts.filter(
+        (post) => post.category.toLowerCase() === categorySort,
+      );
     }
 
     return sortedPosts.map((b, i) => (
       <BlogPost key={i}>
         <BlogPostHeader>
-          <Link to={b.blogLink}>
-            {b.title}
-          </Link>
+          <Link to={b.blogLink}>{b.title}</Link>
         </BlogPostHeader>
         <BlogDetails>
           <span>⟶&nbsp;{b.category}</span>
@@ -52,17 +56,21 @@ const BlogList = ({ darkMode, toggleTheme }) => {
         <SortWrapper>
           <SortButton title={dateSort} onClick={handleDateSort}>
             Sort By Date&nbsp;
-            {dateSort === 'descending'
-              ? <FontAwesomeIcon icon={faCaretDown}/>
-              : <FontAwesomeIcon icon={faCaretUp} />
-            }
+            {dateSort === 'descending' ? (
+              <FontAwesomeIcon icon={faCaretDown} />
+            ) : (
+              <FontAwesomeIcon icon={faCaretUp} />
+            )}
           </SortButton>
           <SelectWrapper>
             <label htmlFor='category'>Category: </label>
-            <SortSelect id='category' value={categorySort} onChange={e => setCategorySort(e.target.value)}>
-              <option value="all">All</option>
-              <option value="technology">Technology</option>
-              <option value="life">Life</option>
+            <SortSelect
+              id='category'
+              value={categorySort}
+              onChange={(e) => setCategorySort(e.target.value)}>
+              <option value='all'>All</option>
+              <option value='technology'>Technology</option>
+              <option value='life'>Life</option>
             </SortSelect>
           </SelectWrapper>
         </SortWrapper>
@@ -109,7 +117,7 @@ const SortWrapper = styled.div`
   display: flex;
   width: 100%;
   margin-bottom: 1em;
-  justify-content: space-evenly; 
+  justify-content: space-evenly;
 `;
 const SortButton = styled.button`
   cursor: pointer;

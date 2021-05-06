@@ -13,7 +13,7 @@ const Headline = ({ title, darkMode, toggleTheme }) => (
       <Lightbulb darkMode={darkMode}>
         <FontAwesomeIcon icon={faLightbulb} />
       </Lightbulb>
-      <ThemeToggle darkMode={darkMode} toggleTheme={toggleTheme}/>
+      <ThemeToggle darkMode={darkMode} toggleTheme={toggleTheme} />
     </ToggleContainer>
   </PageHeadline>
 );
@@ -31,8 +31,11 @@ const PageHeadline = styled.div`
     box-sizing: inherit;
     content: '';
     position: absolute;
-    bottom: 0; left: 0;
-    border-bottom: 1px solid ${({ darkMode, theme }) => (darkMode ? theme.color.salmon : theme.color.neonBlue)};
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid
+      ${({ darkMode, theme }) =>
+        darkMode ? theme.color.salmon : theme.color.neonBlue};
     width: 100%;
     animation: ${drawBorder} 1s forwards;
     transition: width 0.5s ease-out;
@@ -50,7 +53,6 @@ const PageTitle = styled.h2`
 const ToggleContainer = styled.div`
   display: flex;
   align-items: center;
-
 `;
 
 const Lightbulb = styled.div`
@@ -66,7 +68,8 @@ const Lightbulb = styled.div`
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background-color: ${({ darkMode }) => (darkMode ? 'transparent' : 'yellow')};
+    background-color: ${({ darkMode }) =>
+      darkMode ? 'transparent' : 'yellow'};
     filter: blur(5px);
     opacity: 0.6;
   }
