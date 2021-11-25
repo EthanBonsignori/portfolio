@@ -20,7 +20,7 @@ module.exports = {
         test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query: {
+        options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
         },
       },
@@ -62,7 +62,6 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
-      filename: './index.html',
       favicon: './src/assets/favicon.ico',
       hash: true,
       inject: true,
