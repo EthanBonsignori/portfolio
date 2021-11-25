@@ -8,6 +8,12 @@ Personal developer portfolio, blog, and place to show off projects. Designed fro
 
 ![About Page](https://i.imgur.com/6846SW2.png)
 
+## Running Locally
+
+1. `bash git clone git@github.com:EthanBonsignori/portfolio.git`
+2. `yarn` or `npm i`
+3. `
+
 ## Adding a new Blog
 
 Run the following command replacing the brackets with the title:
