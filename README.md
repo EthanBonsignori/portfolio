@@ -10,9 +10,15 @@ Personal developer portfolio, blog, and place to show off projects. Designed fro
 
 ## Running Locally
 
-1. `bash git clone git@github.com:EthanBonsignori/portfolio.git`
-2. `yarn` or `npm i`
-3. `
+1. ```bash
+   git clone git@github.com:EthanBonsignori/portfolio.git
+   ```
+2. ```bash
+   npm install
+   ```
+3. ```bash
+   npm run dev
+   ```
 
 ## Adding a new Blog
 
