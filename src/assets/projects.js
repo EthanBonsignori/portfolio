@@ -2,6 +2,8 @@ import redditcloneLogo from './images/redditclone-logo.png';
 import ebridgeLogo from './images/ebridge-logo.png';
 import dailychartLogo from './images/dailychart-logo.png';
 import menyouLogo from './images/menyou-logo.png';
+import uservoteMD from './projects/uservote.md';
+import uservoteLogo from './images/uservote-logo.png';
 import redditcloneMD from './projects/redditclone.md';
 import ebridgeMD from './projects/ebridge.md';
 import dailychartMD from './projects/dailychart.md';
@@ -24,32 +26,59 @@ import {
   menyou5,
   menyou6,
 } from './images/MenYou';
+import uservote1 from './images/uservote';
 
 export const tags = [
   'all',
   'javascript',
   'typescript',
+  'python',
   'node',
+  'fastapi',
   'react',
   'redux',
   'next.js',
   'chakra ui',
+  'material ui',
   'styled-components',
   'electron',
   'express',
   'graphql',
   'postgreSQL',
+  'mongodb',
   'socket.io',
   'firebase',
   'typeorm',
   'apollo',
 ];
 
+// Add latest at top
 export const projects = [
+  {
+    title: 'uservote',
+    projectLink: 'uservote',
+    active: true,
+    image: uservoteLogo,
+    description:
+      'A fullstack feature request collection app built with Python, FastAPI, React, and MaterialUI',
+    mdLink: uservoteMD,
+    site: 'https://getuservote.com',
+    github: 'https://github.com/EthanBonsignori/uservote',
+    tags: [
+      'typescript',
+      'node',
+      'react',
+      'material ui',
+      'python',
+      'fastapi',
+      'mongodb',
+    ],
+    screenshots: [uservoteLogo, uservote1],
+  },
   {
     title: 'notReddit - Reddit Clone',
     projectLink: 'reddit-clone',
-    active: true,
+    active: false,
     image: redditcloneLogo,
     description:
       'A fullstack reddit clone built with GraphQL, Typescript, Next.js, React and Chakra UI.',
