@@ -10,8 +10,6 @@ import Theme from './Theme';
 const App = () => {
   const [darkMode, setDarkMode] = useLocalStorage('darkMode', true);
 
-  console.log(process.env.REACT_APP_FIREBASE_API_KEY);
-
   const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
