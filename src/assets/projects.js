@@ -83,7 +83,7 @@ export const projects = [
     description:
       'A fullstack reddit clone built with GraphQL, Typescript, Next.js, React and Chakra UI.',
     mdLink: redditcloneMD,
-    site: 'https://notreddit.website',
+    // site: 'https://notreddit.website',
     github: 'https://github.com/EthanBonsignori/reddit-clone',
     tags: [
       'typescript',
@@ -102,7 +102,7 @@ export const projects = [
   {
     title: 'eBridge Club',
     projectLink: 'ebridge',
-    active: true,
+    active: false,
     image: ebridgeLogo,
     description: `A user-friendly bridge website for ex-Pogo.com
       players to play free online multiplayer contract bridge.`,
