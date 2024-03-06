@@ -1,19 +1,15 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const highlight = require('highlight.js');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    app: './src/index.js',
+  },
   output: {
     path: path.join(__dirname, '/build'),
     publicPath: '/',
     filename: 'main.js',
-  },
-  devServer: {
-    port: 4000,
-    hot: true,
-    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -61,7 +57,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new Dotenv(),
     new HtmlWebPackPlugin({
       template: './src/index.html',
       favicon: './src/assets/favicon.ico',
