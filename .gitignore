@@ -8,3 +8,4 @@ permissions.json
 route.js
 **/writing
 **-debug.log
+.ds_store
