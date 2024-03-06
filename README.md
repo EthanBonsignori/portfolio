@@ -17,7 +17,7 @@ Personal developer portfolio, blog, and place to show off projects. Designed fro
    npm install
    ```
 3. ```bash
-   npm r
+   npm run dev
    ```
 
 ## Adding a new Blog
