@@ -2,7 +2,7 @@ const { merge } = require('webpack-merge');
 const { DefinePlugin } = require('webpack');
 const common = require('./webpack.common.js');
 
-merge(common, {
+module.exports = merge(common, {
   mode: 'production',
   plugins: [
     new DefinePlugin({
