@@ -6,17 +6,16 @@ import useLocalStorage from '../hooks/useLocalStorage';
 import GlobalStyle from './GlobalStyle';
 import Main from './Main';
 import Theme from './Theme';
-import * as firebase from '../utils/firebaseConfig';
 
 const firebaseConfig = {
-  apiKey: firebase.API_KEY,
-  authDomain: firebase.AUTH_DOMAIN,
-  databaseURL: firebase.DATABASE_URL,
-  projectId: firebase.PROJECT_ID,
-  storageBucket: firebase.STORAGE_BUCKET,
-  messagingSenderId: firebase.MESSAGING_SENDER_ID,
-  appId: firebase.APP_ID,
-  measurementId: firebase.MEASUREMENT_ID,
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
