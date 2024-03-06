@@ -7,8 +7,14 @@
         "destination": "/index.html"
       }
     ],
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "predeploy": ["npm run lint"]
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "predeploy": [
+      "npm run lint"
+    ]
   },
   "functions": {
     "source": "functions"
