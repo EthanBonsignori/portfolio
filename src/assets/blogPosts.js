@@ -1,3 +1,4 @@
+import settingupautoma from './posts/4-settingupautoma.md';
 import uploadingcroppe1 from './posts/3-uploadingcropp1.md';
 import mydeveloperstor from './posts/2-mydeveloperstor.md';
 import lookingbackatpa from './posts/1-lookingbackatpa.md';
@@ -30,6 +31,16 @@ const posts = [
     blogLink: 'uploading-cropped-profile-images-to-digital-ocean-spaces-part-1',
     mdLink: uploadingcroppe1,
     splash: 'https://i.imgur.com/3Dv1hM3.png',
+  },
+  {
+    title:
+      'Setting up Automatic Firebase Hosting Deploys with Environment Secrets',
+    author: 'Ethan Bonsignori',
+    category: 'Technology',
+    createdAt: 'March 7, 2024',
+    blogLink:
+      'setting-up-automatic-firebase-hosting-deploys-with-environment-secrets',
+    mdLink: settingupautoma,
   },
 ];
 
