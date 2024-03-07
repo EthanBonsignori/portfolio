@@ -41,6 +41,7 @@ const posts = [
     blogLink:
       'setting-up-automatic-firebase-hosting-deploys-with-environment-secrets',
     mdLink: settingupautoma,
+    splash: 'https://i.imgur.com/2gt4eK2.png',
   },
 ];
 
