@@ -62,9 +62,9 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ETHAN_PORTFOLIO }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_XYZ }}'
           channelId: live
-          projectId: ethan-portfolio
+          projectId: your-id
 ```
 
 ### 2. Accessing Environment Variables/Secrets
