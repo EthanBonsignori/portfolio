@@ -73,9 +73,7 @@ jobs:
 
 As I said above, this is where it can get tricky, since you don't want to expose your secrets. The way to do this is to use GitHub Secrets. You can read more about GitHub Secrets [here](https://docs.github.com/en/actions/reference/encrypted-secrets).
 
-<a target="_blank" href="../images/blogs/4/secrets-actions.png" title="View original image">
 <img class="blog-screenshot" src="../images/blogs/4/secrets-actions.png" alt="secrets and variables -> actions">
-</a>
 
 Navigate to your repositories settings, and on the left-hand side under "Security", click on "Secrets and variables" -> "Actions". Here you can add your secrets.
 
