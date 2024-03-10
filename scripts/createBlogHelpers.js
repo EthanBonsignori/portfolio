@@ -1,3 +1,5 @@
+const PLACEHOLDER_SPLASH_URL = 'https://i.imgur.com/GbIQNMe.png';
+
 const getBlogTitleFromArgs = () =>
   process.argv.splice(2, process.argv.length).join(' ');
 
@@ -60,6 +62,7 @@ const getBlogObj = (title, file, link) => `
     createdAt: '${getBlogDate()}',
     blogLink: '${link}',
     mdLink: ${removeIndex(file)},
+    splash: PLACEHOLDER_SPLASH_URL,
   },
 `;
 
@@ -73,4 +76,5 @@ module.exports = {
   insertAtStrIndex,
   getBlogDate,
   newBlog,
+  PLACEHOLDER_SPLASH_URL,
 };

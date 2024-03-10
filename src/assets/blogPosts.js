@@ -2,6 +2,7 @@ import settingupautoma from './posts/4-settingupautoma.md';
 import uploadingcroppe1 from './posts/3-uploadingcropp1.md';
 import mydeveloperstor from './posts/2-mydeveloperstor.md';
 import lookingbackatpa from './posts/1-lookingbackatpa.md';
+import { PLACEHOLDER_SPLASH_URL } from '../../scripts/createBlogHelpers';
 
 const posts = [
   {
@@ -11,7 +12,7 @@ const posts = [
     createdAt: 'March 3, 2021',
     blogLink: 'my-developer-story',
     mdLink: mydeveloperstor,
-    splash: 'https://i.imgur.com/3Dv1hM3.png',
+    splash: PLACEHOLDER_SPLASH_URL,
   },
   {
     title: 'Looking Back at Past Portfolios',
@@ -20,7 +21,7 @@ const posts = [
     createdAt: 'March 2, 2021',
     blogLink: 'looking-back-at-past-portfolios',
     mdLink: lookingbackatpa,
-    splash: 'https://i.imgur.com/3Dv1hM3.png',
+    splash: PLACEHOLDER_SPLASH_URL,
   },
   {
     title:
