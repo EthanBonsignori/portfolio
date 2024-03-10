@@ -11,7 +11,6 @@ import styled from 'styled-components';
 const Footer = ({ darkMode }) => (
   <FooterWrapper>
     <ContactWrapper>
-      <ContactText>CONNECT:</ContactText>
       <ContactCard>
         <ContactLink
           darkMode={darkMode}
@@ -71,10 +70,6 @@ const ContactWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`;
-
-const ContactText = styled.span`
-  opacity: 0.4;
 `;
 
 const ContactCard = styled.div`
