@@ -354,7 +354,7 @@ const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: left;
 
   .__main {
     width: 50%;
@@ -391,6 +391,7 @@ const SubButton = styled(ActionButton)`
   background-color: ${({ theme }) => theme.color.activeTab};
   box-shadow: none;
   color: ${({ theme }) => theme.color.text};
+  margin-left: 1em;
 
   &:hover {
     color: ${({ theme }) => theme.color.accent};
