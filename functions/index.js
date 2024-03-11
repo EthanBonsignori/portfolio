@@ -2,7 +2,6 @@ const { onRequest } = require('firebase-functions/v2/https');
 const { initializeApp } = require('firebase-admin/app');
 const { getFirestore } = require('firebase-admin/firestore');
 
-// Init Express App
 initializeApp();
 const db = getFirestore();
 
@@ -24,7 +23,7 @@ exports.getBlog = onRequest(async (req, res) => {
     })
     .catch((error) => {
       return res.status(500).json({
-        message: 'Error in blog onRequest /:blog',
+        message: 'Error in getBlog function',
         error: error.message,
       });
     });
@@ -47,7 +46,7 @@ exports.likeBlog = onRequest(async (req, res) => {
     })
     .catch((error) => {
       return res.status(500).json({
-        message: 'Error in blog onRequest /:blog',
+        message: 'Error in likeBlog function',
         error: error.message,
       });
     });
