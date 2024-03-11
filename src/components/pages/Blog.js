@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import Confetti from 'react-dom-confetti';
 import blogPosts from '../../assets/blogPosts';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { getBlog, likeBlog } from '../../utils/blogApi';
@@ -12,6 +13,7 @@ import BackButton from './shared/BackButton';
 import Headline from './shared/Headline';
 
 const Blog = ({ darkMode, toggleTheme }) => {
+  const [confettiActive, setConfettiActive] = useState(false);
   const [localBlogLikes, setLocalBlogLikes] = useState(0);
   const existingBlogLikes = localStorage.getItem('blogLikes') || {};
   const [blogLikes, setBlogLikes] = useLocalStorage(
@@ -33,10 +35,12 @@ const Blog = ({ darkMode, toggleTheme }) => {
   }, []);
 
   const handleLikeBlog = async () => {
+    setConfettiActive(true); // Activate confetti
     setBlogLikes({ ...blogLikes, [blogDBName]: true });
     await likeBlog(blogDBName);
     return setTimeout(() => {
       fetchBlogLikes();
+      setConfettiActive(false); // Deactivate confetti
     }, 500);
   };
 
@@ -48,6 +52,15 @@ const Blog = ({ darkMode, toggleTheme }) => {
           <FontAwesomeIcon icon={faHeart} />
         </LikeButton>
         &nbsp;{localBlogLikes}
+        <Confetti
+          active={confettiActive}
+          config={{
+            spread: 100,
+            elementCount: 40,
+            startVelocity: 10,
+            decay: 0.9,
+          }}
+        />
       </div>
     </BlogBar>
   );
