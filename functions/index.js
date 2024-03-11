@@ -9,7 +9,18 @@ async function createNewDoc(blog) {
   db.collection('blog').doc(blog).set({ likes: 0 });
 }
 
-exports.getBlog = onRequest(async (req, res) => {
+const cors = [
+  'https://ethanbon.com',
+  'https://www.ethanbon.com',
+  'http://ethanbon.com',
+  'http://www.ethanbon.com',
+  'https://ethanbo.co',
+  'https://www.ethanbo.co',
+  'http://ethanbo.co',
+  'http://www.ethanbo.co',
+];
+
+exports.getBlog = onRequest({ cors }, async (req, res) => {
   const blog = req.params[0];
   db.collection('blog')
     .doc(blog)
@@ -29,7 +40,7 @@ exports.getBlog = onRequest(async (req, res) => {
     });
 });
 
-exports.likeBlog = onRequest(async (req, res) => {
+exports.likeBlog = onRequest({ cors }, async (req, res) => {
   const blog = req.params[0];
   db.collection('blog')
     .doc(blog)
