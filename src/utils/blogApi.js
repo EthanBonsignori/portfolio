@@ -1,17 +1,19 @@
-console.log('🚀 ~ process.env.NODE_ENV:', process.env.NODE_ENV);
 const baseRoute =
   process.env.NODE_ENV === 'production'
     ? process.env.FIREBASE_FUNCTIONS_ROUTE_PROD
     : process.env.FIREBASE_FUNCTIONS_ROUTE_LOCAL;
 
+console.log('🚀 ~ baseRoute:', baseRoute);
 const origin =
   process.env.NODE_ENV === 'production'
     ? process.env.PROD_ORIGIN
     : process.env.LOCAL_ORIGIN;
+console.log('🚀 ~ origin:', origin);
 
 export async function getBlog(blog) {
   try {
     const route = `${baseRoute}/getBlog/${blog}`;
+    console.log('🚀 ~ getBlog ~ route:', route);
     const res = await window.fetch(route, {
       mode: 'cors',
       method: 'GET',
