@@ -1,12 +1,12 @@
 const baseRoute =
   process.env.NODE_ENV === 'production'
-    ? process.env.FIREBASE_FUNCTIONS_ROUTE_PROD
+    ? process.env.REACT_APP_FIREBASE_FUNCTIONS_ROUTE_PROD
     : process.env.FIREBASE_FUNCTIONS_ROUTE_LOCAL;
 
 console.log('🚀 ~ baseRoute:', baseRoute);
 const origin =
   process.env.NODE_ENV === 'production'
-    ? process.env.PROD_ORIGIN
+    ? process.env.REACT_APP_PROD_ORIGIN
     : process.env.LOCAL_ORIGIN;
 console.log('🚀 ~ origin:', origin);
 

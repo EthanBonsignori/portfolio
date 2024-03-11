@@ -33,10 +33,12 @@ module.exports = merge(common, {
           REACT_APP_FIREBASE_MEASUREMENT_ID: JSON.stringify(
             process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
           ),
-          FIREBASE_FUNCTIONS_ROUTE_PROD: JSON.stringify(
-            process.env.FIREBASE_FUNCTIONS_ROUTE_PROD,
+          REACT_APP_FIREBASE_FUNCTIONS_ROUTE_PROD: JSON.stringify(
+            process.env.REACT_APP_FIREBASE_FUNCTIONS_ROUTE_PROD,
           ),
-          PROD_ORIGIN: JSON.stringify(process.env.PROD_ORIGIN),
+          REACT_APP_PROD_ORIGIN: JSON.stringify(
+            process.env.REACT_APP_PROD_ORIGIN,
+          ),
         },
       },
     }),
