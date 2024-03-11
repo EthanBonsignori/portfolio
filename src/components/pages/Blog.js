@@ -2,24 +2,38 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Confetti from 'react-dom-confetti';
+import HashLoader from 'react-spinners/HashLoader';
 import blogPosts from '../../assets/blogPosts';
-import useLocalStorage from '../../hooks/useLocalStorage';
 import { getBlog, likeBlog } from '../../utils/blogApi';
 import { fadeIn } from '../../utils/keyframes';
 import MarkdownRenderer from '../MarkdownRenderer';
 import BackButton from './shared/BackButton';
 import Headline from './shared/Headline';
+import { baseColors } from '../Theme';
+
+const ANIMATION_TIME = 500;
+const TEXT_ANIMATION_TIME = 300;
+
+const confettiConfig = {
+  angle: '100',
+  spread: '50',
+  startVelocity: '100',
+  elementCount: '31',
+  dragFriction: '0.35',
+  duration: '1370',
+  stagger: '4',
+  width: '7px',
+  height: '6px',
+  perspective: '1000px',
+};
 
 const Blog = ({ darkMode, toggleTheme }) => {
-  const [confettiActive, setConfettiActive] = useState(false);
-  const [localBlogLikes, setLocalBlogLikes] = useState(0);
-  const existingBlogLikes = localStorage.getItem('blogLikes') || {};
-  const [blogLikes, setBlogLikes] = useLocalStorage(
-    'blogLikes',
-    existingBlogLikes,
-  );
+  const [blogLikes, setBlogLikes] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [likeAnimationActive, setLikeAnimationActive] = useState(false);
+  const [textAnimationActive, setTextAnimationActive] = useState(false);
   const { blogLink } = useParams();
   const blogObj = blogPosts.find((b) => b.blogLink === blogLink);
   const blogDBName = blogLink.replace(/-/g, '');
@@ -27,40 +41,57 @@ const Blog = ({ darkMode, toggleTheme }) => {
 
   const fetchBlogLikes = async () => {
     const data = await getBlog(blogDBName);
-    setLocalBlogLikes(data?.likes ?? 0);
+    setBlogLikes(data?.likes ?? 0);
+    const loadingTime = Math.random() * (3000 - 800 + 1) + 800;
+    return setTimeout(() => setLoading(false), loadingTime);
   };
 
   useEffect(() => {
     fetchBlogLikes();
+    setLoading(true);
   }, []);
 
   const handleLikeBlog = async () => {
-    setConfettiActive(true); // Activate confetti
-    setBlogLikes({ ...blogLikes, [blogDBName]: true });
+    setLikeAnimationActive(true);
+    setTextAnimationActive(true);
+    setBlogLikes(blogLikes + 1);
     await likeBlog(blogDBName);
-    return setTimeout(() => {
-      fetchBlogLikes();
-      setConfettiActive(false); // Deactivate confetti
-    }, 500);
+
+    setTimeout(() => {
+      setLikeAnimationActive(false);
+    }, ANIMATION_TIME);
+
+    setTimeout(() => {
+      setTextAnimationActive(false);
+    }, TEXT_ANIMATION_TIME);
   };
 
   const BlogBarJsx = (
     <BlogBar>
       <BackButton link='/blog' text='Back to Blog Posts' delay={0} />
       <div>
-        <LikeButton title='Like' onClick={handleLikeBlog}>
-          <FontAwesomeIcon icon={faHeart} />
-        </LikeButton>
-        &nbsp;{localBlogLikes}
-        <Confetti
-          active={confettiActive}
-          config={{
-            spread: 100,
-            elementCount: 40,
-            startVelocity: 10,
-            decay: 0.9,
-          }}
-        />
+        {loading ? (
+          <HashLoader
+            size={22}
+            color={darkMode ? baseColors.salmon : baseColors.neonBlue}
+          />
+        ) : (
+          <LikeButtonContainer>
+            <LikeButton
+              title='Like'
+              onClick={handleLikeBlog}
+              className={
+                likeAnimationActive ? 'animate-like' : 'not-animating'
+              }>
+              <FontAwesomeIcon icon={faHeart} />
+            </LikeButton>
+            <BlogLikes
+              className={textAnimationActive ? 'animate-likes-number' : ''}>
+              &nbsp;{blogLikes}
+            </BlogLikes>
+            <Confetti active={likeAnimationActive} config={confettiConfig} />
+          </LikeButtonContainer>
+        )}
       </div>
     </BlogBar>
   );
@@ -87,15 +118,98 @@ const BlogWrapper = styled.div`
   animation-delay: 500ms;
 `;
 
+const LikeButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+`;
+
+const likeAnimation = keyframes`
+  0% {
+    transform: scale(1) rotate(-8deg);
+    color: #FFEBEB;
+  }
+  10% {
+    transform: scale(1.2) rotate(0deg);
+    color: #FFD6D6;
+  }
+  20% {
+    transform: scale(1.4) rotate(8deg);
+    color: #FF9999;
+  }
+  30% {
+    transform: scale(1.6) rotate(0deg);
+    color: #FF7070;
+  }
+  40% {
+    transform: scale(1.8) rotate(-8deg);
+    color: #FF4747;
+  }
+  50% {
+    transform: scale(2) rotate(0deg);
+    color: #FF1F1F;
+  }
+  60% {
+    transform: scale(1.8) rotate(8deg);
+    color: #FF4747;
+  }
+  70% {
+    transform: scale(1.6) rotate(0deg);
+    color: #FF7070;
+  }
+  80% {
+    transform: scale(1.4) rotate(-8deg);
+    color: #FF9999;
+  }
+  90% {
+    transform: scale(1.2) rotate(0deg);
+    color: #FFD6D6;
+  }
+  95% {
+    transform: scale(1) rotate(8deg);
+    color: inherit;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    color: inherit;
+  }
+`;
+
 const LikeButton = styled.button`
   cursor: pointer;
   background: none;
   border: none;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  transition: transform ${ANIMATION_TIME}ms;
+
+  &.not-animating {
+    transition: transform ${ANIMATION_TIME}ms;
+    &:hover {
+      transition: transform ${ANIMATION_TIME}ms;
+      transform: scale(1.2);
+    }
+
+    &:active {
+      transition: transform ${ANIMATION_TIME}ms;
+      transform: scale(1.5);
+    }
+  }
+
+  &.animate-like {
+    animation: ${likeAnimation} ${ANIMATION_TIME}ms;
+  }
+`;
+
+const BlogLikes = styled.div`
+  -webkit-transition: transform ${TEXT_ANIMATION_TIME}ms;
+  -moz-transition: transform ${TEXT_ANIMATION_TIME}ms;
+  -o-transition: transform ${TEXT_ANIMATION_TIME}ms;
+  -ms-transition: transform ${TEXT_ANIMATION_TIME}ms;
+  transition: transform ${TEXT_ANIMATION_TIME}ms;
+
+  &.animate-likes-number {
+    transform: scale(1.3) rotate(2deg);
+  }
 `;
 
 const BlogBar = styled.div`

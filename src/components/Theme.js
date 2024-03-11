@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-const baseColors = {
+export const baseColors = {
   salmon: '#FF6B6B',
   neonBlue: '#70D7D0',
 };
