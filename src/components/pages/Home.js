@@ -185,7 +185,7 @@ const CardImage = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  width: 33.333%;
+  width: 25%;
 
   ${breakpoints.mobile} {
     position: absolute;

@@ -52,7 +52,7 @@ const posts = [
     createdAt: 'March 10, 2024',
     blogLink: 'dockerizing-a-python-fastapi-app',
     mdLink: dockerizingapyt,
-    splash: PLACEHOLDER_SPLASH_URL,
+    splash: 'https://i.imgur.com/slD02OW.png',
   },
 ];
 
