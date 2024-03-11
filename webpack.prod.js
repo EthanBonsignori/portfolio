@@ -8,6 +8,7 @@ module.exports = merge(common, {
     new DefinePlugin({
       process: {
         env: {
+          NODE_ENV: JSON.stringify('production'),
           REACT_APP_FIREBASE_API_KEY: JSON.stringify(
             process.env.REACT_APP_FIREBASE_API_KEY,
           ),
