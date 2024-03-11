@@ -1,3 +1,4 @@
+import dockerizingapyt from './posts/5-dockerizingapyt.md';
 import settingupautoma from './posts/4-settingupautoma.md';
 import uploadingcroppe1 from './posts/3-uploadingcropp1.md';
 import mydeveloperstor from './posts/2-mydeveloperstor.md';
@@ -43,6 +44,15 @@ const posts = [
       'setting-up-automatic-firebase-hosting-deploys-with-environment-secrets',
     mdLink: settingupautoma,
     splash: 'https://i.imgur.com/2gt4eK2.png',
+  },
+  {
+    title: 'Dockerizing a Python FastAPI App',
+    author: 'Ethan Bonsignori',
+    category: 'Technology',
+    createdAt: 'March 10, 2024',
+    blogLink: 'dockerizing-a-python-fastapi-app',
+    mdLink: dockerizingapyt,
+    splash: PLACEHOLDER_SPLASH_URL,
   },
 ];
 
