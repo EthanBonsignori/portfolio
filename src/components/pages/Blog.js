@@ -1,12 +1,11 @@
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import blogPosts from '../../assets/blogPosts';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import { getBlog, likeBlog, unlikeBlog } from '../../utils/blogApi';
+import { getBlog, likeBlog } from '../../utils/blogApi';
 import { fadeIn } from '../../utils/keyframes';
 import MarkdownRenderer from '../MarkdownRenderer';
 import BackButton from './shared/BackButton';
@@ -26,7 +25,7 @@ const Blog = ({ darkMode, toggleTheme }) => {
 
   const fetchBlogLikes = async () => {
     const data = await getBlog(blogDBName);
-    setLocalBlogLikes(data.likes);
+    setLocalBlogLikes(data?.likes ?? 0);
   };
 
   useEffect(() => {
@@ -41,33 +40,15 @@ const Blog = ({ darkMode, toggleTheme }) => {
     }, 500);
   };
 
-  const handleUnlikeBlog = async () => {
-    setBlogLikes({ ...blogLikes, [blogDBName]: false });
-    await unlikeBlog(blogDBName);
-
-    return setTimeout(() => {
-      fetchBlogLikes();
-    }, 500);
-  };
-
   const BlogBarJsx = (
     <BlogBar>
       <BackButton link='/blog' text='Back to Blog Posts' delay={0} />
-      {blogLikes[blogDBName] ? (
-        <div>
-          <LikeButton title='Unlike' onClick={handleUnlikeBlog}>
-            <FontAwesomeIcon icon={faSolidHeart} />
-          </LikeButton>
-          &nbsp;{localBlogLikes}
-        </div>
-      ) : (
-        <div>
-          <LikeButton title='Like' onClick={handleLikeBlog}>
-            <FontAwesomeIcon icon={faHeart} />
-          </LikeButton>
-          &nbsp;{localBlogLikes}
-        </div>
-      )}
+      <div>
+        <LikeButton title='Like' onClick={handleLikeBlog}>
+          <FontAwesomeIcon icon={faHeart} />
+        </LikeButton>
+        &nbsp;{localBlogLikes}
+      </div>
     </BlogBar>
   );
 
@@ -97,6 +78,11 @@ const LikeButton = styled.button`
   cursor: pointer;
   background: none;
   border: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 `;
 
 const BlogBar = styled.div`
