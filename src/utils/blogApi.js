@@ -1,3 +1,4 @@
+console.log('🚀 ~ process.env.NODE_ENV:', process.env.NODE_ENV);
 const baseRoute =
   process.env.NODE_ENV === 'production'
     ? process.env.FIREBASE_FUNCTIONS_ROUTE_PROD
