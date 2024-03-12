@@ -67,7 +67,7 @@ const PageContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2em 20vw;
+  margin: 2em 25vw;
   position: relative;
   z-index: 0;
 

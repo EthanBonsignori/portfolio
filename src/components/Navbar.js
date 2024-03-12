@@ -71,7 +71,7 @@ const NavbarWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1em 20vw;
+  margin: 1em 25vw;
   margin-top: 2em;
   padding-top: 10px;
 
@@ -202,6 +202,7 @@ const Tab = styled.button`
     width: 100%;
     flex-direction: column;
     padding-top: 0;
+    background: none;
   }
 `;
 
