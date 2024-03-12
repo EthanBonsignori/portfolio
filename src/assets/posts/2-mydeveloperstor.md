@@ -4,7 +4,7 @@
     <br />
     March 3, 2021
   </div>
-    <img alt='Profile Pic' src='https://github.com/EthanBonsignori/portfolio/blob/master/src/assets/images/profile_pic.jpg?raw=true' height='auto' width='50' style='border-radius: 50%;' />
+    <img alt='Profile Pic' src='https://i.imgur.com/k0Py8Ex.jpg?1' height='auto' width='50' style='border-radius: 50%;' />
   <div style='padding-left: 8px'>
     <span style='font-size: 0.8em; opacity: 0.5;'>Written By</span>
     <br />
