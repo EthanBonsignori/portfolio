@@ -83,7 +83,7 @@ const Blog = ({ darkMode, toggleTheme }) => {
               className={
                 likeAnimationActive ? 'animate-like' : 'not-animating'
               }>
-              <FontAwesomeIcon icon={faHeart} />
+              <FontAwesomeIcon icon={faHeart} size='2x' />
             </LikeButton>
             <BlogLikes
               className={textAnimationActive ? 'animate-likes-number' : ''}>
@@ -155,7 +155,7 @@ const likeAnimation = keyframes`
     color: #FF1F1F;
   }
   70% {
-    transform: scale(3) rotate(-5deg);
+    transform: scale(2.9) rotate(-5deg);
     color: #FF4747;
   }
   80% {
@@ -163,15 +163,15 @@ const likeAnimation = keyframes`
     color: #FF7070;
   }
   90% {
-    transform: scale(2) rotate(-2.5deg);
+    transform: scale(2.25) rotate(-2.5deg);
     color: #FF9999;
   }
   95% {
-    transform: scale(1.8) rotate(-1.5deg);
+    transform: scale(1.9) rotate(-1.5deg);
     color: #FFD6D6;
   }
   100% {
-    transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(-1.5deg);
     color: inherit;
   }
 `;
