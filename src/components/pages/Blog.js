@@ -127,48 +127,48 @@ const LikeButtonContainer = styled.div`
 
 const likeAnimation = keyframes`
   0% {
-    transform: scale(1) rotate(-8deg);
+    transform: scale(1) rotate(-1deg);
     color: #FFEBEB;
   }
   10% {
-    transform: scale(1.2) rotate(0deg);
+    transform: scale(1.4) rotate(-1.5deg);
     color: #FFD6D6;
   }
   20% {
-    transform: scale(1.4) rotate(8deg);
+    transform: scale(1.8) rotate(-2deg);
     color: #FF9999;
   }
   30% {
-    transform: scale(1.6) rotate(0deg);
+    transform: scale(2) rotate(-2.5deg);
     color: #FF7070;
   }
   40% {
-    transform: scale(1.8) rotate(-8deg);
+    transform: scale(2.2) rotate(-3deg);
     color: #FF4747;
   }
   50% {
-    transform: scale(2) rotate(0deg);
+    transform: scale(2.8) rotate(-3.2deg);
     color: #FF1F1F;
   }
   60% {
-    transform: scale(1.8) rotate(8deg);
-    color: #FF4747;
+    transform: scale(2.9) rotate(-3.4);
+    color: #FF1F1F;
   }
   70% {
-    transform: scale(1.6) rotate(0deg);
-    color: #FF7070;
+    transform: scale(3) rotate(-5deg);
+    color: #FF4747;
   }
   80% {
-    transform: scale(1.4) rotate(-8deg);
-    color: #FF9999;
+    transform: scale(2.7) rotate(-3.2deg);
+    color: #FF7070;
   }
   90% {
-    transform: scale(1.2) rotate(0deg);
-    color: #FFD6D6;
+    transform: scale(2) rotate(-2.5deg);
+    color: #FF9999;
   }
   95% {
-    transform: scale(1) rotate(8deg);
-    color: inherit;
+    transform: scale(1.8) rotate(-1.5deg);
+    color: #FFD6D6;
   }
   100% {
     transform: scale(1) rotate(0deg);
