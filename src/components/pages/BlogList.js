@@ -1,7 +1,7 @@
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import blogPosts from '../../assets/blogPosts';
 import breakpoints from '../../utils/breakpoints';
@@ -11,6 +11,7 @@ import Headline from './shared/Headline';
 const BlogList = ({ darkMode, toggleTheme }) => {
   const [dateSort, setDateSort] = useState('descending');
   const [categorySort, setCategorySort] = useState('all');
+  const navigate = useNavigate();
 
   const handleDateSort = () => {
     if (dateSort === 'descending') {
@@ -38,11 +39,16 @@ const BlogList = ({ darkMode, toggleTheme }) => {
     }
 
     return sortedPosts.map((blog, i) => (
-      <BlogPost key={i} blog={blog}>
-        <BlogPostHeader>
-          <BlogLink to={blog.blogLink}>{blog.title}</BlogLink>
-        </BlogPostHeader>
-        <BlogBlurb>{blog.blurb}</BlogBlurb>
+      <BlogPost key={i} blog={blog} onClick={() => navigate(blog.blogLink)}>
+        <BlogContentWrapper>
+          <BlogContent>
+            <BlogPostHeader>
+              <BlogLink to={blog.blogLink}>{blog.title}</BlogLink>
+            </BlogPostHeader>
+            <BlogBlurb>{blog.blurb}</BlogBlurb>
+          </BlogContent>
+          <BlogSplashImage image={blog.splash} />
+        </BlogContentWrapper>
         <BlogDetails>
           <BlogCategory>{blog.category}</BlogCategory>
           <span>{blog.createdAt}</span>
@@ -84,12 +90,35 @@ const BlogList = ({ darkMode, toggleTheme }) => {
 
 const BlogPost = styled.div`
   display: flex;
-  position: relative;
   flex-direction: column;
   margin: 0.2em 0;
   transition: background-color 500ms ease-in-out;
   background-color: ${({ theme }) => theme.color.cardBackground};
   padding: 0.5em;
+  cursor: pointer;
+`;
+
+const BlogContentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+const BlogContent = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const BlogSplashImage = styled.div`
+  background-image: url(${(props) => props.image});
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 130px;
+  margin-left: 2em;
+  margin-right: 2em;
+
+  ${breakpoints.mobile} {
+    display: none;
+  }
 `;
 
 const BlogPostHeader = styled.div`
