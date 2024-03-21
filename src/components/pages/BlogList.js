@@ -37,14 +37,14 @@ const BlogList = ({ darkMode, toggleTheme }) => {
       );
     }
 
-    return sortedPosts.map((b, i) => (
-      <BlogPost key={i}>
+    return sortedPosts.map((blog, i) => (
+      <BlogPost key={i} blog={blog}>
         <BlogPostHeader>
-          <Link to={b.blogLink}>{b.title}</Link>
+          <BlogLink to={blog.blogLink}>{blog.title}</BlogLink>
         </BlogPostHeader>
         <BlogDetails>
-          <span>⟶&nbsp;{b.category}</span>
-          <span>{b.createdAt}</span>
+          <BlogCategory>{blog.category}</BlogCategory>
+          <span>{blog.createdAt}</span>
         </BlogDetails>
       </BlogPost>
     ));
@@ -83,17 +83,20 @@ const BlogList = ({ darkMode, toggleTheme }) => {
 
 const BlogPost = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   margin: 0.2em 0;
   transition: background-color 500ms ease-in-out;
   background-color: ${({ theme }) => theme.color.cardBackground};
   padding: 0.5em;
 `;
+
 const BlogPostHeader = styled.div`
   display: flex;
   font-size: 1.3em;
   width: 100%;
   justify-content: space-between;
+  text-decoration: none;
 
   ${breakpoints.mobile} {
     font-size: 1.2em;
@@ -101,9 +104,20 @@ const BlogPostHeader = styled.div`
   }
 `;
 
+const BlogLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const BlogDetails = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 2em;
+`;
+
+const BlogCategory = styled.div`
+  background-color: ${({ theme }) => theme.color.activeTab};
+  border-radius: 1em;
+  padding: 0.2em 0.5em;
 `;
 
 const BlogPostsWrapper = styled.div`
