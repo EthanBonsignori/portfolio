@@ -13,7 +13,7 @@
 </div>
 
 <div style='text-align: center; font-style: italic; margin: 30px 0;'>
-This is a three part tutorial that will teach you how to add a profile picture feature to your React application by allowing the user to crop and upload an image to block storage on Digital Ocean Spaces. We will then save a reference to the photo in your database for that user and display it on your site.
+A work in progress tutorial that turned out to be too wide of a scope to finish. It aims to show how to upload and crop a user's profile picture and store it in Digital Ocean Spaces.
 </div>
 
 ## Contents
@@ -534,4 +534,4 @@ And there you have it! You can click `copy` on the base64 string from your conso
 
 That wraps up part one of this tutorial. In part two we will send our Base64 image string from the front end to Digital Ocean Spaces to save the cropped image. If you would like the code for this tutorial, [it can be found here](https://github.com/EthanBonsignori/picture-upload-tutorial/tree/part-1-frontend). I've split each part into it's own branch, so be sure to check which branch you're viewing.
 
-_Last updated March 25, 2021_
+_Last updated March 20, 2024_
