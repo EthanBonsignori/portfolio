@@ -42,6 +42,7 @@ const BlogList = ({ darkMode, toggleTheme }) => {
         <BlogPostHeader>
           <BlogLink to={blog.blogLink}>{blog.title}</BlogLink>
         </BlogPostHeader>
+        <BlogBlurb>{blog.blurb}</BlogBlurb>
         <BlogDetails>
           <BlogCategory>{blog.category}</BlogCategory>
           <span>{blog.createdAt}</span>
@@ -106,12 +107,23 @@ const BlogPostHeader = styled.div`
 
 const BlogLink = styled(Link)`
   text-decoration: none;
+  font-weight: bold;
 `;
 
 const BlogDetails = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 2em;
+`;
+
+const BlogBlurb = styled.div`
+  margin: 0.5em 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.5em;
 `;
 
 const BlogCategory = styled.div`

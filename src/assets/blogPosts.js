@@ -8,6 +8,8 @@ import { PLACEHOLDER_SPLASH_URL } from '../../scripts/createBlogHelpers';
 const posts = [
   {
     title: 'My Developer Story',
+    blurb:
+      'I wanted to share a small but important ongoing piece of my story. My process of becoming a developer, the help I had along the way, and my outlook going forward. I tried to write this post as more of an entertaining story than a technical piece about code. I plan to publish more technical blog posts soon—stay tuned.',
     author: 'Ethan Bonsignori',
     category: 'Life',
     createdAt: 'March 3, 2021',
@@ -17,6 +19,8 @@ const posts = [
   },
   {
     title: 'Looking Back at Past Portfolios',
+    blurb:
+      "I take a moment to document some of my past portfolio sites since I've created a few and they become rather obsolete once I replace the previous one. I put a lot of work into these sites and I didn't want them to fade into nothingness. Here you can find some of my thoughts on my previous portfolios as well as images and links to those sites.",
     author: 'Ethan Bonsignori',
     category: 'Technology',
     createdAt: 'March 2, 2021',
@@ -25,8 +29,9 @@ const posts = [
     splash: PLACEHOLDER_SPLASH_URL,
   },
   {
-    title:
-      'Uploading Cropped Profile Images to Digital Ocean Spaces Part 1: Frontend',
+    title: 'Uploading Cropped Profile Images to Digital Ocean Spaces',
+    blurb:
+      "A work in progress tutorial that turned out to be too big of a scope to fit in one guide. It aims to show how to upload and crop a user's profile picture and store it in Digital Ocean Spaces.",
     author: 'Ethan Bonsignori',
     category: 'Technology',
     createdAt: 'March 17, 2021',
@@ -37,6 +42,8 @@ const posts = [
   {
     title:
       'Setting up Automatic Firebase Hosting Deploys with Environment Secrets',
+    blurb:
+      'A quick guide on automating deployments for a Firebase Hosting project using GitHub Actions and how to access Environment Variables in your project.',
     author: 'Ethan Bonsignori',
     category: 'Technology',
     createdAt: 'March 7, 2024',
@@ -47,6 +54,8 @@ const posts = [
   },
   {
     title: 'Dockerizing a Python FastAPI App',
+    blurb:
+      'A guide on how to Dockerize a Python FastAPI application. I wrote this guide to help you get started with creating and running a Docker image of your FastAPI application following the steps I used to Dockerize my recent FastAPI project, UserVote',
     author: 'Ethan Bonsignori',
     category: 'Technology',
     createdAt: 'March 10, 2024',

@@ -57,6 +57,7 @@ const newBlog = () => `
 const getBlogObj = (title, file, link) => `
   {
     title: '${title}',
+    blurb: 'Put here what you want to show up on the blog list page. This should be a short description of the blog post, usually in the blog thoughts section as well.'
     author: 'Ethan Bonsignori',
     category: 'Technology',
     createdAt: '${getBlogDate()}',

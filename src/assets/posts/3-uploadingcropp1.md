@@ -13,7 +13,7 @@
 </div>
 
 <div style='text-align: center; font-style: italic; margin: 30px 0;'>
-A work in progress tutorial that turned out to be too wide of a scope to finish. It aims to show how to upload and crop a user's profile picture and store it in Digital Ocean Spaces.
+A work in progress tutorial that turned out to be too big of a scope to fit in one guide. It aims to show how to upload and crop a user's profile picture and store it in Digital Ocean Spaces.
 </div>
 
 ## Contents
