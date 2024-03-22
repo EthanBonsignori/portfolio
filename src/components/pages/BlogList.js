@@ -4,11 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import HashLoader from 'react-spinners/HashLoader';
 import localBlogPosts from '../../assets/blogPosts';
 import { getBlogs } from '../../utils/blogApi';
 import breakpoints from '../../utils/breakpoints';
 import { fadeIn } from '../../utils/keyframes';
 import Headline from './shared/Headline';
+import { baseColors } from '../Theme';
 
 const BlogList = ({ darkMode, toggleTheme }) => {
   const [loading, setLoading] = useState(false);
@@ -34,7 +36,6 @@ const BlogList = ({ darkMode, toggleTheme }) => {
     const blogs = mergeLocalAndDBBlogs(data.blogs);
 
     setBlogPosts(blogs);
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -93,7 +94,11 @@ const BlogList = ({ darkMode, toggleTheme }) => {
     <>
       <Headline title='BLOG' darkMode={darkMode} toggleTheme={toggleTheme} />
       {loading ? (
-        <>Loading...</>
+        <LoadingWrapper>
+          <HashLoader
+            color={darkMode ? baseColors.salmon : baseColors.neonBlue}
+          />
+        </LoadingWrapper>
       ) : (
         <BlogPostsWrapper>
           <SortWrapper>
@@ -124,6 +129,12 @@ const BlogList = ({ darkMode, toggleTheme }) => {
     </>
   );
 };
+
+const LoadingWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const BlogPost = styled.div`
   display: flex;
