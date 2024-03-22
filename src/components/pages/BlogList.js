@@ -1,17 +1,46 @@
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import blogPosts from '../../assets/blogPosts';
+import localBlogPosts from '../../assets/blogPosts';
+import { getBlogs } from '../../utils/blogApi';
 import breakpoints from '../../utils/breakpoints';
 import { fadeIn } from '../../utils/keyframes';
 import Headline from './shared/Headline';
 
 const BlogList = ({ darkMode, toggleTheme }) => {
+  const [loading, setLoading] = useState(false);
+  const [blogPosts, setBlogPosts] = useState([]);
   const [dateSort, setDateSort] = useState('descending');
   const [categorySort, setCategorySort] = useState('all');
   const navigate = useNavigate();
+
+  const mergeLocalAndDBBlogs = (dbBlogs) => {
+    const merged = [];
+    localBlogPosts.forEach((post) => {
+      const found = dbBlogs.find(
+        (d) => d.id === post.blogLink.replace(/-/g, ''),
+      );
+      merged.push({ ...post, likes: found?.likes ?? 0 });
+    });
+
+    return merged;
+  };
+
+  const fetchBlogPosts = async () => {
+    const data = await getBlogs();
+    const blogs = mergeLocalAndDBBlogs(data.blogs);
+
+    setBlogPosts(blogs);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchBlogPosts();
+    setLoading(true);
+  }, []);
 
   const handleDateSort = () => {
     if (dateSort === 'descending') {
@@ -47,11 +76,15 @@ const BlogList = ({ darkMode, toggleTheme }) => {
             </BlogPostHeader>
             <BlogBlurb>{blog.blurb}</BlogBlurb>
           </BlogContent>
-          <BlogSplashImage image={blog.splash} />
         </BlogContentWrapper>
         <BlogDetails>
           <BlogCategory>{blog.category}</BlogCategory>
-          <span>{blog.createdAt}</span>
+          <BlogCreatedDate>{blog.createdAt}</BlogCreatedDate>
+          <BlogLikes>
+            <FontAwesomeIcon icon={faHeart} />
+            &nbsp;&nbsp;&nbsp;
+            {blog.likes}
+          </BlogLikes>
         </BlogDetails>
       </BlogPost>
     ));
@@ -59,30 +92,34 @@ const BlogList = ({ darkMode, toggleTheme }) => {
   return (
     <>
       <Headline title='BLOG' darkMode={darkMode} toggleTheme={toggleTheme} />
-      <BlogPostsWrapper>
-        <SortWrapper>
-          <SortButton title={dateSort} onClick={handleDateSort}>
-            Sort By Date&nbsp;
-            {dateSort === 'descending' ? (
-              <FontAwesomeIcon icon={faCaretDown} />
-            ) : (
-              <FontAwesomeIcon icon={faCaretUp} />
-            )}
-          </SortButton>
-          <SelectWrapper>
-            <label htmlFor='category'>Category: </label>
-            <SortSelect
-              id='category'
-              value={categorySort}
-              onChange={(e) => setCategorySort(e.target.value)}>
-              <option value='all'>All</option>
-              <option value='technology'>Technology</option>
-              <option value='life'>Life</option>
-            </SortSelect>
-          </SelectWrapper>
-        </SortWrapper>
-        {getBlogsJsx()}
-      </BlogPostsWrapper>
+      {loading ? (
+        <>Loading...</>
+      ) : (
+        <BlogPostsWrapper>
+          <SortWrapper>
+            <SortButton title={dateSort} onClick={handleDateSort}>
+              Sort By Date&nbsp;
+              {dateSort === 'descending' ? (
+                <FontAwesomeIcon icon={faCaretDown} />
+              ) : (
+                <FontAwesomeIcon icon={faCaretUp} />
+              )}
+            </SortButton>
+            <SelectWrapper>
+              <label htmlFor='category'>Category: </label>
+              <SortSelect
+                id='category'
+                value={categorySort}
+                onChange={(e) => setCategorySort(e.target.value)}>
+                <option value='all'>All</option>
+                <option value='technology'>Technology</option>
+                <option value='life'>Life</option>
+              </SortSelect>
+            </SelectWrapper>
+          </SortWrapper>
+          {getBlogsJsx()}
+        </BlogPostsWrapper>
+      )}
       <Outlet />
     </>
   );
@@ -107,18 +144,8 @@ const BlogContent = styled.div`
   flex-direction: column;
 `;
 
-const BlogSplashImage = styled.div`
-  background-image: url(${(props) => props.image});
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 130px;
-  margin-left: 2em;
-  margin-right: 2em;
-
-  ${breakpoints.mobile} {
-    display: none;
-  }
+const BlogLikes = styled.div`
+  margin-left: 1em;
 `;
 
 const BlogPostHeader = styled.div`
@@ -141,7 +168,8 @@ const BlogLink = styled(Link)`
 
 const BlogDetails = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
+  align-items: center;
   margin-top: 2em;
 `;
 
@@ -159,6 +187,12 @@ const BlogCategory = styled.div`
   background-color: ${({ theme }) => theme.color.activeTab};
   border-radius: 1em;
   padding: 0.2em 0.5em;
+`;
+
+const BlogCreatedDate = styled.div`
+  margin-left: 1em;
+  opacity: 0.7;
+  color: ${({ theme }) => theme.color.otherText};
 `;
 
 const BlogPostsWrapper = styled.div`

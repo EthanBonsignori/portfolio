@@ -17,7 +17,7 @@ const darkTheme = {
     navbarScroll: '#222222',
     activeTab: '#333333',
     text: '#fff',
-    otherText: '#3a4a5a',
+    otherText: '#EBEBEB',
   },
 };
 
@@ -32,7 +32,7 @@ const lightTheme = {
     navbarScroll: '#f5f5f5',
     activeTab: '#DEDEDE',
     text: '#3a4a5a',
-    otherText: '#fff',
+    otherText: '#202932',
   },
 };
 
