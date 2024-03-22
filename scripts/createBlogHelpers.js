@@ -64,6 +64,7 @@ const getBlogObj = (title, file, link) => `
     blogLink: '${link}',
     mdLink: ${removeIndex(file)},
     splash: PLACEHOLDER_SPLASH_URL,
+    likes: 0,
   },
 `;
 
