@@ -20,6 +20,24 @@ const cors = [
   'http://www.ethanbo.co',
 ];
 
+exports.getBlogs = onRequest({ cors }, async (req, res) => {
+  db.collection('blog')
+    .get()
+    .then((snapshot) => {
+      const blogs = [];
+      snapshot.forEach((doc) => {
+        blogs.push({ likes: doc.data().likes, id: doc.id });
+      });
+      return res.status(200).json({ success: true, blogs });
+    })
+    .catch((error) => {
+      return res.status(500).json({
+        message: 'Error in getBlogs function',
+        error: error.message,
+      });
+    });
+});
+
 exports.getBlog = onRequest({ cors }, async (req, res) => {
   const blog = req.params[0];
   db.collection('blog')
