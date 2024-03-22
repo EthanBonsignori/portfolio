@@ -8,6 +8,24 @@ const origin =
     ? process.env.REACT_APP_PROD_ORIGIN
     : process.env.LOCAL_ORIGIN;
 
+export async function getBlogs() {
+  try {
+    const route = `${baseRoute}/getBlogs`;
+    const res = await window.fetch(route, {
+      mode: 'cors',
+      method: 'GET',
+      origin,
+    });
+    if (res.status !== 200) {
+      return console.error('Error fetching blogs:', await res.json());
+    }
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    return console.error(err);
+  }
+}
+
 export async function getBlog(blog) {
   try {
     const route = `${baseRoute}/getBlog/${blog}`;
