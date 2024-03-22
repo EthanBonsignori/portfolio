@@ -2,7 +2,7 @@
 
 # My Portfolio
 
-Personal developer portfolio, blog, and place to show off projects. Designed from scratch with [React](https://reactjs.org/), [Webpack](https://webpack.js.org/), and [Styled Components](https://styled-components.com/). Fully mobile responsive through use of standardized media queries. Also features a toggleable light 🌞 and dark 🌙 theme!
+My personal developer portfolio and blog. Designed from scratch with [React](https://reactjs.org/), [Webpack](https://webpack.js.org/), and [Styled Components](https://styled-components.com/). Fully mobile responsive through use of standardized media queries. Also features a toggleable light 🌞 and dark 🌙 theme!
 
 ## About Page
 
