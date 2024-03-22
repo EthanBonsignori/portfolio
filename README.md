@@ -2,11 +2,16 @@
 
 # My Portfolio
 
-My personal developer portfolio and blog. Designed from scratch with [React](https://reactjs.org/), [Webpack](https://webpack.js.org/), and [Styled Components](https://styled-components.com/). Fully mobile responsive through use of standardized media queries. Also features a toggleable light 🌞 and dark 🌙 theme!
+My personal developer portfolio and blog. Designed from scratch with [React](https://reactjs.org/) and [Styled Components](https://styled-components.com/), bundled with [Webpack](https://webpack.js.org/). Features:
 
-## About Page
+- [x] toggleable light 🌞 and dark 🌙 theme!
+- [x] blog with markdown support
+- [x] mobile responsive design with standard breakpoints
+- [x] contact form that sends emails
 
-![About Page](https://i.imgur.com/6846SW2.png)
+## Live Site
+
+See it live at [ethanbon.com](https://ethanbon.com)
 
 ## Running Locally
 
@@ -37,6 +42,7 @@ This creates a new entry in the posts folder such as: `src/assets/posts/x-title.
 
 ## Adding a new Project
 
+TODO: automate this with script:
 Add a new project to the top of the `projects` array in `src/assets/data/projects.js`:
 
 ```javascript
