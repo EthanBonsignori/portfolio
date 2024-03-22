@@ -36,6 +36,7 @@ const BlogList = ({ darkMode, toggleTheme }) => {
     const blogs = mergeLocalAndDBBlogs(data.blogs);
 
     setBlogPosts(blogs);
+    setLoading(false);
   };
 
   useEffect(() => {
