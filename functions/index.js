@@ -80,3 +80,25 @@ exports.likeBlog = onRequest({ cors }, async (req, res) => {
       });
     });
 });
+
+exports.commentBlog = onRequest({ cors }, async (req, res) => {
+  const blog = req.params[0];
+  const { comment } = req.body;
+  db.collection('blog')
+    .doc(blog)
+    .get()
+    .then((doc) => {
+      if (!doc.exists) {
+        createNewDoc(blog);
+        return res.status(200).json({ success: true, likes: doc.data().likes });
+      }
+      doc.ref.update({ comments: [...doc.data().comments, comment] });
+      return res.status(200).json({ success: true, likes: doc.data().likes });
+    })
+    .catch((error) => {
+      return res.status(500).json({
+        message: 'Error in commentBlog function',
+        error: error.message,
+      });
+    });
+});
