@@ -65,17 +65,24 @@ export async function likeBlog(blog) {
   }
 }
 
-// export async function unlikeBlog(blog) {
-//   try {
-//     const res = await window.fetch(`${route}/${blog}/unlike`, {
-//       method: 'PUT',
-//     });
-//     if (!res.ok) {
-//       return console.error(`Error Unliking blog: ${blog}`, res);
-//     }
-//     const data = await res.json();
-//     return data;
-//   } catch (err) {
-//     return console.error(err);
-//   }
-// }
+export async function commentBlog(blog, comment) {
+  try {
+    const route = `${baseRoute}/commentBlog/${blog}`;
+    const res = await window.fetch(route, {
+      mode: 'cors',
+      method: 'POST',
+      origin,
+      body: JSON.stringify({ comment }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (!res.ok) {
+      return console.error(`Error Commenting on blog: ${blog}`, res);
+    }
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    return console.error(err);
+  }
+}
