@@ -19,6 +19,7 @@ import CommentModal from '../CommentModal';
 import ActionButton from './shared/ActionButton';
 import { setOpacity } from '../../utils/styleUtils';
 import { formatDate, formatTime } from '../../utils/dateUtils';
+import breakpoints from '../../utils/breakpoints';
 
 const ANIMATION_TIME = 500;
 const TEXT_ANIMATION_TIME = 300;
@@ -131,7 +132,7 @@ const Blog = ({ darkMode, toggleTheme, pageContentNode }) => {
                     <CommentHeader>
                       <h3>{comment.name}</h3>
                       <CommentDate>
-                        {formatDate(comment.createdAt)} @{' '}
+                        {formatDate(comment.createdAt)}&nbsp;@&nbsp;
                         {formatTime(comment.createdAt)}
                       </CommentDate>
                     </CommentHeader>
@@ -277,8 +278,8 @@ const Comment = styled.div`
   flex-direction: column;
   background-color: ${({ theme }) =>
     setOpacity(theme.color.cardBackground, 0.9)};
-  padding: 1em;
-  margin: 1em 0;
+  padding: 0 1em;
+  margin-bottom: 1em;
   border-radius: 5px;
 `;
 
@@ -286,12 +287,20 @@ const CommentHeader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: baseline;
+
+  ${breakpoints.mobile} {
+    flex-direction: column;
+  }
 `;
 
 const CommentDate = styled.span`
   font-size: 0.8em;
   opacity: 0.7;
   margin-left: 1em;
+
+  ${breakpoints.mobile} {
+    margin-left: 0;
+  }
 `;
 
 export default Blog;
