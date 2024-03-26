@@ -6,7 +6,7 @@ initializeApp();
 const db = getFirestore();
 
 async function createNewDoc(blog) {
-  db.collection('blog').doc(blog).set({ likes: 0 });
+  db.collection('blog').doc(blog).set({ likes: 0, comments: [] });
 }
 
 const cors = [
@@ -20,13 +20,27 @@ const cors = [
   'http://www.ethanbo.co',
 ];
 
+const filterComments = (comments) => {
+  return comments.filter((comment) => {
+    if (comment?.email) {
+      // eslint-disable-next-line no-param-reassign
+      delete comment.email;
+    }
+    return !comment.deleted && comment.approved;
+  });
+};
+
 exports.getBlogs = onRequest({ cors }, async (req, res) => {
   db.collection('blog')
     .get()
     .then((snapshot) => {
       const blogs = [];
       snapshot.forEach((doc) => {
-        blogs.push({ likes: doc.data().likes, id: doc.id });
+        blogs.push({
+          id: doc.id,
+          likes: doc.data().likes,
+          comments: filterComments(doc.data().comments),
+        });
       });
       return res.status(200).json({ success: true, blogs });
     })
@@ -46,9 +60,17 @@ exports.getBlog = onRequest({ cors }, async (req, res) => {
     .then((doc) => {
       if (!doc.exists) {
         createNewDoc(blog);
-        return res.status(200).json({ success: true, likes: doc.data().likes });
+        return res.status(200).json({
+          success: true,
+          likes: doc.data().likes,
+          comments: filterComments(doc.data().comments),
+        });
       }
-      return res.status(200).json({ success: true, likes: doc.data().likes });
+      return res.status(200).json({
+        success: true,
+        likes: doc.data().likes,
+        comments: filterComments(doc.data().comments),
+      });
     })
     .catch((error) => {
       return res.status(500).json({
@@ -90,9 +112,20 @@ exports.commentBlog = onRequest({ cors }, async (req, res) => {
     .then((doc) => {
       if (!doc.exists) {
         createNewDoc(blog);
-        return res.status(200).json({ success: true, likes: doc.data().likes });
+        return res.status(200).json({ success: true, blog: doc.data() });
       }
-      doc.ref.update({ comments: [...doc.data().comments, comment] });
+      doc.ref.update({
+        comments: [
+          ...doc.data()?.comments,
+          {
+            ...comment,
+            approved: false,
+            deleted: false,
+            createdAt: new Date().getTime(),
+            updatedAt: new Date().getTime(),
+          },
+        ],
+      });
       return res.status(200).json({ success: true, likes: doc.data().likes });
     })
     .catch((error) => {

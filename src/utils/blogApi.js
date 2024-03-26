@@ -70,7 +70,7 @@ export async function commentBlog(blog, comment) {
     const route = `${baseRoute}/commentBlog/${blog}`;
     const res = await window.fetch(route, {
       mode: 'cors',
-      method: 'POST',
+      method: 'PUT',
       origin,
       body: JSON.stringify({ comment }),
       headers: {
