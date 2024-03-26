@@ -1,5 +1,5 @@
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart, faListAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
@@ -25,7 +25,11 @@ const BlogList = ({ darkMode, toggleTheme }) => {
       const found = dbBlogs.find(
         (d) => d.id === post.blogLink.replace(/-/g, ''),
       );
-      merged.push({ ...post, likes: found?.likes ?? 0 });
+      merged.push({
+        ...post,
+        likes: found?.likes ?? 0,
+        comments: found?.comments ?? [],
+      });
     });
 
     return merged;
@@ -82,11 +86,12 @@ const BlogList = ({ darkMode, toggleTheme }) => {
         <BlogDetails>
           <BlogCategory>{blog.category}</BlogCategory>
           <BlogCreatedDate>{blog.createdAt}</BlogCreatedDate>
-          <BlogLikes>
-            <FontAwesomeIcon icon={faHeart} />
-            &nbsp;&nbsp;&nbsp;
-            {blog.likes}
-          </BlogLikes>
+          <FontAwesomeIcon icon={faHeart} style={{ marginLeft: '1em' }} />
+          &nbsp;
+          {blog?.likes ?? 0}
+          <FontAwesomeIcon icon={faListAlt} style={{ marginLeft: '1em' }} />
+          &nbsp;
+          {blog?.comments?.length ?? 0}
         </BlogDetails>
       </BlogPost>
     ));

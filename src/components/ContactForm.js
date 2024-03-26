@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import breakpoints from '../utils/breakpoints';
 import ActionButton from './pages/shared/ActionButton';
+import { Form, Input, Textarea } from './pages/shared/Form';
 
 const ContactForm = ({ darkMode }) => {
   const [status, setStatus] = useState('');
@@ -54,28 +55,6 @@ const ContactForm = ({ darkMode }) => {
     </>
   );
 };
-
-const Form = styled.form`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-const Input = styled.input`
-  width: 100%;
-  padding: 1em;
-  margin: 10px 0;
-  outline: none;
-  border: none;
-
-  transition: background-color 500ms ease-in-out;
-  background-color: ${({ theme }) => theme.color.activeTab};
-`;
-
-const Textarea = styled(Input).attrs({ as: 'textarea' })`
-  resize: vertical;
-`;
 
 const Status = styled.p`
   text-align: center;

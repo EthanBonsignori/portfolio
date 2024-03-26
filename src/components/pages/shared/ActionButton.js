@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.button`
+const ActionButton = styled.button`
   cursor: pointer;
   color: ${({ darkMode, theme }) =>
     darkMode ? theme.color.cardBackground : theme.color.text};
@@ -17,5 +17,28 @@ export default styled.button`
   &:active {
     opacity: 0.8;
     box-shadow: none;
+  }
+`;
+
+export default ActionButton;
+
+export const SubActionButton = styled(ActionButton)`
+  background-color: ${({ theme }) => theme.color.activeTab};
+  box-shadow: none;
+  margin-left: 1em;
+  color: ${({ theme }) => theme.color.text};
+`;
+
+export const IconButton = styled.button`
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  color: ${({ theme }) => theme.color.text};
+  transition: all 500ms ease;
+
+  &:hover,
+  &:active {
+    color: ${({ theme }) => theme.color.accent};
   }
 `;

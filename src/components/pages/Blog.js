@@ -5,13 +5,20 @@ import { useParams } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import Confetti from 'react-dom-confetti';
 import HashLoader from 'react-spinners/HashLoader';
+import { createPortal } from 'react-dom';
+import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import blogPosts from '../../assets/blogPosts';
 import { getBlog, likeBlog } from '../../utils/blogApi';
 import { fadeIn } from '../../utils/keyframes';
 import MarkdownRenderer from '../MarkdownRenderer';
 import BackButton from './shared/BackButton';
-import Headline from './shared/Headline';
+import Headline, { PageTitle } from './shared/Headline';
 import { baseColors } from '../Theme';
+import PageContentWrapper from './shared/PageContentWrapper';
+import CommentModal from '../CommentModal';
+import ActionButton from './shared/ActionButton';
+import { setOpacity } from '../../utils/styleUtils';
+import { formatDate, formatTime } from '../../utils/dateUtils';
 
 const ANIMATION_TIME = 500;
 const TEXT_ANIMATION_TIME = 300;
@@ -29,19 +36,21 @@ const confettiConfig = {
   perspective: '1000px',
 };
 
-const Blog = ({ darkMode, toggleTheme }) => {
+const Blog = ({ darkMode, toggleTheme, pageContentNode }) => {
   const [blogLikes, setBlogLikes] = useState(0);
+  const [blogComments, setBlogComments] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [commenting, setCommenting] = useState(false);
   const [likeAnimationActive, setLikeAnimationActive] = useState(false);
   const [textAnimationActive, setTextAnimationActive] = useState(false);
   const { blogLink } = useParams();
   const blogObj = blogPosts.find((b) => b.blogLink === blogLink);
   const blogDBName = blogLink.replace(/-/g, '');
-  const blog = blogObj.mdLink;
 
   const fetchBlogLikes = async () => {
     const data = await getBlog(blogDBName);
     setBlogLikes(data?.likes ?? 0);
+    setBlogComments(data?.comments ?? []);
     const loadingTime = Math.random() * (3000 - 800 + 1) + 800;
     return setTimeout(() => setLoading(false), loadingTime);
   };
@@ -66,35 +75,9 @@ const Blog = ({ darkMode, toggleTheme }) => {
     }, TEXT_ANIMATION_TIME);
   };
 
-  const BlogBarJsx = (
-    <BlogBar>
-      <BackButton link='/blog' text='Back to Blog Posts' delay={0} />
-      <div>
-        {loading ? (
-          <HashLoader
-            size={22}
-            color={darkMode ? baseColors.salmon : baseColors.neonBlue}
-          />
-        ) : (
-          <LikeButtonContainer>
-            <LikeButton
-              title='Like'
-              onClick={handleLikeBlog}
-              className={
-                likeAnimationActive ? 'animate-like' : 'not-animating'
-              }>
-              <FontAwesomeIcon icon={faHeart} size='2x' />
-            </LikeButton>
-            <BlogLikes
-              className={textAnimationActive ? 'animate-likes-number' : ''}>
-              &nbsp;{blogLikes}
-            </BlogLikes>
-            <Confetti active={likeAnimationActive} config={confettiConfig} />
-          </LikeButtonContainer>
-        )}
-      </div>
-    </BlogBar>
-  );
+  const onAddCommentClick = () => {
+    setCommenting(true);
+  };
 
   return (
     <>
@@ -103,11 +86,71 @@ const Blog = ({ darkMode, toggleTheme }) => {
         darkMode={darkMode}
         toggleTheme={toggleTheme}
       />
-      {BlogBarJsx}
+      <BlogBar>
+        <BackButton link='/blog' text='Back to Blog Posts' delay={0} />
+        <div>
+          {loading ? (
+            <HashLoader
+              size={22}
+              color={darkMode ? baseColors.salmon : baseColors.neonBlue}
+            />
+          ) : (
+            <LikeButtonContainer>
+              <LikeButton
+                title='Like'
+                onClick={handleLikeBlog}
+                className={
+                  likeAnimationActive ? 'animate-like' : 'not-animating'
+                }>
+                <FontAwesomeIcon icon={faHeart} size='2x' />
+              </LikeButton>
+              <BlogLikes
+                className={textAnimationActive ? 'animate-likes-number' : ''}>
+                &nbsp;{blogLikes}
+              </BlogLikes>
+              <Confetti active={likeAnimationActive} config={confettiConfig} />
+            </LikeButtonContainer>
+          )}
+        </div>
+      </BlogBar>
       <BlogWrapper>
-        <MarkdownRenderer content={blog} />
+        <MarkdownRenderer content={blogObj.mdLink} />
       </BlogWrapper>
-      {BlogBarJsx}
+      {pageContentNode
+        ? createPortal(
+            <PageContentWrapper>
+              <PageTitleWrapper>
+                <PageTitle>Comments</PageTitle>
+                <ActionButton onClick={onAddCommentClick}>
+                  <FontAwesomeIcon icon={faPenToSquare} /> Write Comment
+                </ActionButton>
+              </PageTitleWrapper>
+              {blogComments?.length ? (
+                blogComments?.map((comment) => (
+                  <Comment key={comment.createdAt}>
+                    <CommentHeader>
+                      <h3>{comment.name}</h3>
+                      <CommentDate>
+                        {formatDate(comment.createdAt)} @{' '}
+                        {formatTime(comment.createdAt)}
+                      </CommentDate>
+                    </CommentHeader>
+                    <p>{comment.comment}</p>
+                  </Comment>
+                ))
+              ) : (
+                <p>No comments yet. Be the first to comment!</p>
+              )}
+            </PageContentWrapper>,
+            pageContentNode,
+          )
+        : React.null}
+
+      <CommentModal
+        darkMode={darkMode}
+        isOpen={commenting}
+        closeModal={() => setCommenting(false)}
+      />
     </>
   );
 };
@@ -221,6 +264,34 @@ const BlogBar = styled.div`
   animation: ${fadeIn} 1s forwards;
   animation-delay: 350ms;
   margin-bottom: 10px;
+`;
+
+const PageTitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Comment = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: ${({ theme }) =>
+    setOpacity(theme.color.cardBackground, 0.9)};
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+`;
+
+const CommentHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+`;
+
+const CommentDate = styled.span`
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin-left: 1em;
 `;
 
 export default Blog;

@@ -46,7 +46,7 @@ const PageHeadline = styled.div`
   }
 `;
 
-const PageTitle = styled.h2`
+export const PageTitle = styled.h2`
   font-weight: normal;
 `;
 
