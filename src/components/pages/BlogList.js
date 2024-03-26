@@ -161,10 +161,6 @@ const BlogContent = styled.div`
   flex-direction: column;
 `;
 
-const BlogLikes = styled.div`
-  margin-left: 1em;
-`;
-
 const BlogPostHeader = styled.div`
   display: flex;
   font-size: 1.3em;
